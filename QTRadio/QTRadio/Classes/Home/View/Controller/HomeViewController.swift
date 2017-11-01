@@ -112,12 +112,12 @@ extension HomeViewController {
         let titleStyle = TitleStyle()
         titleStyle.titleViewHeight = 44
         titleStyle.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
-        titleStyle.selectedTextColor = UIColor(r: 252, g: 89, b: 60)  // 设置选中标题的颜色
-        titleStyle.scrollSlideBackgroundColor = UIColor(r: 252, g: 89, b: 60)  // 设置滚动指示器的背景颜色
+        titleStyle.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
+        titleStyle.scrollSlideBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
         titleStyle.isShowScrollSlide = true  // 需要滚动指示器
         titleStyle.isNeedScale = false  // 需要对选中标题进行缩放
         titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
-        titleStyle.titleBackgroundColor = UIColor(r: 234, g: 235, b: 237)  // 设置子控制器标题的背景颜色
+        titleStyle.titleBackgroundColor = UIColor(r: 246, g: 246, b: 246)  // 设置子控制器标题的背景颜色
         
         // 创建一个数组，用来存放子控制器
         var childVcs = [UIViewController]()

@@ -15,6 +15,8 @@
 		C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */; };
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
+		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
+		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43C1FA9CF440036CC98 /* TitleView.swift */; };
 		C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43D1FA9CF440036CC98 /* TitleStyle.swift */; };
 		C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43E1FA9CF440036CC98 /* ContentView.swift */; };
@@ -43,6 +45,8 @@
 		C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
+		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C593A43C1FA9CF440036CC98 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		C593A43D1FA9CF440036CC98 /* TitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
 		C593A43E1FA9CF440036CC98 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				C50041B61FA990A400CD9A7A /* DownloadViewController.swift */,
+				C56E80F51FAA10750072B79B /* DownloadedViewController.swift */,
+				C56E80F71FAA10950072B79B /* DownloadingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
+				C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
@@ -571,6 +578,7 @@
 				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
 				C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
+				C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */,
 				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
 				C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */,
 				C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */,

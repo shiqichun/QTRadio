@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置tabBar子控制器标题的颜色
         UITabBar.appearance().tintColor = UIColor(r: 252, g: 93, b: 96)
         
+
+        
+        //设置navigationBar的背景颜色
+        UINavigationBar.appearance().barTintColor = UIColor(r: 246, g: 246, b: 246)
+        
         
         // 设置窗口的frame
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -30,6 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    
+    /// 如果想同时修改导航栏的背景颜色和标题等
+    /// 颜色，可以通过下面这种方式来进行修改
+    private func setupNavigationBar() {
+        
+        let bar: UINavigationBar = UINavigationBar.appearance()
+        
+        //设置navigationBar的背景颜色
+        bar.barTintColor = UIColor(r: 246, g: 246, b: 246)
+        
+        // 设置字体的颜色
+        bar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.red]
     }
 
 }

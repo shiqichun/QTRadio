@@ -39,6 +39,10 @@ extension DownloadViewController {
         
         // 设置导航栏
         setupNavigationBar()
+        
+        
+        // 添加首页子控制器
+        setupChildViewControllers()
     }
     
     /// 设置导航栏
@@ -64,10 +68,6 @@ extension DownloadViewController {
         leftBtn.sizeToFit()
         leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
         
-        // 调整导航栏左边按钮与屏幕的距离
-        //        let leftItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        //        leftItem.width = -5
-        //        navigationItem.leftBarButtonItems = [leftItem,UIBarButtonItem(customView: leftBtn)]
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
     }
     
@@ -87,6 +87,42 @@ extension DownloadViewController {
         rightItem.width = -5
         navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
     }
+    
+    
+    
+    private func setupChildViewControllers() {
+        
+        // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
+        // 创建子控制器的标题
+        let titles = ["已下载", "正在下载"]
+        
+        // 创建标题样式
+        let titleStyle = TitleStyle()
+        titleStyle.titleViewHeight = 44
+        titleStyle.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
+        titleStyle.normalTextColor = .lightGray
+        titleStyle.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
+        titleStyle.scrollSlideBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
+        titleStyle.isShowScrollSlide = true  // 需要滚动指示器
+        titleStyle.isNeedScale = false  // 需要对选中标题进行缩放
+        titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
+        
+        // 创建一个数组，用来存放子控制器
+        var childVcs = [UIViewController]()
+        
+        // 创建子控制器并将其添加到childVcs数组中
+        childVcs.append(DownloadedViewController())  // 已下载
+        childVcs.append(DownloadingViewController())  // 正在下载
+        
+        let containerFrame = CGRect(x: 0, y: kStatusBarHeight + kNavigationBarHeight, width: kScreenWidth, height: kScreenHeight - kStatusBarHeight - kNavigationBarHeight - kTabBarHeight - kTabBarMargin)
+        
+        // 调用自定义构造函数，根据实际需求创建合适的ContainerView对象
+        let containerView = ContainerView(frame: containerFrame, titles: titles, titleStyle: titleStyle, childVcs: childVcs, parentVc: self)
+        
+        // 将创建好的ContainerView对象添加到当前控制器的View中
+        view.addSubview(containerView)
+    }
+    
 }
 
 

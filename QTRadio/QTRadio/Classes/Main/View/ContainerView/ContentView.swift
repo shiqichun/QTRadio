@@ -20,10 +20,6 @@ protocol ContentViewDelegate: class {
     
     /// 将当前子控制器的index传递出去，以便对TitleView中的titleLabel做出相应的调整
     func contentView(_ contentView: ContentView, selectedChildVcIndex childVcIndex: Int)
-    
-    
-    /// 将下一个子控制器的下标值，以及当前滚动的进度传递出去
-//    func contentView(_ contentView: ContentView, nextChildVcIndex nextIndex: Int, progress: CGFloat)
 }
 
 

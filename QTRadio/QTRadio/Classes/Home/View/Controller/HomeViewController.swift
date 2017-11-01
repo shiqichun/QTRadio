@@ -45,6 +45,9 @@ extension HomeViewController {
         
         // 设置导航栏
         setupNavigationBar()
+        
+        // 添加首页子控制器
+        setupChildViewControllers()
     }
     
     /// 设置导航栏
@@ -54,7 +57,8 @@ extension HomeViewController {
         setupLeftBarButtonItem()
         
         // 添加导航条上面的搜索框
-//        setupSearchBar()
+        // FIXME: - 导航栏中间的搜索框
+        
         
         // 添加导航条右边的按钮
         setupRightBarButtonItems()
@@ -70,10 +74,6 @@ extension HomeViewController {
         leftBtn.sizeToFit()
         leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
         
-        // 调整导航栏左边按钮与屏幕的距离
-//        let leftItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-//        leftItem.width = -5
-//        navigationItem.leftBarButtonItems = [leftItem,UIBarButtonItem(customView: leftBtn)]
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
     }
     
@@ -99,6 +99,49 @@ extension HomeViewController {
         let rightItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         rightItem.width = -5
         navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
+    }
+
+    
+    private func setupChildViewControllers() {
+        
+        // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
+        // 创建子控制器的标题
+        let titles = ["分类", "推荐", "精品", "直播", "广播"]
+        
+        // 创建标题样式
+        let titleStyle = TitleStyle()
+        titleStyle.titleViewHeight = 44
+        titleStyle.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
+        titleStyle.selectedTextColor = UIColor(r: 252, g: 89, b: 60)  // 设置选中标题的颜色
+        titleStyle.scrollSlideBackgroundColor = UIColor(r: 252, g: 89, b: 60)  // 设置滚动指示器的背景颜色
+        titleStyle.isShowScrollSlide = true  // 需要滚动指示器
+        titleStyle.isNeedScale = false  // 需要对选中标题进行缩放
+        titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
+        titleStyle.titleBackgroundColor = UIColor(r: 234, g: 235, b: 237)  // 设置子控制器标题的背景颜色
+        
+        // 创建一个数组，用来存放子控制器
+        var childVcs = [UIViewController]()
+        
+        // 创建子控制器并将其添加到childVcs数组中
+        childVcs.append(CategoryViewController())  // 分类子控制器
+        childVcs.append(RecommendViewController())  // 推荐子控制器
+        childVcs.append(BoutiqueViewController())  // 精品子控制器
+        childVcs.append(LiveViewController())  // 直播子控制器
+        childVcs.append(BroadcastViewController())  // 广播子控制器
+        
+        // FiXME: - 为了适配iPhone X，这里高度最后还要减去一个kTabBarMargin
+        // 创建containerView的frame
+        // - 注意：设置containerView的高度时，一定不要忘记减去
+        // - 状态栏、导航栏和tabBar的高度，否则，后面在相应控制
+        // - 器的view中添加内容时，会导致有一部分内容被tabBar给
+        // - 遮挡的情况出现
+        let containerFrame = CGRect(x: 0, y: kStatusBarHeight + kNavigationBarHeight, width: kScreenWidth, height: kScreenHeight - kStatusBarHeight - kNavigationBarHeight - kTabBarHeight - kTabBarMargin)
+        
+        // 调用自定义构造函数，根据实际需求创建合适的ContainerView对象
+        let containerView = ContainerView(frame: containerFrame, titles: titles, titleStyle: titleStyle, childVcs: childVcs, parentVc: self)
+        
+        // 将创建好的ContainerView对象添加到当前控制器的View中
+        view.addSubview(containerView)
     }
 }
 

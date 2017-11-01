@@ -15,6 +15,15 @@
 		C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */; };
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
+		C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43C1FA9CF440036CC98 /* TitleView.swift */; };
+		C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43D1FA9CF440036CC98 /* TitleStyle.swift */; };
+		C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43E1FA9CF440036CC98 /* ContentView.swift */; };
+		C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43F1FA9CF440036CC98 /* ContainerView.swift */; };
+		C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A4441FA9D0240036CC98 /* CategoryViewController.swift */; };
+		C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A4461FA9D0420036CC98 /* RecommendViewController.swift */; };
+		C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A4481FA9D0D80036CC98 /* BoutiqueViewController.swift */; };
+		C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A44A1FA9D0E80036CC98 /* LiveViewController.swift */; };
+		C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A44C1FA9D10A0036CC98 /* BroadcastViewController.swift */; };
 		C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */; };
 		C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7A81FA9A4950054DD79 /* QTTabBar.swift */; };
 		C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AC1FA9AA280054DD79 /* Constant.swift */; };
@@ -34,6 +43,15 @@
 		C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C593A43C1FA9CF440036CC98 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		C593A43D1FA9CF440036CC98 /* TitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
+		C593A43E1FA9CF440036CC98 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C593A43F1FA9CF440036CC98 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		C593A4441FA9D0240036CC98 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		C593A4461FA9D0420036CC98 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		C593A4481FA9D0D80036CC98 /* BoutiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueViewController.swift; sourceTree = "<group>"; };
+		C593A44A1FA9D0E80036CC98 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		C593A44C1FA9D10A0036CC98 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		C5C0D7A81FA9A4950054DD79 /* QTTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTabBar.swift; sourceTree = "<group>"; };
 		C5C0D7AC1FA9AA280054DD79 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -141,6 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				C50041B21FA9907800CD9A7A /* HomeViewController.swift */,
+				C593A4441FA9D0240036CC98 /* CategoryViewController.swift */,
+				C593A4461FA9D0420036CC98 /* RecommendViewController.swift */,
+				C593A4481FA9D0D80036CC98 /* BoutiqueViewController.swift */,
+				C593A44A1FA9D0E80036CC98 /* LiveViewController.swift */,
+				C593A44C1FA9D10A0036CC98 /* BroadcastViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -365,6 +388,7 @@
 		C50041AE1FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C593A43B1FA9CF440036CC98 /* ContainerView */,
 				C5C0D7A71FA9A4690054DD79 /* TabBar */,
 				C50041AF1FA98ED600CD9A7A /* Controller */,
 			);
@@ -377,6 +401,17 @@
 				C50041B01FA9905900CD9A7A /* MainViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C593A43B1FA9CF440036CC98 /* ContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				C593A43C1FA9CF440036CC98 /* TitleView.swift */,
+				C593A43D1FA9CF440036CC98 /* TitleStyle.swift */,
+				C593A43E1FA9CF440036CC98 /* ContentView.swift */,
+				C593A43F1FA9CF440036CC98 /* ContainerView.swift */,
+			);
+			path = ContainerView;
 			sourceTree = "<group>";
 		};
 		C5C0D7A71FA9A4690054DD79 /* TabBar */ = {
@@ -525,16 +560,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */,
+				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
+				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
+				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
+				C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */,
+				C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */,
+				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
 				C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
 				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
 				C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */,
 				C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */,
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
+				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
+				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
+				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// UIColor的扩展，根据RGB来创建相应的颜色
 
 import UIKit
 

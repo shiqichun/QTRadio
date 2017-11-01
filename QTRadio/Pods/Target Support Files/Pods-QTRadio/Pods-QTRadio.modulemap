@@ -1,0 +1,6 @@
+framework module Pods_QTRadio {
+  umbrella header "Pods-QTRadio-umbrella.h"
+
+  export *
+  module * { export * }
+}

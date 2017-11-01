@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03800843BA22E26BF26621A4 /* Pods_QTRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D577180E9299BFBCB0DE643 /* Pods_QTRadio.framework */; };
 		C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041581FA98E5800CD9A7A /* AppDelegate.swift */; };
 		C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C500415F1FA98E5900CD9A7A /* Assets.xcassets */; };
 		C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B01FA9905900CD9A7A /* MainViewController.swift */; };
@@ -15,9 +16,15 @@
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
 		C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */; };
+		C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7A81FA9A4950054DD79 /* QTTabBar.swift */; };
+		C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AC1FA9AA280054DD79 /* Constant.swift */; };
+		C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */; };
+		C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FA41F15FC494B4716227BDC /* Pods-QTRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.release.xcconfig"; sourceTree = "<group>"; };
+		4D577180E9299BFBCB0DE643 /* Pods_QTRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QTRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50041551FA98E5800CD9A7A /* QTRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QTRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50041581FA98E5800CD9A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C500415F1FA98E5900CD9A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +35,11 @@
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		C5C0D7A81FA9A4950054DD79 /* QTTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTabBar.swift; sourceTree = "<group>"; };
+		C5C0D7AC1FA9AA280054DD79 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
+		C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03800843BA22E26BF26621A4 /* Pods_QTRadio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C442448AB49678891221CE0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D577180E9299BFBCB0DE643 /* Pods_QTRadio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C500414C1FA98E5800CD9A7A = {
 			isa = PBXGroup;
 			children = (
 				C50041571FA98E5800CD9A7A /* QTRadio */,
 				C50041561FA98E5800CD9A7A /* Products */,
+				DC0D9C8C29CE6251611B4A32 /* Pods */,
+				C442448AB49678891221CE0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */,
+				C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +294,7 @@
 		C50041A51FA98ED600CD9A7A /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				C5C0D7AC1FA9AA280054DD79 /* Constant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -340,6 +365,7 @@
 		C50041AE1FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5C0D7A71FA9A4690054DD79 /* TabBar */,
 				C50041AF1FA98ED600CD9A7A /* Controller */,
 			);
 			path = View;
@@ -353,6 +379,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C5C0D7A71FA9A4690054DD79 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C5C0D7A81FA9A4950054DD79 /* QTTabBar.swift */,
+				C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		DC0D9C8C29CE6251611B4A32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */,
+				3FA41F15FC494B4716227BDC /* Pods-QTRadio.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,9 +404,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C50041671FA98E5900CD9A7A /* Build configuration list for PBXNativeTarget "QTRadio" */;
 			buildPhases = (
+				17A194628E6D91B8303F5B62 /* [CP] Check Pods Manifest.lock */,
 				C50041511FA98E5800CD9A7A /* Sources */,
 				C50041521FA98E5800CD9A7A /* Frameworks */,
 				C50041531FA98E5800CD9A7A /* Resources */,
+				72D50DDFC4C70C6C4008AB4F /* [CP] Embed Pods Frameworks */,
+				944E5132661E2D3FFDA56E7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,6 +465,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17A194628E6D91B8303F5B62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QTRadio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72D50DDFC4C70C6C4008AB4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		944E5132661E2D3FFDA56E7A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C50041511FA98E5800CD9A7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -425,9 +526,13 @@
 			files = (
 				C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
+				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
 				C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
+				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
+				C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */,
+				C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */,
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 			);
@@ -545,6 +650,7 @@
 		};
 		C50041681FA98E5900CD9A7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -562,6 +668,7 @@
 		};
 		C50041691FA98E5900CD9A7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA41F15FC494B4716227BDC /* Pods-QTRadio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

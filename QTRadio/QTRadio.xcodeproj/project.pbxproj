@@ -14,6 +14,7 @@
 		C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */; };
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
+		C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 		C50041A41FA98ED600CD9A7A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
 				C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
+				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

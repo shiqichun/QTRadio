@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // 设置tabBar子控制器标题的颜色
+        UITabBar.appearance().tintColor = UIColor(r: 252, g: 93, b: 96)
+        
         
         // 设置窗口的frame
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -33,6 +33,8 @@ private let kHeaderReferenceHeight: CGFloat = 44
 private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
 
 
+// 登录view的高度
+private let kLoginViewHeight: CGFloat = 200
 
 
 
@@ -75,7 +77,9 @@ class FavoriteViewController: UIViewController {
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         
         // 设置collectionView的背景颜色
-        collectionView.backgroundColor = UIColor(r: 245, g: 244, b: 249)
+        collectionView.backgroundColor = .white
+        
+        
         
         // 设置collectionView随着父控件的宽度和高度一起拉伸
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -88,10 +92,20 @@ class FavoriteViewController: UIViewController {
         
         
         // 注册header
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
+        collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
         
         
         return collectionView
+    }()
+    
+    
+    /// 添加loginView
+    fileprivate lazy var loginView: LoginView = {
+        
+        let loginView = LoginView()
+        loginView.frame = CGRect(x: 0, y: -kLoginViewHeight, width: kScreenWidth, height: kLoginViewHeight)
+        
+        return loginView
     }()
 
     override func viewDidLoad() {
@@ -117,7 +131,11 @@ extension FavoriteViewController {
         view.addSubview(collectionView)
         
         // 设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: kItemMargin, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kLoginViewHeight, left: 0, bottom: 0, right: 0)
+        
+        
+        // 将loginView添加到collectionView中
+        collectionView.addSubview(loginView)
     }
     
     /// 设置导航栏
@@ -208,9 +226,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         // 根据可重用标识符取出header
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath)
-        
-        headerView.backgroundColor = UIColor.randomColor()
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! HeaderReusableView
         
         return headerView
     }

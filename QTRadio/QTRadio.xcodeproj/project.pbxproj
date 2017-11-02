@@ -12,7 +12,6 @@
 		C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C500415F1FA98E5900CD9A7A /* Assets.xcassets */; };
 		C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B01FA9905900CD9A7A /* MainViewController.swift */; };
 		C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B21FA9907800CD9A7A /* HomeViewController.swift */; };
-		C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */; };
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
@@ -33,6 +32,11 @@
 		C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */; };
 		C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */; };
 		C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93D31FAB141B006F721C /* DownloadView.swift */; };
+		C5FB93DC1FAB1F5E006F721C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */; };
+		C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93DD1FAB1F94006F721C /* HeaderReusableView.swift */; };
+		C5FB93E41FAB550D006F721C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E31FAB550D006F721C /* LoginView.swift */; };
+		C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E61FAB64CE006F721C /* WhiteImage.swift */; };
+		C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +48,6 @@
 		C50041641FA98E5900CD9A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C50041B01FA9905900CD9A7A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C50041B21FA9907800CD9A7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +68,11 @@
 		C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
 		C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		C5FB93D31FAB141B006F721C /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		C5FB93DD1FAB1F94006F721C /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
+		C5FB93E31FAB550D006F721C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C5FB93E61FAB64CE006F721C /* WhiteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteImage.swift; sourceTree = "<group>"; };
+		C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,17 +211,12 @@
 		C50041961FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C50041971FA98ED600CD9A7A /* Controller */,
+				C5FB93E21FAB54F5006F721C /* LoginView */,
+				C5FB93DA1FAB1F5E006F721C /* Controller */,
+				C5FB93D91FAB1F5E006F721C /* HeaderView */,
+				C5FB93D51FAB1EE6006F721C /* CollectionViewCell */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C50041971FA98ED600CD9A7A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C50041B41FA9909000CD9A7A /* FavoriteViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		C50041981FA98ED600CD9A7A /* Profile */ = {
@@ -322,6 +325,7 @@
 			children = (
 				C5C0D7A51FA99F890054DD79 /* UIColor-Extension.swift */,
 				C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */,
+				C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -400,6 +404,7 @@
 		C50041AE1FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5FB93E51FAB64AF006F721C /* WhiteImage */,
 				C593A43B1FA9CF440036CC98 /* ContainerView */,
 				C5C0D7A71FA9A4690054DD79 /* TabBar */,
 				C50041AF1FA98ED600CD9A7A /* Controller */,
@@ -449,6 +454,45 @@
 				C5FB93D31FAB141B006F721C /* DownloadView.swift */,
 			);
 			path = Nothing;
+			sourceTree = "<group>";
+		};
+		C5FB93D51FAB1EE6006F721C /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C5FB93D91FAB1F5E006F721C /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93DD1FAB1F94006F721C /* HeaderReusableView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		C5FB93DA1FAB1F5E006F721C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C5FB93E21FAB54F5006F721C /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93E31FAB550D006F721C /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		C5FB93E51FAB64AF006F721C /* WhiteImage */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93E61FAB64CE006F721C /* WhiteImage.swift */,
+			);
+			path = WhiteImage;
 			sourceTree = "<group>";
 		};
 		DC0D9C8C29CE6251611B4A32 /* Pods */ = {
@@ -588,7 +632,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FB93DC1FAB1F5E006F721C /* FavoriteViewController.swift in Sources */,
 				C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */,
+				C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */,
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
@@ -599,7 +645,7 @@
 				C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */,
 				C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */,
 				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
-				C50041B51FA9909000CD9A7A /* FavoriteViewController.swift in Sources */,
+				C5FB93E41FAB550D006F721C /* LoginView.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
 				C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */,
 				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
@@ -608,7 +654,9 @@
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
 				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
+				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
+				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
 				C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */,
 			);

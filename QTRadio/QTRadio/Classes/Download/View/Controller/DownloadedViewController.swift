@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import SnapKit
 
 class DownloadedViewController: UIViewController {
+    
+    override func loadView() {
+        super.loadView()
+        
+        // 创建downloadView
+        let downloadView = DownloadView(frame: self.view.bounds)
+        
+        // 设置downloadView为当前控制器的view
+        self.view = downloadView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // 统一设置UI界面
-        setupUI()
-    }
-
-}
-
-
-
-// MARK: - 设置UI界面
-extension DownloadedViewController {
-    
-    /// 统一设置UI界面
-    fileprivate func setupUI() {
         
-        //
-        view.backgroundColor = UIColor(r: 245, g: 244, b: 249)
+        
     }
+
 }
+
+
+
+

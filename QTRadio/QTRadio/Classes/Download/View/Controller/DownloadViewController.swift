@@ -17,6 +17,7 @@ class DownloadViewController: UIViewController {
         
         let label = UILabel()
         label.text = "我的下载"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
 
@@ -82,10 +83,7 @@ extension DownloadViewController {
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
         
-        // 调整导航栏左边按钮与屏幕的距离
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        rightItem.width = -5
-        navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
     }
     
     
@@ -94,7 +92,7 @@ extension DownloadViewController {
         
         // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
         // 创建子控制器的标题
-        let titles = ["已下载", "正在下载"]
+        let titles = ["已经下载", "正在下载"]
         
         // 创建标题样式
         let titleStyle = TitleStyle()

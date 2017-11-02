@@ -329,24 +329,20 @@ extension TitleView {
         // 将指示器添加到titleScrollView上面
         titleScrollView.addSubview(scrollSlide)
         
-        
-/********************************************************************************************************/
         // 设置scrollSlide的frame为第0个titleLabel的frame
-        // 当标题很多，并且可以滚动时，scrollSlide的frame是正常的
-        // 但是，当标题很少时，scrollSide的长度就比较丑
-//        if titleStyle.isScrollEnable {
-//            scrollSlide.frame = titleLabels.first!.frame
-//        } else {
-//            // 取出标题文字，然后计算标题文字的长度
-//            scrollSlide.frame = CGRect(x: 0, y: 0, width: 30, height: 2)
-//        }
-        // 未解决的bug
         scrollSlide.frame = titleLabels.first!.frame
-        /**
-         *  其实也可以直接设置scrollSlide的frame。但是，先设置scrollSlide的frame为
-         *  第0个titleLabel的frame，然后再去修改scrollSlide的高度和y坐标，这样比较简单。
-         */
-/********************************************************************************************************/
+        
+        // 取出标题数组中的第0个标题
+        let titleText = titles.first!
+        
+        // 计算第0个标题的宽度
+        let textWidht = (titleText as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: titleStyle.titleFont], context: nil).width
+        
+        // 修改scrollSlide的宽度为第0个标题文本的宽度
+        scrollSlide.frame.size.width = textWidht
+        
+        // 修改scrollSlide中心点的x为第0个titleLabels中心点的x
+        scrollSlide.center.x = titleLabels.first!.center.x
         
         // 修改scrollSlide的高度
         scrollSlide.frame.size.height = titleStyle.scrollSlideHeight
@@ -602,11 +598,14 @@ extension TitleView {
         // 修改当前被点击(选中)titleLabel指示器scrollSlide的x坐标和宽度，并执行动画
         UIView.animate(withDuration: 0.15, animations: {
             
-            // 和当前被选中titleLabel的x坐标相同
-            self.scrollSlide.frame.origin.x = selectedTitleLabel.frame.origin.x
+            // 和当前被选中titleLabel的中心点x坐标相同
+            self.scrollSlide.center.x = selectedTitleLabel.center.x
             
-            // 和当前被选中titleLabel的宽度相同
-            self.scrollSlide.frame.size.width = selectedTitleLabel.frame.size.width
+            // 计算当前被选中titleLabel标题文本的宽度
+            let width = (selectedTitleLabel.text! as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: self.titleStyle.titleFont], context: nil).width
+            
+            // 和当前被选中titleLabel标题文本的宽度相同
+            self.scrollSlide.frame.size.width = width
         })
     }
     

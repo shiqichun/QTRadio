@@ -102,10 +102,7 @@ extension ProfileViewController {
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
         
-        // 调整导航栏左边按钮与屏幕的距离
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        rightItem.width = -5
-        navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
     }
 }
 

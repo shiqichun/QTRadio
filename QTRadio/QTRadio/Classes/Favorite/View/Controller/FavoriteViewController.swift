@@ -45,6 +45,7 @@ class FavoriteViewController: UIViewController {
         
         let label = UILabel()
         label.text = "我的收藏"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
@@ -155,11 +156,7 @@ extension FavoriteViewController {
         rightBtn.setImage(UIImage(named: "searchInNavigationpress_30x30_"), for: .highlighted)
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
-        
-        // 调整导航栏左边按钮与屏幕的距离
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        rightItem.width = -5
-        navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
     }
 }
 

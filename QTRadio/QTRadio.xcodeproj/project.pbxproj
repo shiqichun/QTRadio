@@ -17,6 +17,7 @@
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
+		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
 		C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43C1FA9CF440036CC98 /* TitleView.swift */; };
 		C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43D1FA9CF440036CC98 /* TitleStyle.swift */; };
 		C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43E1FA9CF440036CC98 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 		C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AC1FA9AA280054DD79 /* Constant.swift */; };
 		C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */; };
 		C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */; };
+		C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93D31FAB141B006F721C /* DownloadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,7 @@
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
+		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
 		C593A43C1FA9CF440036CC98 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		C593A43D1FA9CF440036CC98 /* TitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
 		C593A43E1FA9CF440036CC98 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		C5C0D7AC1FA9AA280054DD79 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
 		C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		C5FB93D31FAB141B006F721C /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,6 +283,7 @@
 		C50041A01FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5FB93D21FAB13DA006F721C /* Nothing */,
 				C50041A11FA98ED600CD9A7A /* Controller */,
 			);
 			path = View;
@@ -297,6 +302,7 @@
 		C50041A21FA98ED600CD9A7A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C56E80F91FAA16670072B79B /* Other */,
 				C50041A31FA98ED600CD9A7A /* Tools */,
 				C50041A41FA98ED600CD9A7A /* Extension */,
 				C50041A51FA98ED600CD9A7A /* Constant */,
@@ -409,6 +415,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C56E80F91FAA16670072B79B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C56E80FA1FAA16870072B79B /* Category.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		C593A43B1FA9CF440036CC98 /* ContainerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +441,14 @@
 				C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C5FB93D21FAB13DA006F721C /* Nothing */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93D31FAB141B006F721C /* DownloadView.swift */,
+			);
+			path = Nothing;
 			sourceTree = "<group>";
 		};
 		DC0D9C8C29CE6251611B4A32 /* Pods */ = {
@@ -500,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56E80FB1FAA16870072B79B /* Category.plist in Resources */,
 				C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +610,7 @@
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
+				C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

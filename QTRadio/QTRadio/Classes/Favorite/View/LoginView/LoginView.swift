@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 
 class LoginView: UIView {
+    
+    // MARK: - 私有属性
+    
+    /// 保存父控制器
+    fileprivate var parentVc: UIViewController
 
     // MARK: - 懒加载属性
     
@@ -63,7 +68,11 @@ class LoginView: UIView {
     }()
     
     // MARK: - 构造函数
-    override init(frame: CGRect) {
+    init(frame: CGRect, parentVc: UIViewController) {
+        
+        // 初始化私有出行
+        self.parentVc = parentVc
+        
         super.init(frame: frame)
         
         
@@ -126,6 +135,7 @@ extension LoginView {
             make.top.equalTo(titleLabel.snp.bottom).offset(40)
             make.left.equalTo(self).offset(80)
             make.right.equalTo(self).offset(-80)
+            make.height.equalTo(44)
             make.centerX.equalTo(self)
         }
         
@@ -147,6 +157,8 @@ extension LoginView {
     /// 监听登录按钮的点击
     @objc fileprivate func loginBtnClick() {
         
-        print("LoginView---loginBtnClick")
+        let vc = LoginViewController()
+        vc.view.backgroundColor = .white
+        parentVc.present(vc, animated: true, completion: nil)
     }
 }

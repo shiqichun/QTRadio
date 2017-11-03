@@ -37,6 +37,11 @@
 		C5FB93E41FAB550D006F721C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E31FAB550D006F721C /* LoginView.swift */; };
 		C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E61FAB64CE006F721C /* WhiteImage.swift */; };
 		C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */; };
+		C5FB93EB1FAB7BB2006F721C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93EA1FAB7BB2006F721C /* LoginViewController.swift */; };
+		C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93ED1FAC4EDB006F721C /* TopView.swift */; };
+		C5FB93F01FAC5031006F721C /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93EF1FAC5031006F721C /* CenterView.swift */; };
+		C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93F11FAC503A006F721C /* BottomView.swift */; };
+		C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93F31FAC6200006F721C /* SNSButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +78,11 @@
 		C5FB93E31FAB550D006F721C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C5FB93E61FAB64CE006F721C /* WhiteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteImage.swift; sourceTree = "<group>"; };
 		C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		C5FB93EA1FAB7BB2006F721C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C5FB93ED1FAC4EDB006F721C /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		C5FB93EF1FAC5031006F721C /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		C5FB93F11FAC503A006F721C /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		C5FB93F31FAC6200006F721C /* SNSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSButton.swift; sourceTree = "<group>"; };
 		C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,6 +414,7 @@
 		C50041AE1FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5FB93EC1FAC4EC0006F721C /* LoginView */,
 				C5FB93E51FAB64AF006F721C /* WhiteImage */,
 				C593A43B1FA9CF440036CC98 /* ContainerView */,
 				C5C0D7A71FA9A4690054DD79 /* TabBar */,
@@ -416,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				C50041B01FA9905900CD9A7A /* MainViewController.swift */,
+				C5FB93EA1FAB7BB2006F721C /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +505,17 @@
 				C5FB93E61FAB64CE006F721C /* WhiteImage.swift */,
 			);
 			path = WhiteImage;
+			sourceTree = "<group>";
+		};
+		C5FB93EC1FAC4EC0006F721C /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				C5FB93ED1FAC4EDB006F721C /* TopView.swift */,
+				C5FB93EF1FAC5031006F721C /* CenterView.swift */,
+				C5FB93F11FAC503A006F721C /* BottomView.swift */,
+				C5FB93F31FAC6200006F721C /* SNSButton.swift */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		DC0D9C8C29CE6251611B4A32 /* Pods */ = {
@@ -632,12 +655,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FB93EB1FAB7BB2006F721C /* LoginViewController.swift in Sources */,
+				C5FB93F01FAC5031006F721C /* CenterView.swift in Sources */,
 				C5FB93DC1FAB1F5E006F721C /* FavoriteViewController.swift in Sources */,
 				C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */,
 				C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */,
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
+				C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */,
 				C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
@@ -655,8 +681,10 @@
 				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
+				C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
 				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,
+				C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
 				C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */,
 			);

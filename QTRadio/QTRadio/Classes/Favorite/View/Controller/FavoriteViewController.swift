@@ -102,8 +102,10 @@ class FavoriteViewController: UIViewController {
     /// 添加loginView
     fileprivate lazy var loginView: LoginView = {
         
-        let loginView = LoginView()
-        loginView.frame = CGRect(x: 0, y: -kLoginViewHeight, width: kScreenWidth, height: kLoginViewHeight)
+        let loginViewFrame = CGRect(x: 0, y: -kLoginViewHeight, width: kScreenWidth, height: kLoginViewHeight)
+        
+        let loginView = LoginView(frame: loginViewFrame, parentVc: self)
+        
         
         return loginView
     }()

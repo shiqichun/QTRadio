@@ -37,27 +37,24 @@ class CenterView: UIView {
     
     /// 新用户注册按钮 icon_input_record_indicator_cancel
     fileprivate lazy var newUserBtn: UIButton = {
+    
+        // 创建新用户注册按钮
+        let btn = UIButton(imageName: "icon_input_record_indicator_cancel", title: "新用户注册")
         
-        let btn = UIButton()
-        btn.setTitle("新用户注册", for: .normal)
-        btn.setBackgroundImage(UIImage.imageWithStretchalbe("icon_input_record_indicator_cancel"), for: .normal)
-        btn.layer.cornerRadius = 5
-        btn.clipsToBounds = true
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        // 监听新用户注册按钮的点击
         btn.addTarget(self, action: #selector(newUserBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     
     /// 使用手机登录按钮
     fileprivate lazy var phoneNumBtn: UIButton = {
         
-        let btn = UIButton()
-        btn.setTitle("使用手机号登录", for: .normal)
-        btn.setBackgroundImage(UIImage.imageWithStretchalbe("backgroundImage"), for: .normal)
-        btn.layer.cornerRadius = 5
-        btn.clipsToBounds = true
+        // 创建手机号码登录按钮
+        let btn = UIButton(imageName: "backgroundImage", title: "使用手机号登录")
+        
+        // 设置按钮文字颜色为红色
         btn.setTitleColor(.red, for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         
         // 给按钮设置红色的边框
         btn.layer.borderColor = (UIColor.red).cgColor
@@ -65,7 +62,9 @@ class CenterView: UIView {
         // 设置边框的粗细
         btn.layer.borderWidth = 1.0
         
+        // 监听手机号码登录按钮的点击
         btn.addTarget(self, action: #selector(phoneNumBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     
@@ -74,10 +73,10 @@ class CenterView: UIView {
     
     init(frame: CGRect, parentVc: UIViewController) {
         
-        // 将父控制器保存起来
+        // 初始化私有属性
         self.parentVc = parentVc
         
-        //
+        // 初始化父类属性
         super.init(frame: frame)
         
         // 统一设置UI界面

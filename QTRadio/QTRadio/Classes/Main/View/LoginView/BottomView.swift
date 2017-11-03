@@ -89,10 +89,10 @@ class BottomView: UIView {
     
     init(frame: CGRect, parentVc: UIViewController) {
         
-        // 将父控制器保存起来
+        // 初始化私有属性
         self.parentVc = parentVc
         
-        //
+        // 初始化父类属性
         super.init(frame: frame)
         
         // 统一设置UI界面

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理中间登录界面的logo，以及新用户注册按钮和使用手机登录按钮
 
 import UIKit
 import SnapKit

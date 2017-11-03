@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 登录界面的上半部分，主要是用来管理关闭按钮和顶部标题的
 
 import UIKit
 

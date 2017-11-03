@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理底部第三方账号注册和登录的圆形按钮
 
 import UIKit
 import SnapKit
@@ -50,7 +51,9 @@ class BottomView: UIView {
     fileprivate lazy var weixinBtn: UIButton = {
         
         let btn = SNSButton(frame: kBtnFrame, imageName: "weiXinFriend_52x52_", hightlightImageName: "weiXinFriendPress_52x52_", title: "微信")
+        
         btn.addTarget(self, action: #selector(weixinBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     
@@ -59,7 +62,9 @@ class BottomView: UIView {
     fileprivate lazy var weiboBtn: UIButton = {
         
         let btn = SNSButton(frame: kBtnFrame, imageName: "sinaWeiBo_53x52_", hightlightImageName: "sinaWeiBoPress_53x52_", title: "微博")
+        
         btn.addTarget(self, action: #selector(weiboBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     
@@ -69,7 +74,9 @@ class BottomView: UIView {
         
         
         let btn = SNSButton(frame: kBtnFrame, imageName: "qqFriend_52x52_", hightlightImageName: "qqFriendPress_52x52_", title: "QQ")
+        
         btn.addTarget(self, action: #selector(qqBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     
@@ -79,7 +86,9 @@ class BottomView: UIView {
     fileprivate lazy var moreBtn: UIButton = {
         
         let btn = SNSButton(frame: kBtnFrame, imageName: "sns_more_52x52_", title: "更多账户")
+        
         btn.addTarget(self, action: #selector(moreBtnClick), for: .touchUpInside)
+        
         return btn
     }()
     

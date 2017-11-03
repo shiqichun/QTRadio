@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理TabBar正中间的播放按钮
 
 import UIKit
 
@@ -77,7 +78,7 @@ extension PlayButtonView {
     
     // 统一设置UI界面
     fileprivate func setupUI() {
-//        backgroundColor = .blue
+        
         // 添加normalImageView
         addSubview(imageView)
         

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 用来管理首页模块中分类子控制器
 
 import UIKit
 

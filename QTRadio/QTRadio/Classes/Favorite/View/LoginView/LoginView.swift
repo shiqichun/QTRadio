@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/2.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理收藏模块最顶部立即登录按钮和标题的
 
 import UIKit
 import SnapKit
@@ -40,18 +41,8 @@ class LoginView: UIView {
     /// 登录按钮
     fileprivate lazy var loginBtn: UIButton = {
         
-        // 创建按钮
-        let btn = UIButton(type: .custom)
-        
-        // 设置按钮的圆角并进行裁剪
-        btn.layer.cornerRadius = 5
-        btn.clipsToBounds = true
-        
-        // 设置按钮的文字
-        btn.setTitle("立即登录", for: .normal)
-        
-        // 设置登录按钮的背景图片
-        btn.setBackgroundImage(UIImage.imageWithStretchalbe("infocollectClickImage_50x30_"), for: .normal)
+        // 创建拥有背景图片的圆角按钮
+        let btn = UIButton(imageName: "icon_input_record_indicator_cancel", title: "立即登录")
         
         // 监听按钮的点击
         btn.addTarget(self, action: #selector(loginBtnClick), for: .touchUpInside)

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理下载模块中正在下载界面
 
 import UIKit
 

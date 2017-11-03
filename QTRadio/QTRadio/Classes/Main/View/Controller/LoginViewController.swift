@@ -5,7 +5,7 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
-// 登录界面
+// 用来管理点击登录按钮时的登录界面
 
 import UIKit
 
@@ -80,20 +80,5 @@ extension LoginViewController {
         
         // 添加bottomView
         view.addSubview(bottomView)
-    }
-    
-    
-}
-
-
-
-// MARK: - 监听事件的点击
-extension LoginViewController {
-    
-    //
-    @objc fileprivate func test() {
-        
-        // 退出控制器
-        dismiss(animated: true, completion: nil)
     }
 }

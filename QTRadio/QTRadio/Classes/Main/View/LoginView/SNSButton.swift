@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 用来自定义第三方账户登录的圆形按钮
 
 import UIKit
 
@@ -40,12 +41,12 @@ class SNSButton: UIButton {
     /// - 参数title：表示按钮的标题
     init(frame: CGRect, imageName: String, hightlightImageName: String = "", title: String) {
         
-        // 初始化稀有属性
+        // 初始化私有属性(保存图片名称和标题名称)
         self.imageName = imageName
         self.hightlightImageName = hightlightImageName
         self.title = title
         
-        // 保存按钮中图片控件的尺寸和标题控件的高度
+        // 初始化私有属性(计算按钮中图片控件的尺寸和标题控件的高度)
         self.imageViewWidth = frame.size.width
         self.imageViewHeight = imageViewWidth
         self.titleLabelHeight = frame.size.height - imageViewWidth
@@ -65,7 +66,6 @@ class SNSButton: UIButton {
     
     /// 重新设置imageView的frame
     override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-
         return CGRect(x: 0, y: 0, width: imageViewWidth, height: imageViewHeight)
     }
 

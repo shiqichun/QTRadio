@@ -52,14 +52,19 @@ extension MainViewController {
     }
     
     /// 添加单个tabBar子控制器
+    /// - 参数childController：表示子控制器
+    /// - 参数imageName：表示子控制器tabBarItem的背景图片
+    /// - 参数title：表示子控制器tabBarItem的标题，可以不传
     private func addChildViewController(_ childController: UIViewController, imageName: String, title: String = "") {
         
         // 设置tabBar子控制器的标题
-        childController.title = title
+        if title != "" {
+            childController.title = title
+        }
         
         // 设置tabBarItem的背景图片(minibar_home_normal_30x30_)
         childController.tabBarItem.image = UIImage(named: imageName + "_normal_30x30_")?.withRenderingMode(.alwaysOriginal)
-        childController.tabBarItem.selectedImage = UIImage(named: imageName + "_highlight_30x30_")?.withRenderingMode(.alwaysOriginal)
+        childController.tabBarItem.selectedImage = UIImage.imageWithOriginal(imageName + "_highlight_30x30_")
         
         // 调整tabBarItem图片的位置
         // childController.tabBarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, 0)

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/2.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 主要是用来管理收藏模块中collectionView的headerView
 
 import UIKit
 import SnapKit

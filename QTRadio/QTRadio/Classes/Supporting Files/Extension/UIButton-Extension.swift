@@ -21,7 +21,9 @@ extension UIButton {
         
         // 设置按钮的图片
         setImage(UIImage(named: image), for: .normal)
-        setImage(UIImage(named: highlightedImage), for: .highlighted)
+        if highlightedImage != "" {
+            setImage(UIImage(named: highlightedImage), for: .highlighted)
+        }
         
         // 设置按钮的尺寸
         sizeToFit()

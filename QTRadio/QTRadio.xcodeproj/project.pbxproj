@@ -42,6 +42,7 @@
 		C5FB93F01FAC5031006F721C /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93EF1FAC5031006F721C /* CenterView.swift */; };
 		C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93F11FAC503A006F721C /* BottomView.swift */; };
 		C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93F31FAC6200006F721C /* SNSButton.swift */; };
+		C5FB93F61FACC57F006F721C /* QTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93F51FACC57F006F721C /* QTNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		C5FB93EF1FAC5031006F721C /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
 		C5FB93F11FAC503A006F721C /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		C5FB93F31FAC6200006F721C /* SNSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSButton.swift; sourceTree = "<group>"; };
+		C5FB93F51FACC57F006F721C /* QTNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTNavigationController.swift; sourceTree = "<group>"; };
 		C9A5A2A16F7EB7639C1F44F9 /* Pods-QTRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QTRadio/Pods-QTRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,8 +223,8 @@
 		C50041961FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5FB93E21FAB54F5006F721C /* LoginView */,
 				C5FB93DA1FAB1F5E006F721C /* Controller */,
+				C5FB93E21FAB54F5006F721C /* LoginView */,
 				C5FB93D91FAB1F5E006F721C /* HeaderView */,
 				C5FB93D51FAB1EE6006F721C /* CollectionViewCell */,
 			);
@@ -296,8 +298,8 @@
 		C50041A01FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5FB93D21FAB13DA006F721C /* Nothing */,
 				C50041A11FA98ED600CD9A7A /* Controller */,
+				C5FB93D21FAB13DA006F721C /* Nothing */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,6 +430,7 @@
 			children = (
 				C50041B01FA9905900CD9A7A /* MainViewController.swift */,
 				C5FB93EA1FAB7BB2006F721C /* LoginViewController.swift */,
+				C5FB93F51FACC57F006F721C /* QTNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
+				C5FB93F61FACC57F006F721C /* QTNavigationController.swift in Sources */,
 				C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */,
 				C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,

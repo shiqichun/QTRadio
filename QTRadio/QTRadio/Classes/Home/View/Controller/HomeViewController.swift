@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 首页模块主控制器
 
 import UIKit
 
@@ -68,16 +69,15 @@ extension HomeViewController {
     private func setupLeftBarButtonItem() {
         
         // 自定义左边的按钮
-        let leftBtn = UIButton()
-        leftBtn.setImage(UIImage(named: "myMessage_30x30_"), for: .normal)
-        leftBtn.setImage(UIImage(named: "myMessagepress_30x30_"), for: .highlighted)
-        leftBtn.sizeToFit()
-        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
+        let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
+        
+        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
     }
     
     
+    // FIXME: - 中间搜索框的代码有待完善
     /// 添加中间的搜索框
     private func setupSearchBar() {
         
@@ -88,17 +88,12 @@ extension HomeViewController {
     /// 添加导航条右边的按钮
     private func setupRightBarButtonItems() {
         
-        // 自定义左边的按钮
-        let rightBtn = UIButton()
-        rightBtn.setImage(UIImage(named: "myHistory_30x30_"), for: .normal)
-        rightBtn.setImage(UIImage(named: "myHistorypress_30x30_"), for: .highlighted)
-        rightBtn.sizeToFit()
-        rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
+        // 自定义右边的按钮
+        let rightBtn = UIButton(image: "myHistory_30x30_", highlightedImage: "myHistorypress_30x30_")
         
-        // 调整导航栏左边按钮与屏幕的距离
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        rightItem.width = -5
-        navigationItem.rightBarButtonItems = [rightItem,UIBarButtonItem(customView: rightBtn)]
+        rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
     }
 
     
@@ -107,6 +102,7 @@ extension HomeViewController {
         // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
         // 创建子控制器的标题
         let titles = ["分类", "推荐", "精品", "直播", "广播"]
+        
         
         // 创建标题样式
         let titleStyle = TitleStyle()
@@ -119,8 +115,10 @@ extension HomeViewController {
         titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
         titleStyle.titleBackgroundColor = UIColor(r: 246, g: 246, b: 246)  // 设置子控制器标题的背景颜色
         
+        
         // 创建一个数组，用来存放子控制器
         var childVcs = [UIViewController]()
+        
         
         // 创建子控制器并将其添加到childVcs数组中
         childVcs.append(CategoryViewController())  // 分类子控制器
@@ -128,6 +126,7 @@ extension HomeViewController {
         childVcs.append(BoutiqueViewController())  // 精品子控制器
         childVcs.append(LiveViewController())  // 直播子控制器
         childVcs.append(BroadcastViewController())  // 广播子控制器
+        
         
         // FiXME: - 为了适配iPhone X，这里高度最后还要减去一个kTabBarMargin
         // 创建containerView的frame

@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/1.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 下载模块主控制器
 
 import UIKit
 
@@ -63,11 +64,9 @@ extension DownloadViewController {
     private func setupLeftBarButtonItem() {
         
         // 自定义左边的按钮
-        let leftBtn = UIButton()
-        leftBtn.setImage(UIImage(named: "myMessage_30x30_"), for: .normal)
-        leftBtn.setImage(UIImage(named: "myMessagepress_30x30_"), for: .highlighted)
-        leftBtn.sizeToFit()
-        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
+        let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
+        
+        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
     }
@@ -76,12 +75,10 @@ extension DownloadViewController {
     /// 添加导航条右边的按钮
     private func setupRightBarButtonItems() {
         
-        // 自定义左边的按钮
-        let rightBtn = UIButton()
-        rightBtn.setImage(UIImage(named: "searchInNavigation_30x30_"), for: .normal)
-        rightBtn.setImage(UIImage(named: "searchInNavigationpress_30x30_"), for: .highlighted)
-        rightBtn.sizeToFit()
-        rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)  // 监听按钮的点击
+        // 自定义右边的按钮
+        let rightBtn = UIButton(image: "searchInNavigation_30x30_", highlightedImage: "searchInNavigationpress_30x30_")
+        
+        rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
     }

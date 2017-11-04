@@ -56,7 +56,7 @@ class FavoriteViewController: UIViewController {
     }()
     
     
-    /// collectionView
+    /// 官方应用可能用的是tableView，因为用collectionView6个cell是不能滚动的，而官方却可以滚动
     fileprivate lazy var collectionView: UICollectionView = {
         
         // 创建Layout

@@ -103,8 +103,11 @@ extension PlayButtonView {
     @objc fileprivate func playButtonClick() {
         
         
-        // FIXME: - 得用代理通知MainViewController控制器push另一个控制器
-        
-        print("PlayButtonView---点击了tabBar中间的播放按钮")
+        // 点击中间的播放按钮，push到下一个控制器
+        // 这里在实际开发过程中需要做一个判断，如果
+        // 有在播放的专辑，则直接播放，如果没有，则push
+        let tabBarVc: UITabBarController = (UIApplication.shared.keyWindow!.rootViewController as? UITabBarController)!
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        nav.pushViewController(UIViewController(), animated: false)
     }
 }

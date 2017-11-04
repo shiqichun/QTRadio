@@ -73,7 +73,8 @@ extension ProfileViewController {
         // 添加tableView
         view.addSubview(tableView)
         
-        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        
         
     }
     
@@ -120,7 +121,7 @@ extension ProfileViewController: UITableViewDataSource {
     
     //
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 3
     }
     
     //

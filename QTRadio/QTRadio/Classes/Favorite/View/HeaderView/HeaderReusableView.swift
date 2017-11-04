@@ -115,7 +115,7 @@ extension HeaderReusableView {
     private func addTapGesture() {
         
         // 创建点击手势
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapClick(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(moreBtnClick))
         addGestureRecognizer(tapGesture)
     }
 }
@@ -126,18 +126,12 @@ extension HeaderReusableView {
 // MARK: - 监听按钮的点击
 extension HeaderReusableView {
     
-    // FIXME: - 可以考虑将这两个方法合成一个
-    
     // 更多按钮的点击
     @objc fileprivate func moreBtnClick() {
         
         // 点击这里需要push控制器
-        print("moreBtnClick")
-    }
-    
-    @objc fileprivate func headerViewTapClick(_ gesture: UIGestureRecognizer) {
-        
-        // 点击这里需要push控制器
-        print(gesture)
+        let tabBarVc: UITabBarController = (UIApplication.shared.keyWindow!.rootViewController as? UITabBarController)!
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        nav.pushViewController(UIViewController(), animated: false)
     }
 }

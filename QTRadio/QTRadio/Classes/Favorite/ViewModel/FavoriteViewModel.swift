@@ -34,7 +34,7 @@ extension FavoriteViewModel {
     func requestData(completionHandler: @escaping () -> ()) {
         
         // 发送网络请求
-        NetworkTools.requestData(kRequestURL, .get, parameters: ["deviceid": kDeviceid, "pageSize": "20"]) { (result) in
+        NetworkTools.shareTools.requestData(kRequestURL, .get, parameters: ["deviceid": kDeviceid, "pageSize": "9"]) { (result) in
             
             // 将请求结果转成数组
             guard let resultArr = result as? [String: Any] else { return }

@@ -10,7 +10,7 @@ import UIKit
 
 class AlbumViewCell: UICollectionViewCell {
     
-    // MARK: - 私有属性
+    // MARK: - 对外暴露属性
     
     /// 图片控件
     var imageView: UIImageView = {
@@ -24,7 +24,7 @@ class AlbumViewCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         
         let label = UILabel()
-        label.text = "我一见你就笑，你那翩翩风采你那翩翩风采你那翩翩风采"
+        label.text = "我一见你就笑，你那翩翩风采"
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 11)
         label.numberOfLines = 0

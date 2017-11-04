@@ -80,12 +80,7 @@ extension CategoryViewController {
         // 设置collectionView的内边距
         collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 15, right: 0)
         
-    }
-    
-    
-    
-    
-    
+    }  
 }
 
 

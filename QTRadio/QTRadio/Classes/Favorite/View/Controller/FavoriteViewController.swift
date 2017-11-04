@@ -8,34 +8,37 @@
 // 收藏模块主控制器
 
 import UIKit
+import Kingfisher
 
 
-// item之间的间距
+/// item之间的间距
 private let kItemMargin: CGFloat = 15
 
-// item的列数
+/// item的列数
 private let kItemCols: CGFloat = 3
 
-// item的宽度
+/// item的宽度
 private let kItemWidth: CGFloat = (kScreenWidth - (kItemCols + 1) * kItemMargin) / kItemCols
 
-// item的高度
+/// item的高度
 private let kItemHeight: CGFloat = kItemWidth * 1.3
 
-// CollectionViewCell的可重用标识
+/// CollectionViewCell的可重用标识
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
 
 
-// headerReference的高度
+/// headerReference的高度
 private let kHeaderReferenceHeight: CGFloat = 44
 
-// headerReference的可重用标识符
+/// headerReference的可重用标识符
 private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
 
 
-// 登录view的高度
+/// 登录view的高度
 private let kLoginViewHeight: CGFloat = 200
+
+
 
 
 
@@ -89,7 +92,7 @@ class FavoriteViewController: UIViewController {
         collectionView.dataSource = self
         
         // 注册cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        collectionView.register(AlbumViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
         
         // 注册header
@@ -110,6 +113,11 @@ class FavoriteViewController: UIViewController {
         
         return loginView
     }()
+    
+    
+    /// 网络请求的ViewModel属性
+    fileprivate lazy var favoriteViewModel: FavoriteViewModel = FavoriteViewModel()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,42 +147,44 @@ extension FavoriteViewController {
         
         // 将loginView添加到collectionView中
         collectionView.addSubview(loginView)
+
+        
+        // 发送网络请求
+        loadData()
     }
     
     /// 设置导航栏
     private func setupNavigationBar() {
         
-        // 添加导航条左边的按钮
-        setupLeftBarButtonItem()
+        // 自定义导航栏左边的按钮
+        let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
+        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         
         // 修改导航栏中间的标题
         navigationItem.titleView = label
         
-        // 添加导航条右边的按钮
-        setupRightBarButtonItems()
-    }
-    
-    /// 添加导航条左边的按钮
-    private func setupLeftBarButtonItem() {
-        
-        // 自定义左边的按钮
-        let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
-        
-        leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)  
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-    }
-    
-    
-    /// 添加导航条右边的按钮
-    private func setupRightBarButtonItems() {
-        
-        // 自定义右边的按钮
+        // 自定义导航栏右边的按钮
         let rightBtn = UIButton(image: "searchInNavigation_30x30_", highlightedImage: "searchInNavigationpress_30x30_")
-        
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+    }
+}
+
+
+
+// MARK: - 发送网络请求
+extension FavoriteViewController {
+    
+    /// 发送网络请求，获取收藏模块中推荐专辑的数据
+    fileprivate func loadData() {
+        
+        // 通过ViewModel属性来发送网络请求
+        favoriteViewModel.requestData(completionHandler: {
+            
+            // 重新调用数据源方法
+            self.collectionView.reloadData()
+        })
     }
 }
 
@@ -208,16 +218,26 @@ extension FavoriteViewController: UICollectionViewDataSource {
     
     // 返回每一组cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return favoriteViewModel.albumArr.count
     }
     
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // 根据可重用标识符取出cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! AlbumViewCell
         
-        cell.backgroundColor = UIColor.randomColor()
+        // 取出模型
+        let album = favoriteViewModel.albumArr[indexPath.row]
+        
+        // 设置标题
+        cell.titleLabel.text = album.rec_words
+        
+        // 获取图片URL地址的字符串
+        let url = URL(string: album.rec_thumb)
+        
+        // 设置图片
+        cell.imageView.kf.setImage(with: url)
         
         return cell
     }

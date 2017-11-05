@@ -76,7 +76,6 @@ class FavoriteViewController: UIViewController {
         // 设置layout的header
         layout.headerReferenceSize = CGSize(width: kScreenWidth, height: kHeaderReferenceHeight)
         
-        
         // 创建collectionView
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         

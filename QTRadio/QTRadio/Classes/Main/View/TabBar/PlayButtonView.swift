@@ -106,8 +106,16 @@ extension PlayButtonView {
         // 点击中间的播放按钮，push到下一个控制器
         // 这里在实际开发过程中需要做一个判断，如果
         // 有在播放的专辑，则直接播放，如果没有，则push
+        // 取出tabBar根控制器
         let tabBarVc: UITabBarController = (UIApplication.shared.keyWindow!.rootViewController as? UITabBarController)!
+        
+        // 取出当前选中的导航控制器
         let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
-        nav.pushViewController(UIViewController(), animated: false)
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = .yellow
+        
+        // push到下一个控制器
+        nav.pushViewController(vc, animated: true)
     }
 }

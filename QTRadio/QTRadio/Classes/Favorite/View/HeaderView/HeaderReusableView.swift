@@ -129,9 +129,13 @@ extension HeaderReusableView {
     // 更多按钮的点击
     @objc fileprivate func moreBtnClick() {
         
-        // 点击这里需要push控制器
+        // 取出tabBar根控制器
         let tabBarVc: UITabBarController = (UIApplication.shared.keyWindow!.rootViewController as? UITabBarController)!
+        
+        // 取出当前选中的导航控制器
         let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
-        nav.pushViewController(UIViewController(), animated: false)
+        
+        // push到下一个控制器
+        nav.pushViewController(DailyViewController(), animated: true)
     }
 }

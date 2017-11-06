@@ -9,8 +9,14 @@
 
 import UIKit
 
-// 可重用标识符
+/// 通用间距
+private let kMargin: CGFloat = 5
+
+/// 可重用标识符
 private let kTableViewCellIdentifier = "kTableViewCellIdentifier"
+
+/// ProfileHeader的高度
+private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.2  // iPhone X中是162.4
 
 class ProfileViewController: UIViewController {
     
@@ -33,8 +39,8 @@ class ProfileViewController: UIViewController {
         let tableView = UITableView(frame: self.view.bounds, style: .grouped)
         
         // 调整tableView默认的组间距
-        tableView.sectionHeaderHeight = 5
-        tableView.sectionFooterHeight = 0
+        tableView.sectionHeaderHeight = kMargin
+        tableView.sectionFooterHeight = kMargin
         
         // 设置tableView岁父控件一起拉伸
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -42,10 +48,21 @@ class ProfileViewController: UIViewController {
         // 设置数据源代理
         tableView.dataSource = self
         
+        // 设置tableView的代理
+        tableView.delegate = self
+        
         // 注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
         
         return tableView
+    }()
+    
+    
+    /// 顶部的ProfileHeader
+    fileprivate lazy var profileHeader: ProfileHeader = {
+        
+        let profileHeader = ProfileHeader(frame: CGRect(x: 0, y: -kProfileHeaderHeight, width: kScreenWidth, height: kProfileHeaderHeight))
+        return profileHeader
     }()
     
     
@@ -73,9 +90,12 @@ extension ProfileViewController {
         // 添加tableView
         view.addSubview(tableView)
         
-//        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        // 设置tableView的contentInset
+        tableView.contentInset = UIEdgeInsets(top: kProfileHeaderHeight, left: 0, bottom: 0, right: 0)
         
-        
+        // 添加ProfileHeader。因为它是要随着tableView一起滚动的，所以
+        // 不能直接将其添加到控制器的view上面，而是应该添加到tableView上
+        tableView.addSubview(profileHeader)
     }
     
     /// 设置导航栏
@@ -119,25 +139,49 @@ extension ProfileViewController {
 // MARK: - UITableViewDataSource
 extension ProfileViewController: UITableViewDataSource {
     
-    //
+    // 返回cell的分组数
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 7
     }
     
-    //
+    // 返回每一组的cell数量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        switch section {
+        case 1:
+            return 3
+        case 2:
+            return 2
+        case 5:
+            return 4
+        default:
+            return 1
+        }
     }
     
-    //
+    // 返回cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //
+        // 根据可重用标识符出去cell
         let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier)
         
         cell?.textLabel?.text = "cell---\(indexPath.row)"
         
         return cell!
+    }
+    
+}
+
+
+
+// MARK: - UITableViewDelegate
+extension ProfileViewController: UITableViewDelegate {
+    
+    // 设置tableView的header的高度。当使用grouped样式时，
+    // 将header的高度设置为极小值，可以去掉顶部巨大的留白
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        return CGFloat.leastNormalMagnitude  // 相当于之前的CGFloat.min
     }
     
 }

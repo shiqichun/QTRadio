@@ -16,6 +16,7 @@
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
 		C522CCE91FB0346D00EA20C6 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */; };
 		C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */; };
+		C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
@@ -32,8 +33,6 @@
 		C5B97F291FAEDDAD00F2BB10 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F281FAEDDAD00F2BB10 /* DailyViewController.swift */; };
 		C5B97F2C1FAEE48300F2BB10 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F2B1FAEE48300F2BB10 /* AlbumViewCell.swift */; };
 		C5B97F2E1FAEE4BC00F2BB10 /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F2D1FAEE4BC00F2BB10 /* DailyViewCell.swift */; };
-		C5B97F531FAEFD3900F2BB10 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F521FAEFD3900F2BB10 /* StarView.swift */; };
-		C5B97F551FAEFD4400F2BB10 /* StarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B97F541FAEFD4400F2BB10 /* StarView.xib */; };
 		C5B97F791FAF0C0B00F2BB10 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F781FAF0C0B00F2BB10 /* DailyViewModel.swift */; };
 		C5B97F7B1FAF0DD300F2BB10 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F7A1FAF0DD300F2BB10 /* DailyModel.swift */; };
 		C5B97F7E1FAF200800F2BB10 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B97F7D1FAF200800F2BB10 /* ToolBar.swift */; };
@@ -73,6 +72,7 @@
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
+		C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
@@ -89,8 +89,6 @@
 		C5B97F281FAEDDAD00F2BB10 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		C5B97F2B1FAEE48300F2BB10 /* AlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		C5B97F2D1FAEE4BC00F2BB10 /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
-		C5B97F521FAEFD3900F2BB10 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
-		C5B97F541FAEFD4400F2BB10 /* StarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarView.xib; sourceTree = "<group>"; };
 		C5B97F781FAF0C0B00F2BB10 /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
 		C5B97F7A1FAF0DD300F2BB10 /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
 		C5B97F7D1FAF200800F2BB10 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			children = (
 				C5B97F7F1FAF7DCA00F2BB10 /* HeaderBar */,
 				C5B97F7C1FAF1FF600F2BB10 /* ToolBar */,
-				C5B97F511FAEFD1200F2BB10 /* Stars */,
 				C5B97F2A1FAEE48300F2BB10 /* Cells */,
 				C5FB93DA1FAB1F5E006F721C /* Controller */,
 				C5FB93E21FAB54F5006F721C /* LoginView */,
@@ -295,6 +292,7 @@
 		C500419B1FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C522CCEB1FB05B4300EA20C6 /* ProfileHeader */,
 				C500419C1FA98ED600CD9A7A /* Controller */,
 			);
 			path = View;
@@ -474,6 +472,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C522CCEB1FB05B4300EA20C6 /* ProfileHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */,
+			);
+			path = ProfileHeader;
+			sourceTree = "<group>";
+		};
 		C56E80F91FAA16670072B79B /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,15 +508,6 @@
 				C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		C5B97F511FAEFD1200F2BB10 /* Stars */ = {
-			isa = PBXGroup;
-			children = (
-				C5B97F521FAEFD3900F2BB10 /* StarView.swift */,
-				C5B97F541FAEFD4400F2BB10 /* StarView.xib */,
-			);
-			path = Stars;
 			sourceTree = "<group>";
 		};
 		C5B97F7C1FAF1FF600F2BB10 /* ToolBar */ = {
@@ -663,7 +660,6 @@
 			files = (
 				C56E80FB1FAA16870072B79B /* Category.plist in Resources */,
 				C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */,
-				C5B97F551FAEFD4400F2BB10 /* StarView.xib in Resources */,
 				C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +737,7 @@
 				C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */,
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
+				C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
 				C5FB93F61FACC57F006F721C /* QTNavigationController.swift in Sources */,
 				C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */,
@@ -776,7 +773,6 @@
 				C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */,
 				C5B97F7B1FAF0DD300F2BB10 /* DailyModel.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
-				C5B97F531FAEFD3900F2BB10 /* StarView.swift in Sources */,
 				C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */,
 				C5B97F7E1FAF200800F2BB10 /* ToolBar.swift in Sources */,
 			);

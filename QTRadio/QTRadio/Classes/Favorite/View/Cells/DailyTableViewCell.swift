@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/6.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 通过xib的方式来实现今日推荐tableView的cell
 
 import UIKit
 
@@ -81,11 +82,20 @@ class DailyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
+    // 当一个cell被重用时会调用这个方法
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        // 把所有的数据都清空
+        // 因为cell是有重用机制的
+        // 所以，尽管后面会再给控件
+        // 赋值，但是最好在赋值之前
+        // 先把所有控件的数据都清空
+        topTitle.text = nil
+        titleLabel.text = nil
+        categoryTitle.text = nil
+        playCountLabel.text = nil
+        myImageView.image = nil
+        myTextLabel.text = nil
     }
     
 }

@@ -35,8 +35,8 @@ private let kHeaderReferenceHeight: CGFloat = 44
 private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
 
 
-/// 登录view的高度
-private let kLoginViewHeight: CGFloat = 200
+/// 登录view的高度(因为屏幕高度不同，所以这个高度值最好是不要写死，给一个比例是最好的)
+private let kLoginViewHeight: CGFloat = kScreenHeight * 200.0 / 667.0
 
 
 

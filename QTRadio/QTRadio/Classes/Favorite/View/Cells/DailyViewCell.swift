@@ -5,6 +5,8 @@
 //  Created by Enrica on 2017/11/5.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 纯代码实现今日推荐页面tableView的cell，还有一些
+// 很重要的细节没有实现
 
 import UIKit
 import SnapKit

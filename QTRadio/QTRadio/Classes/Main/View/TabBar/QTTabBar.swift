@@ -70,14 +70,8 @@ extension QTTabBar {
     /// 统一设置tabBar的UI界面
     fileprivate func setupUI() {
         
-        // 设置tabBar的背景图片(因为要适配iPhone X，没有找到对应的背景图片，所以就不设置了)
-        if #available(iOS 11, *) {
-            // 找不到合适的背景图片，就设置背景颜色
-            barTintColor = UIColor(r: 255, g: 255, b: 255)
-        } else {
-            // 设置背景图片
-            backgroundImage = UIImage(named: "tabbar_bg")
-        }
+        // 设置tabBar的背景图片
+        backgroundImage = UIImage.imageWithStretchalbe("tabbar_bg")
         
         // 将播放按钮的背景控件添加到tabBar上面
         addSubview(playButtonView)

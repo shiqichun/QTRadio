@@ -28,12 +28,15 @@ class DailyViewController: UIViewController {
         
         tableView.dataSource = self
         
-        tableView.delegate = self
+        // 注册cell
+//        tableView.register(DailyViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
         
-        // 临时调整tableView的高度
-        tableView.rowHeight = 300
+        // 通过xib注册cell
+        tableView.register(UINib(nibName: "DailyTableViewCell", bundle: nil), forCellReuseIdentifier: kTableViewCellIdentifier)
         
-        tableView.register(DailyViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
+        // 动态计算cell的高度
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
         
         return tableView
     }()
@@ -67,11 +70,6 @@ extension DailyViewController {
         
         // 设置tableView的contentInset
         tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
-        
-        // 自动计算tableViewCell的高度
-        //self.tableView.estimatedRowHeight = 100.0
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-        
         
         // 请求网路数据
         loadData()
@@ -110,7 +108,11 @@ extension DailyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // 根据可重用标识符取出cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier) as! DailyViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier) as! DailyViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier) as! DailyTableViewCell
+        
+        // 取消cell选中
+        cell.selectionStyle = .none
         
         // 取出模型
         let daily = dailyViewModel.dailyArr[indexPath.row]
@@ -126,7 +128,7 @@ extension DailyViewController: UITableViewDataSource {
         cell.myImageView.kf.setImage(with: url)
         
         // 分类
-        cell.categoryName.text = daily.category_name
+        cell.categoryTitle.text = daily.category_name
         
         // 播放次数
         cell.playCountLabel.text = daily.playcount
@@ -138,13 +140,3 @@ extension DailyViewController: UITableViewDataSource {
     }
 }
 
-
-
-// MARK: - UITableViewDelegate
-extension DailyViewController: UITableViewDelegate {
-    
-    //
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100.0
-//    }
-}

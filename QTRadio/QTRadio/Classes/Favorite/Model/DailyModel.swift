@@ -13,6 +13,8 @@ import UIKit
 class DailyModel: NSObject {
     
     
+    // MARK: - 服务器返回的模型属性
+    
     /// 顶部标题
     var title: String = ""
     
@@ -31,6 +33,8 @@ class DailyModel: NSObject {
     /// 正文
     var desc: String = ""
     
+    
+    // MARK: - 自定义构造函数
     
     /// 利用KVC将字典转为模型
     init(dict: [String: Any]) {

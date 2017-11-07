@@ -26,6 +26,9 @@ class DailyViewController: UIViewController {
         
         tableView.backgroundColor = UIColor(r: 190, g: 158, b: 105)
         
+        // 去掉默认的分割线
+        tableView.separatorStyle = .none
+        
         tableView.dataSource = self
         
         // 注册cell

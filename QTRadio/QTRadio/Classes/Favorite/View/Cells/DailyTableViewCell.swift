@@ -108,7 +108,7 @@ extension DailyTableViewCell {
     fileprivate func setupUI() {
         
         // 设置cell的圆角
-        layer.cornerRadius = 5
+        layer.cornerRadius = 7
         layer.masksToBounds = true
         
         // 修改顶部标题的颜色

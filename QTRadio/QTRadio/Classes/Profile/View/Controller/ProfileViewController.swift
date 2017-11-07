@@ -16,7 +16,7 @@ private let kMargin: CGFloat = 5
 private let kTableViewCellIdentifier = "kTableViewCellIdentifier"
 
 /// ProfileHeader的高度
-private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.2  // iPhone X中是162.4
+private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.3  // iPhone X中是162.4
 
 class ProfileViewController: UIViewController {
     

@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
     /// 顶部的ProfileHeader
     fileprivate lazy var profileHeader: ProfileHeader = {
         
-        let profileHeader = ProfileHeader(frame: CGRect(x: 0, y: -kProfileHeaderHeight, width: kScreenWidth, height: kProfileHeaderHeight))
+        let profileHeader = ProfileHeader(frame: CGRect(x: 0, y: -kProfileHeaderHeight, width: kScreenWidth, height: kProfileHeaderHeight), parentVc: self)
         return profileHeader
     }()
     

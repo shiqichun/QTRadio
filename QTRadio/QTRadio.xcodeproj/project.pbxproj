@@ -20,8 +20,10 @@
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
+		C588A7C71FB2F28C00FA9A05 /* ProfileCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588A7C61FB2F28C00FA9A05 /* ProfileCommonView.swift */; };
 		C588CCA81FB20F1F00D6703A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588CCA71FB20F1F00D6703A /* ProfileView.swift */; };
 		C588CCAA1FB2102B00D6703A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588CCA91FB2102B00D6703A /* AvatarView.swift */; };
+		C588CCAC1FB2C48B00D6703A /* AvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C588CCAB1FB2C48B00D6703A /* AvatarView.xib */; };
 		C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43C1FA9CF440036CC98 /* TitleView.swift */; };
 		C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43D1FA9CF440036CC98 /* TitleStyle.swift */; };
 		C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C593A43E1FA9CF440036CC98 /* ContentView.swift */; };
@@ -78,8 +80,10 @@
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
+		C588A7C61FB2F28C00FA9A05 /* ProfileCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCommonView.swift; sourceTree = "<group>"; };
 		C588CCA71FB20F1F00D6703A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C588CCA91FB2102B00D6703A /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		C588CCAB1FB2C48B00D6703A /* AvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarView.xib; sourceTree = "<group>"; };
 		C593A43C1FA9CF440036CC98 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		C593A43D1FA9CF440036CC98 /* TitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
 		C593A43E1FA9CF440036CC98 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -481,7 +485,9 @@
 			children = (
 				C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */,
 				C588CCA71FB20F1F00D6703A /* ProfileView.swift */,
+				C588A7C61FB2F28C00FA9A05 /* ProfileCommonView.swift */,
 				C588CCA91FB2102B00D6703A /* AvatarView.swift */,
+				C588CCAB1FB2C48B00D6703A /* AvatarView.xib */,
 			);
 			path = ProfileHeader;
 			sourceTree = "<group>";
@@ -665,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56E80FB1FAA16870072B79B /* Category.plist in Resources */,
+				C588CCAC1FB2C48B00D6703A /* AvatarView.xib in Resources */,
 				C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */,
 				C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */,
 			);
@@ -759,6 +766,7 @@
 				C5B97F291FAEDDAD00F2BB10 /* DailyViewController.swift in Sources */,
 				C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */,
 				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
+				C588A7C71FB2F28C00FA9A05 /* ProfileCommonView.swift in Sources */,
 				C5FB93E41FAB550D006F721C /* LoginView.swift in Sources */,
 				C5FB945B1FADB337006F721C /* NetworkTools.swift in Sources */,
 				C5B97F271FAEDACC00F2BB10 /* NSDate-Extension.swift in Sources */,

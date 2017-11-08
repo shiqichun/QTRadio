@@ -47,8 +47,12 @@ extension AvatarView {
         // 设置签到控件的边框颜色
         setupSignView()
         
-        
+        // 监听登录按钮的点击
         loginBtn.addTarget(self, action: #selector(loginBtnClick), for: .touchUpInside)
+        
+        // signIn控件添加手势
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(signInTap(_:)))
+        signIn.addGestureRecognizer(tapGesture)
     }
     
     /// 设置按钮的边框和字体颜色
@@ -85,13 +89,41 @@ extension AvatarView {
 }
 
 
+
+// MARK: - 监听事件的点击
 extension AvatarView {
     
     /// 监听登录按钮的点击
     @objc fileprivate func loginBtnClick() {
         
         // 这里需要拿到父控制器，然后present登录控制器
-        print("AvatarView---loginBtnClick")
+        // 拿到根控制器
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         
+        // 创建登录控制器
+        let loginVc = LoginViewController()
+        
+        // 设置控制器的背景颜色(如果不设置背景颜色，modal动画很难看)
+        loginVc.view.backgroundColor = .white
+        
+        // modal出控制器
+        rootViewController.present(loginVc, animated: true, completion: nil)
+        
+    }
+    
+    @objc fileprivate func signInTap(_ tapGesture: UITapGestureRecognizer) {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.brown
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
     }
 }

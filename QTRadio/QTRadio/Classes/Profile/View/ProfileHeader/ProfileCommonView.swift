@@ -119,12 +119,10 @@ extension ProfileCommonView {
             make.left.equalTo(imageView.snp.right).offset(2 * kMargin)
         }
         
+        // 布局副标题的位置
         subtitleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(imageView.snp.right).offset(2 * kMargin)
             make.bottom.equalTo(imageView.snp.bottom)
         }
-        
-        // 布局副标题控件的位置
-        
     }
 }

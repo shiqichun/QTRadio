@@ -10,15 +10,20 @@
 import UIKit
 
 
-// item的宽度
+/// item的宽度
 private let kItemWidth: CGFloat = kScreenWidth / 4
 
-// item的高度
+/// item的高度
 private let kItemHeight: CGFloat = kItemWidth * 1.2
 
-// CollectionViewCell的可重用标识
+/// CollectionViewCell的可重用标识
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
+/// 分类头部控件的高度
+private let kCategoryHeaderHeight: CGFloat = kScreenHeight * 0.3
+
+/// 间距
+private let kMargin: CGFloat = 5
 
 class CategoryViewController: UIViewController {
     
@@ -56,6 +61,14 @@ class CategoryViewController: UIViewController {
     }()
     
     
+    /// 分类页面顶部控件
+    fileprivate lazy var categoryHeaderView: CategoryHeaderView = {
+        
+        let categoryHeaderView = CategoryHeaderView(frame: CGRect(x: 0, y: -kCategoryHeaderHeight, width: kScreenWidth, height: kCategoryHeaderHeight - kMargin))
+        return categoryHeaderView
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +91,10 @@ extension CategoryViewController {
         view.addSubview(collectionView)
         
         // 设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 15, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCategoryHeaderHeight, left: 0, bottom: 15, right: 0)
         
+        // 添加顶部的headerView
+        collectionView.addSubview(categoryHeaderView)
     }  
 }
 

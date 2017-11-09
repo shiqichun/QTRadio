@@ -66,6 +66,7 @@ class ProfileView: UIView {
         
     }
     
+    // 利用Quartz2D绘图
     override func draw(_ rect: CGRect) {
         
         // 绘制直线
@@ -100,7 +101,7 @@ class ProfileView: UIView {
         // 设置线条的颜色
         UIColor.lightGray.setStroke()
         
-        // 将上下文中的内容显示到view控件上(即渲染到view的layer上，通常用stroke或者fill) */
+        // 将上下文中的内容显示到view控件上(即渲染到view的layer上，通常用stroke或者fill) 
         ctx.strokePath()
     }
 }

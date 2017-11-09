@@ -51,8 +51,8 @@ class ProfileViewController: UIViewController {
         // 设置tableView的代理
         tableView.delegate = self
         
-        // 注册cell
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
+        // 注册cell(因为要选择cell的样式，所以这里不太适合用注册的方式创建cell)
+        // tableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
         
         return tableView
     }()
@@ -65,12 +65,8 @@ class ProfileViewController: UIViewController {
         return profileHeader
     }()
     
-    
-    /// 模型属性，用于存储cell模型
-    fileprivate lazy var profileArr = [ProfileCellModel]()
-    
-    /// 模型属性，用于存储组模型
-//    fileprivate lazy var groupArr = [[ProfileCellModel]]()
+    /// 数组属性，用于存储组模型数组
+    fileprivate lazy var groupArr = [[ProfileCellModel]]()
     
     
 
@@ -104,9 +100,8 @@ extension ProfileViewController {
         // 不能直接将其添加到控制器的view上面，而是应该添加到tableView上
         tableView.addSubview(profileHeader)
         
-        // 给cell设置数据
+        // 给cell创建模型数据
         setupProfileCellData()
-        
     }
     
     /// 设置导航栏
@@ -124,102 +119,125 @@ extension ProfileViewController {
     }
     
     
-    /// 用于给Profile界面中的cell设置数据
+    /// 创建Profile界面中的cell的模型数据
     private func setupProfileCellData() {
         
         // 创建cell模型
         DispatchQueue.global().async {
             
+            // MARK: - 第一组cell
+            
             // 创建消息中心模型
-            // 消息中心：mine_msg_24x24_
             let msgCell = ProfileCellModel(cellImageName: "mine_msg_24x24_", cellTitle: "消息中心")
+            // 创建一个模型数组group0
+            var group0 = [ProfileCellModel]()
+            // 将模型存放在数组中
+            group0.append(msgCell)
+            // 将模型数组group0存放在数组groupArr中
+            self.groupArr.append(group0)
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            
+            // MARK: - 第二组cell
             
             
-            // 将消息中心模型添加到数组中
-            self.profileArr.append(msgCell)
-            
-            // 我的余额：mine_balance_24x24_     副标题：登陆后可同步
+            // 创建我的余额模型
             let balanceCell = ProfileCellModel(cellImageName: "mine_balance_24x24_", cellTitle: "我的余额", cellSubtitle: "登陆后可同步")
-            self.profileArr.append(balanceCell)
-            
-            // 已购项目：mine_pay_24x24_     副标题：登陆后可同步
+            // 创建已购项目模型
             let payCell = ProfileCellModel(cellImageName: "mine_pay_24x24_", cellTitle: "已购项目", cellSubtitle: "登陆后可同步")
-            self.profileArr.append(payCell)
-            
-            // 我的优惠券：mine_ticket_24x24_     副标题：登陆后可同步
+            // 创建我的优惠券模型
             let ticketCell = ProfileCellModel(cellImageName: "mine_ticket_24x24_", cellTitle: "我的优惠券", cellSubtitle: "登陆后可同步")
-            self.profileArr.append(ticketCell)
+            // 创建模型数组group1
+            var group1 = [ProfileCellModel]()
+            // 将模型存放在模型数组中
+            group1.append(balanceCell)
+            group1.append(payCell)
+            group1.append(ticketCell)
+            // 将模型数组group1存放到数组groupArr中
+            self.groupArr.append(group1)
             
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            // MARK: - 第三组cell
             
             
-            // 蜻蜓商城：mine_yzh_24x24_
+            // 创建蜻蜓商城模型
             let yzhCell = ProfileCellModel(cellImageName: "mine_yzh_24x24_", cellTitle: "蜻蜓商城")
-            self.profileArr.append(yzhCell)
-            
-            // 9块9包邮：mine_wemart_24x24_     副标题：9块9包邮
+            // 创建9块9包邮模型
             let wemartCell = ProfileCellModel(cellImageName: "mine_wemart_24x24_", cellTitle: "9块9包邮", cellSubtitle: "9块9包邮")
-            self.profileArr.append(wemartCell)
+            // 创建模型数组group2
+            var group2 = [ProfileCellModel]()
+            // 将模型存放到模型数组中
+            group2.append(yzhCell)
+            group2.append(wemartCell)
+            // 将模型数组group2存放到数组groupArr中
+            self.groupArr.append(group2)
             
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            // MARK: - 第四组cell
             
             
-            
-            // 我的会员：me_member_20x20_        还有两个小图标
+            // 创建我的会员模型
             let memberCell = ProfileCellModel(cellImageName: "me_member_20x20_", cellTitle: "我的会员")
-            self.profileArr.append(memberCell)
+            // 创建模型数组group3
+            var group3 = [ProfileCellModel]()
+            // 将模型存放到模型数组group3中
+            group3.append(memberCell)
+            // 将模型数组group3存放到数组groupArr中
+            self.groupArr.append(group3)
             
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            // MARK: - 第五组cell
             
             
-            // 游戏中心：mine_gamecenter_24x24_      副标题：人本艰，一场游戏一场梦
+            // 创建游戏中心模型
             let gamecenterCell = ProfileCellModel(cellImageName: "mine_gamecenter_24x24_", cellTitle: "游戏中心", cellSubtitle: "人本艰，一场游戏一场梦")
-            self.profileArr.append(gamecenterCell)
+            // 创建模型数组group4
+            var group4 = [ProfileCellModel]()
+            // 将模型存放到模型数组group4中
+            group4.append(gamecenterCell)
+            // 将模型数组group4存放到数组groupArr中
+            self.groupArr.append(group4)
             
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            // MARK: - 第六组cell
             
             
-            
-            // 夜间模式：mine_nightMode_24x24_
+            // 创建夜间模式模型
             let nightModeCell = ProfileCellModel(cellImageName: "mine_nightMode_24x24_", cellTitle: "夜间模式")
-            self.profileArr.append(nightModeCell)
-            
-            // 定时关闭：mine_timer_24x24_
+            // 创建定时关闭模型
             let timerCell = ProfileCellModel(cellImageName: "mine_timer_24x24_", cellTitle: "定时关闭")
-            self.profileArr.append(timerCell)
-            
-            // 闹钟：mine_clock_24x24_
+            // 创建闹钟模型
             let clockCell = ProfileCellModel(cellImageName: "mine_clock_24x24_", cellTitle: "闹钟")
-            self.profileArr.append(clockCell)
-            
-            // 预约：mine_subscribe_24x24_
+            // 创建预约模型
             let subscribeCell = ProfileCellModel(cellImageName: "mine_subscribe_24x24_", cellTitle: "预约")
-            self.profileArr.append(subscribeCell)
+            // 创建模型数组group5
+            var group5 = [ProfileCellModel]()
+            // 将模型存放到模型数组group5中
+            group5.append(nightModeCell)
+            group5.append(timerCell)
+            group5.append(clockCell)
+            group5.append(subscribeCell)
+            // 将模型数组group5存放到数组groupArr中
+            self.groupArr.append(group5)
             
             
-            ////////////////////////////////////////////////////////////////////////////////////
+            // MARK: - 第七组cell
             
             
-            
-            // 设置：mine_setting_24x24_
+            // 创建设置模型
             let settingCell = ProfileCellModel(cellImageName: "mine_setting_24x24_", cellTitle: "设置")
-            self.profileArr.append(settingCell)
+            // 创建模型数组group6
+            var group6 = [ProfileCellModel]()
+            // 将设置模型存放到模型数组group6中
+            group6.append(settingCell)
+            // 将模型数组group6存放到数组groupArr中
+            self.groupArr.append(group6)
+            
         }
         
         // 刷新表格
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
-        
-        
-        
     }
 }
 
@@ -250,16 +268,17 @@ extension ProfileViewController {
 extension ProfileViewController: UITableViewDataSource {
     
     // 返回cell的分组数
-//    func numberOfSections(in tableView: UITableView) -> Int {
-////        return 7
-//        return profileArr.count
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        // 返回分组数
+        return groupArr.count
+    }
     
     // 返回每一组的cell数量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         // 返回每一组中cell的数量
-        return profileArr.count
+        return groupArr[section].count
         
     }
     
@@ -276,8 +295,11 @@ extension ProfileViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .value1, reuseIdentifier: kTableViewCellIdentifier)
         }
         
-        // 取出cell
-        let item = profileArr[indexPath.row]
+        // 取出存放cell的数组
+        let cellArr = groupArr[indexPath.section]
+        
+        // 从数组中取出cell
+        let item = cellArr[indexPath.row]
         
         // 设置cell的配图
         cell?.imageView?.image = UIImage(named: item.cellImageName)

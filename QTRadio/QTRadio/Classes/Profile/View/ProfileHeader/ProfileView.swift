@@ -20,7 +20,6 @@ class ProfileView: UIView {
         let collectFrame = CGRect(x: 0, y: 0, width: frame.width / 2.0, height: frame.height * 0.5)
         let collect = ProfileCommonView(frame: collectFrame, imageName: "mine_collection_30x30_", title: "我的收藏", subtitle: "0")
         
-        
         return collect
     }()
     
@@ -67,6 +66,43 @@ class ProfileView: UIView {
         
     }
     
+    override func draw(_ rect: CGRect) {
+        
+        // 绘制直线
+        drawStraightLine()
+    }
+    
+    /// 绘制线条。"我的收藏", "我的下载"
+    /// "我的主播", "收听历史"四个模块之
+    /// 间的分割线
+    private func drawStraightLine() {
+        
+        // 获取图形上下文
+        guard let ctx: CGContext = UIGraphicsGetCurrentContext() else { return }
+        
+        // 创建路径对象
+        let path: UIBezierPath = UIBezierPath()
+        
+        // 创建第一根线
+        path.move(to: CGPoint(x: frame.width * 0.5, y: 0))  // 设置路径的起点
+        path.addLine(to: CGPoint(x: frame.width * 0.5, y: frame.height))  // 设置路径的终点
+        
+        // 添加第二根线
+        path.move(to: CGPoint(x: 0, y: frame.height * 0.5))
+        path.addLine(to: CGPoint(x: frame.width, y: frame.height * 0.5))
+        
+        // 将绘制的内容添加到上下文中
+        ctx.addPath(path.cgPath)
+        
+        // 设置线宽
+        ctx.setLineWidth(0.3)
+        
+        // 设置线条的颜色
+        UIColor.lightGray.setStroke()
+        
+        // 将上下文中的内容显示到view控件上(即渲染到view的layer上，通常用stroke或者fill) */
+        ctx.strokePath()
+    }
 }
 
 
@@ -91,19 +127,6 @@ extension ProfileView {
         
         // 添加收听历史
         addSubview(history)
-        
-        // 设置边框和颜色
-        collect.layer.borderColor = (UIColor.lightGray).cgColor
-        collect.layer.borderWidth = 0.5
-        
-        download.layer.borderColor = (UIColor.lightGray).cgColor
-        download.layer.borderWidth = 0.5
-        
-        anchor.layer.borderColor = (UIColor.lightGray).cgColor
-        anchor.layer.borderWidth = 0.5
-        
-        history.layer.borderColor = (UIColor.lightGray).cgColor
-        history.layer.borderWidth = 0.5
         
         // 添加点击手势
         addTapGesture()

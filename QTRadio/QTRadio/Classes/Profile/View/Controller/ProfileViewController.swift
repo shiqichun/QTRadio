@@ -279,7 +279,6 @@ extension ProfileViewController: UITableViewDataSource {
 
         // 返回每一组中cell的数量
         return groupArr[section].count
-        
     }
     
     // 返回cell
@@ -295,11 +294,11 @@ extension ProfileViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .value1, reuseIdentifier: kTableViewCellIdentifier)
         }
         
-        // 取出存放cell的数组
-        let cellArr = groupArr[indexPath.section]
+        // 从数组groupArr中取出存放cell模型的数组
+        let cellModelArr = groupArr[indexPath.section]
         
-        // 从数组中取出cell
-        let item = cellArr[indexPath.row]
+        // 从存放cell模型的数组中取出cell模型
+        let item = cellModelArr[indexPath.row]
         
         // 设置cell的配图
         cell?.imageView?.image = UIImage(named: item.cellImageName)
@@ -311,7 +310,7 @@ extension ProfileViewController: UITableViewDataSource {
         cell?.detailTextLabel?.text = item.cellSubtitle
         cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
         
-        // 设置cell右边箭头
+        // 设置cell附件样式
         cell?.accessoryType = .disclosureIndicator
         
         return cell!

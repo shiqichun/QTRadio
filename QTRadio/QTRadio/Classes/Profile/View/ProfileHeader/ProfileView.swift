@@ -197,7 +197,7 @@ extension ProfileView {
         
         // 创建控制器
         let vc = UIViewController()
-        vc.view.backgroundColor = UIColor.brown
+        vc.view.backgroundColor = UIColor.randomColor()
         
         // 通过当前选中的导航控制器push到下一个控制器
         nav.pushViewController(vc, animated: true)

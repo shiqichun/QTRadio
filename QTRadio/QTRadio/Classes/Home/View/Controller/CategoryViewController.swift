@@ -55,7 +55,8 @@ class CategoryViewController: UIViewController {
         collectionView.dataSource = self
 
         // 注册cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+//        collectionView.register(UINib(nibName: "CategoryCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
         return collectionView
     }()
@@ -112,9 +113,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 根据可重用标识符取出cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath)
-        
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! CategoryCollectionCell
         
         // 返回cell
         return cell

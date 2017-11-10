@@ -14,6 +14,7 @@
 		C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B21FA9907800CD9A7A /* HomeViewController.swift */; };
 		C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B61FA990A400CD9A7A /* DownloadViewController.swift */; };
 		C50041B91FA990D200CD9A7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50041B81FA990D200CD9A7A /* ProfileViewController.swift */; };
+		C508F6E01FB5F10F0033DBB4 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C508F6DE1FB5F10F0033DBB4 /* CategoryCollectionCell.swift */; };
 		C522CCE91FB0346D00EA20C6 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */; };
 		C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */; };
 		C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */; };
@@ -79,6 +80,7 @@
 		C50041B21FA9907800CD9A7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C50041B61FA990A400CD9A7A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		C50041B81FA990D200CD9A7A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C508F6DE1FB5F10F0033DBB4 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
 		C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		C50041911FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C508F6DD1FB5F0CE0033DBB4 /* Cells */,
 				C57983931FB495E600643B9B /* CategoryHeader */,
 				C50041921FA98ED600CD9A7A /* Controller */,
 			);
@@ -491,6 +494,14 @@
 				C5FB93F51FACC57F006F721C /* QTNavigationController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C508F6DD1FB5F0CE0033DBB4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C508F6DE1FB5F10F0033DBB4 /* CategoryCollectionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C522CCEB1FB05B4300EA20C6 /* ProfileHeader */ = {
@@ -785,6 +796,7 @@
 				C5FB94631FADCF71006F721C /* AlbumModel.swift in Sources */,
 				C5FB94611FADC2BE006F721C /* FavoriteViewModel.swift in Sources */,
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
+				C508F6E01FB5F10F0033DBB4 /* CategoryCollectionCell.swift in Sources */,
 				C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */,
 				C5B97F2C1FAEE48300F2BB10 /* AlbumViewCell.swift in Sources */,
 				C5B97F291FAEDDAD00F2BB10 /* DailyViewController.swift in Sources */,

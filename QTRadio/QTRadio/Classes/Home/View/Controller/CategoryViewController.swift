@@ -56,7 +56,6 @@ class CategoryViewController: UIViewController {
 
         // 注册cell
         collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
-//        collectionView.register(UINib(nibName: "CategoryCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
         return collectionView
     }()
@@ -70,6 +69,8 @@ class CategoryViewController: UIViewController {
     }()
     
     
+    /// 模型数组，用于存储转换完成的模型
+    fileprivate lazy var categoryModelArr: [CategoryCollectionModel] = [CategoryCollectionModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +97,31 @@ extension CategoryViewController {
         
         // 添加顶部的headerView
         collectionView.addSubview(categoryHeaderView)
-    }  
+        
+        // 将plist文件中的数据转换为模型数据
+        setupCollectionViewCellData()
+    }
+    
+    
+    /// 将plist文件中的字典数据转换为模型数据
+    private func setupCollectionViewCellData() {
+        
+        // 获取plist文件的路径
+        guard let filePath = Bundle.main.path(forResource: "Category.plist", ofType: nil) else { return }
+        
+        // 加载plist文件中的字典数据，然后将其存放在一个数组中
+        let dictArr = NSArray(contentsOfFile: filePath) as! [[String : Any]]
+        
+        // 遍历数组中的字典
+        for dict in dictArr {
+            
+            // 将字典转为模型
+            let item = CategoryCollectionModel(dict: dict)
+            
+            // 将转换完成的模型存储到数组中
+            categoryModelArr.append(item)
+        }
+    }
 }
 
 
@@ -107,13 +132,22 @@ extension CategoryViewController: UICollectionViewDataSource {
     
     // 返回cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 33
+        return categoryModelArr.count
     }
     
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 根据可重用标识符取出cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! CategoryCollectionCell
+        
+        // 从存储模型的数组categoryModelArr中取出数据模型
+        let item = categoryModelArr[indexPath.row]
+        
+        // 设置cell的图片
+        cell.imageView.image = UIImage(named: item.imageName)
+        
+        // 设置cell的标题
+        cell.titleLabel.text = item.title
         
         // 返回cell
         return cell

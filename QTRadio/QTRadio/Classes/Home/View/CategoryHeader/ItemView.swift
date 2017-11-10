@@ -27,7 +27,6 @@ class ItemView: UIView {
         
         let imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
-//        imageView.sizeToFit()
         return imageView
     }()
     
@@ -86,8 +85,8 @@ extension ItemView {
         // 布局imageView控件
         imageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
             make.left.equalTo(self).offset(30)
         }
         

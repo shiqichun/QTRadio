@@ -22,7 +22,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     // MARK: - 懒加载属性
     
     /// 图片控件
-    fileprivate lazy var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         
         let imageView = UIImageView()
         imageView.image = UIImage(named: "category_01")
@@ -30,7 +30,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     }()
     
     /// 标题控件
-    fileprivate lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         
         let label = UILabel()
         label.text = "相声小品"
@@ -87,8 +87,8 @@ extension CategoryCollectionCell {
         
         // 布局imageView的位置
         imageView.snp.makeConstraints { (make) in
-            make.width.equalTo(cellWidth * 0.3)
-            make.height.equalTo(cellWidth * 0.3)
+            make.width.equalTo(cellWidth * 0.4)
+            make.height.equalTo(cellWidth * 0.4)
             make.centerX.equalTo(self)
             make.centerY.equalTo(self)
         }

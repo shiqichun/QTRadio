@@ -1,36 +1,44 @@
 //
-//  ItemView.swift
+//  RecommendHotWordGridItem.swift
 //  QTRadio
 //
-//  Created by Enrica on 2017/11/9.
+//  Created by Enrica on 2017/11/12.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class ItemView: UIView {
+
+/// 间距
+private let kMargin: CGFloat = 10
+
+class RecommendHotWordGridItem: UIView {
     
     // MARK: - 私有属性
     
-    /// 保存图片的名称
+    /// item的高度
+    fileprivate var itemHeight: CGFloat
+    
+    /// imageName
     fileprivate var imageName: String
     
-    /// 保存标题
+    /// title
     fileprivate var title: String
-    
 
     // MARK: - 懒加载属性
     
-    /// 图片控件
+    /// imageView
     fileprivate lazy var imageView: UIImageView = {
         
-        let imageView = UIImageView()
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: itemHeight - kMargin, height: itemHeight - kMargin))
         imageView.image = UIImage(named: imageName)
+        imageView.layer.cornerRadius = imageView.bounds.width * 0.5
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
-    /// 文字控件
+    /// titleLabel
     fileprivate lazy var titleLabel: UILabel = {
         
         let label = UILabel()
@@ -40,20 +48,14 @@ class ItemView: UIView {
         return label
     }()
     
-    
-    // MARK: - 自定义构造函数
-    
-    /// 自定义控件
-    /// - 参数frame：表示控件的frame
-    /// - 参数imageName：表示图片的名称
-    /// - 参数title：表示标题的名称
+    // MARK: - 构造函数
     init(frame: CGRect, imageName: String, title: String) {
         
         // 初始化私有属性
+        self.itemHeight = frame.size.height
         self.imageName = imageName
         self.title = title
         
-        // 初始化父类的属性
         super.init(frame: frame)
         
         // 统一设置UI界面
@@ -69,34 +71,35 @@ class ItemView: UIView {
 
 
 // MARK: - 设置UI界面
-extension ItemView {
+extension RecommendHotWordGridItem {
     
-    /// 统一设置UI界面
+    /// 设置UI界面
     fileprivate func setupUI() {
         
-        // 添加图片控件
+        // imageView
         addSubview(imageView)
         
-        // 添加文字控件
+        // titleLabel
         addSubview(titleLabel)
     }
     
     
-    /// 布局子控件的位置
     override func layoutSubviews() {
         
-        // 布局imageView控件
+        // imageView
         imageView.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self)
-            make.width.equalTo(40)
-            make.height.equalTo(40)
-            make.left.equalTo(self).offset(30)
+            make.top.equalTo(self).offset(kMargin * 0.5)
+            make.left.equalTo(self).offset(kMargin)
+            make.bottom.equalTo(self).offset(-(kMargin * 0.5))
+            make.width.equalTo(itemHeight - kMargin)
         }
         
-        // 布局titleLabel控件
+        
+        
+        // titleLabel
         titleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(imageView.snp.right).offset(kMargin)
             make.centerY.equalTo(self)
-            make.left.equalTo(imageView.snp.right).offset(10)
         }
     }
 }

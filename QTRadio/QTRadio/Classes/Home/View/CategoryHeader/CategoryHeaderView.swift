@@ -21,17 +21,16 @@ class CategoryHeaderView: UIView {
     // MARK: - 懒加载属性
     
     /// 分类headerView的上半部分
-    fileprivate lazy var categoryTopView: UIView = {
+    fileprivate lazy var categoryTopView: CategoryTopView = {
         
-        let categoryTopView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: categoryHeaderViewHeight * 0.7))
-        categoryTopView.backgroundColor = .white
+        let categoryTopView = CategoryTopView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: categoryHeaderViewHeight * 0.8))
         return categoryTopView
     }()
     
     /// 分类headerView的下半部分
     fileprivate lazy var categoryBottomView: CategoryBottomView = {
         
-        let categoryBottomView = CategoryBottomView(frame: CGRect(x: 0, y: categoryHeaderViewHeight * 0.7 + kMargin, width: kScreenWidth, height: categoryHeaderViewHeight * 0.3 - kMargin))
+        let categoryBottomView = CategoryBottomView(frame: CGRect(x: 0, y: categoryHeaderViewHeight * 0.8 + kMargin, width: kScreenWidth, height: categoryHeaderViewHeight * 0.2 - kMargin))
         return categoryBottomView
     }()
     

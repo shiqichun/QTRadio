@@ -9,28 +9,35 @@
 
 import UIKit
 
-// item之间的间距
+/// 通用间距
+private let kMargin: CGFloat = 5
+
+/// item之间的间距
 private let kItemMargin: CGFloat = 15
 
-// item的列数
+/// item的列数
 private let kItemCols: CGFloat = 3
 
-// item的宽度
+/// item的宽度
 private let kItemWidth: CGFloat = (kScreenWidth - (kItemCols + 1) * kItemMargin) / kItemCols
 
-// item的高度
+/// item的高度
 private let kItemHeight: CGFloat = kItemWidth * 1.3
 
-// CollectionViewCell的可重用标识
+/// CollectionViewCell的可重用标识
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
 
 
-// headerReference的高度
+/// headerReference的高度
 private let kHeaderReferenceHeight: CGFloat = 44
 
-// headerReference的可重用标识符
+/// headerReference的可重用标识符
 private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
+
+
+/// containerHeight的高度
+private let kContainerHeight: CGFloat = 380
 
 
 
@@ -81,6 +88,18 @@ class RecommendViewController: UIViewController {
         
         return collectionView
     }()
+    
+    /// 顶部的containerView
+    fileprivate lazy var contaierView: RecommendContainerView = {
+        
+        let contaierView = RecommendContainerView(frame: CGRect(x: 0, y: -kContainerHeight, width: kScreenWidth, height: kContainerHeight))
+        
+        return contaierView
+    }()
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +121,10 @@ extension RecommendViewController {
         view.addSubview(collectionView)
         
         // 设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: kItemMargin, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kContainerHeight, left: 0, bottom: kItemMargin, right: 0)
+        
+        // 将contaierView添加到collectionView上面
+        collectionView.addSubview(contaierView)
     }
 }
 
@@ -114,7 +136,7 @@ extension RecommendViewController: UICollectionViewDataSource {
     
     // 返回collectionView的分组数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 33
+        return 3
     }
     
     // 返回每一组cell的行数

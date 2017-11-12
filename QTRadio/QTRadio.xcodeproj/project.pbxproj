@@ -18,7 +18,17 @@
 		C522CCE91FB0346D00EA20C6 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */; };
 		C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */; };
 		C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */; };
+		C52EF21B1FB8078900E405A8 /* RecommendHotWordGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EF21A1FB8078900E405A8 /* RecommendHotWordGridItem.swift */; };
+		C52EF21D1FB8150B00E405A8 /* CategoryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EF21C1FB8150B00E405A8 /* CategoryTopView.swift */; };
+		C52EF21F1FB8195B00E405A8 /* CategoryTopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EF21E1FB8195B00E405A8 /* CategoryTopViewCell.swift */; };
 		C5325CCA1FB5FC2200F2F797 /* CategoryCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */; };
+		C54ABFD41FB7F2EB00DCFCD9 /* RecommendBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD21FB7F2EB00DCFCD9 /* RecommendBannerView.swift */; };
+		C54ABFD51FB7F2EB00DCFCD9 /* RecommendBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54ABFD31FB7F2EB00DCFCD9 /* RecommendBannerView.xib */; };
+		C54ABFD71FB7F32900DCFCD9 /* RecommendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD61FB7F32900DCFCD9 /* RecommendContainerView.swift */; };
+		C54ABFD91FB7F81700DCFCD9 /* RecommentIconGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD81FB7F81700DCFCD9 /* RecommentIconGridView.swift */; };
+		C54ABFDB1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFDA1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift */; };
+		C55996BC1FB831B900E05B3A /* CategoryTopViewCell.plist in Resources */ = {isa = PBXBuildFile; fileRef = C55996BB1FB831B900E05B3A /* CategoryTopViewCell.plist */; };
+		C55996BE1FB8331300E05B3A /* CategoryTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55996BD1FB8331300E05B3A /* CategoryTopViewModel.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
@@ -85,7 +95,17 @@
 		C522CCE71FB0346D00EA20C6 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		C522CCE81FB0346D00EA20C6 /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
 		C522CCEC1FB05B6400EA20C6 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		C52EF21A1FB8078900E405A8 /* RecommendHotWordGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHotWordGridItem.swift; sourceTree = "<group>"; };
+		C52EF21C1FB8150B00E405A8 /* CategoryTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTopView.swift; sourceTree = "<group>"; };
+		C52EF21E1FB8195B00E405A8 /* CategoryTopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTopViewCell.swift; sourceTree = "<group>"; };
 		C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionModel.swift; sourceTree = "<group>"; };
+		C54ABFD21FB7F2EB00DCFCD9 /* RecommendBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendBannerView.swift; sourceTree = "<group>"; };
+		C54ABFD31FB7F2EB00DCFCD9 /* RecommendBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendBannerView.xib; sourceTree = "<group>"; };
+		C54ABFD61FB7F32900DCFCD9 /* RecommendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendContainerView.swift; sourceTree = "<group>"; };
+		C54ABFD81FB7F81700DCFCD9 /* RecommentIconGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentIconGridView.swift; sourceTree = "<group>"; };
+		C54ABFDA1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHotWordGridView.swift; sourceTree = "<group>"; };
+		C55996BB1FB831B900E05B3A /* CategoryTopViewCell.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CategoryTopViewCell.plist; sourceTree = "<group>"; };
+		C55996BD1FB8331300E05B3A /* CategoryTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTopViewModel.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
@@ -222,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */,
+				C55996BD1FB8331300E05B3A /* CategoryTopViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +250,7 @@
 		C50041911FA98ED600CD9A7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C54ABFD11FB7F2EB00DCFCD9 /* HeaderView */,
 				C508F6DD1FB5F0CE0033DBB4 /* Cells */,
 				C57983931FB495E600643B9B /* CategoryHeader */,
 				C50041921FA98ED600CD9A7A /* Controller */,
@@ -503,6 +525,8 @@
 			isa = PBXGroup;
 			children = (
 				C508F6DE1FB5F10F0033DBB4 /* CategoryCollectionCell.swift */,
+				C52EF21E1FB8195B00E405A8 /* CategoryTopViewCell.swift */,
+				C55996BB1FB831B900E05B3A /* CategoryTopViewCell.plist */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -519,6 +543,19 @@
 			path = ProfileHeader;
 			sourceTree = "<group>";
 		};
+		C54ABFD11FB7F2EB00DCFCD9 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C54ABFD61FB7F32900DCFCD9 /* RecommendContainerView.swift */,
+				C54ABFD21FB7F2EB00DCFCD9 /* RecommendBannerView.swift */,
+				C54ABFD31FB7F2EB00DCFCD9 /* RecommendBannerView.xib */,
+				C54ABFD81FB7F81700DCFCD9 /* RecommentIconGridView.swift */,
+				C54ABFDA1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift */,
+				C52EF21A1FB8078900E405A8 /* RecommendHotWordGridItem.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
 		C56E80F91FAA16670072B79B /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				C57983941FB4983400643B9B /* CategoryHeaderView.swift */,
+				C52EF21C1FB8150B00E405A8 /* CategoryTopView.swift */,
 				C57983961FB49CDB00643B9B /* CategoryBottomView.swift */,
 				C579839A1FB4A11D00643B9B /* ItemView.swift */,
 			);
@@ -710,7 +748,9 @@
 				C56E80FB1FAA16870072B79B /* Category.plist in Resources */,
 				C588CCAC1FB2C48B00D6703A /* AvatarView.xib in Resources */,
 				C522CCEA1FB0346D00EA20C6 /* DailyTableViewCell.xib in Resources */,
+				C55996BC1FB831B900E05B3A /* CategoryTopViewCell.plist in Resources */,
 				C50041601FA98E5900CD9A7A /* Assets.xcassets in Resources */,
+				C54ABFD51FB7F2EB00DCFCD9 /* RecommendBannerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,8 +831,10 @@
 				C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
 				C5FB93F61FACC57F006F721C /* QTNavigationController.swift in Sources */,
+				C52EF21D1FB8150B00E405A8 /* CategoryTopView.swift in Sources */,
 				C5FB93F21FAC503A006F721C /* BottomView.swift in Sources */,
 				C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */,
+				C54ABFD41FB7F2EB00DCFCD9 /* RecommendBannerView.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */,
 				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
@@ -801,11 +843,14 @@
 				C50041B11FA9905900CD9A7A /* MainViewController.swift in Sources */,
 				C508F6E01FB5F10F0033DBB4 /* CategoryCollectionCell.swift in Sources */,
 				C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */,
+				C54ABFDB1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift in Sources */,
 				C5B97F2C1FAEE48300F2BB10 /* AlbumViewCell.swift in Sources */,
 				C5B97F291FAEDDAD00F2BB10 /* DailyViewController.swift in Sources */,
 				C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */,
 				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
+				C54ABFD71FB7F32900DCFCD9 /* RecommendContainerView.swift in Sources */,
 				C588A7C71FB2F28C00FA9A05 /* ProfileCommonView.swift in Sources */,
+				C52EF21B1FB8078900E405A8 /* RecommendHotWordGridItem.swift in Sources */,
 				C57983951FB4983400643B9B /* CategoryHeaderView.swift in Sources */,
 				C5FB93E41FAB550D006F721C /* LoginView.swift in Sources */,
 				C5FB945B1FADB337006F721C /* NetworkTools.swift in Sources */,
@@ -824,12 +869,15 @@
 				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C588CCAA1FB2102B00D6703A /* AvatarView.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
+				C55996BE1FB8331300E05B3A /* CategoryTopViewModel.swift in Sources */,
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
 				C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
+				C54ABFD91FB7F81700DCFCD9 /* RecommentIconGridView.swift in Sources */,
 				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,
 				C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */,
 				C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */,
+				C52EF21F1FB8195B00E405A8 /* CategoryTopViewCell.swift in Sources */,
 				C5325CCA1FB5FC2200F2F797 /* CategoryCollectionModel.swift in Sources */,
 				C5B97F7B1FAF0DD300F2BB10 /* DailyModel.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,

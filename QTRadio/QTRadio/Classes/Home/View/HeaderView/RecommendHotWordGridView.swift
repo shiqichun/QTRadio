@@ -18,7 +18,7 @@ class RecommendHotWordGridView: UIView {
     /// topLeftView  default_user_avatar_68x68_
     fileprivate lazy var topLeftView: RecommendHotWordGridItem = {
         
-        let topLeft = RecommendHotWordGridItem(frame: CGRect(x: 0, y: 0, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "default_user_avatar_68x68_", title: "高晓松")
+        let topLeft = RecommendHotWordGridItem(frame: CGRect(x: 0, y: 0, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "hotWordIcon_placeholder_22x22_", title: "高晓松")
         return topLeft
     }()
     
@@ -26,7 +26,7 @@ class RecommendHotWordGridView: UIView {
     /// topRightView
     fileprivate lazy var topRightView: RecommendHotWordGridItem = {
         
-        let topRight = RecommendHotWordGridItem(frame: CGRect(x: kScreenWidth * 0.5, y: 0, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "default_user_avatar_68x68_", title: "高晓松")
+        let topRight = RecommendHotWordGridItem(frame: CGRect(x: kScreenWidth * 0.5, y: 0, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "hotWordIcon_placeholder_22x22_", title: "高晓松")
         return topRight
     }()
     
@@ -34,7 +34,7 @@ class RecommendHotWordGridView: UIView {
     /// bottomLeftView
     fileprivate lazy var bottomLeftView: RecommendHotWordGridItem = {
         
-        let bottomLeft = RecommendHotWordGridItem(frame: CGRect(x: 0, y: hotWordGridViewHeight * 0.5, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "default_user_avatar_68x68_", title: "高晓松")
+        let bottomLeft = RecommendHotWordGridItem(frame: CGRect(x: 0, y: hotWordGridViewHeight * 0.5, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "hotWordIcon_placeholder_22x22_", title: "高晓松")
         return bottomLeft
     }()
     
@@ -42,7 +42,7 @@ class RecommendHotWordGridView: UIView {
     /// bottomRightView
     fileprivate lazy var bottomRightView: RecommendHotWordGridItem = {
         
-        let bottomRight = RecommendHotWordGridItem(frame: CGRect(x: kScreenWidth * 0.5, y: hotWordGridViewHeight * 0.5, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "default_user_avatar_68x68_", title: "高晓松")
+        let bottomRight = RecommendHotWordGridItem(frame: CGRect(x: kScreenWidth * 0.5, y: hotWordGridViewHeight * 0.5, width: kScreenWidth * 0.5, height: hotWordGridViewHeight * 0.5), imageName: "hotWordIcon_placeholder_22x22_", title: "高晓松")
         return bottomRight
     }()
     

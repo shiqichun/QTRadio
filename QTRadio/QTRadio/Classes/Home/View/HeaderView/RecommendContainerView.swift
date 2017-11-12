@@ -12,7 +12,7 @@ import UIKit
 private let kBannerViewHeight: CGFloat = 145
 
 /// iconGridHeight:
-private let kIconGridHeight: CGFloat = 145
+private let kIconGridHeight: CGFloat = 160
 
 /// 间距
 private let kMargin: CGFloat = 5
@@ -29,8 +29,7 @@ class RecommendContainerView: UIView {
     /// 顶部的Banner
     fileprivate lazy var bannerView: RecommendBannerView = {
         
-        let bannerView = RecommendBannerView.recommendBannerView()
-        bannerView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kBannerViewHeight)
+        let bannerView = RecommendBannerView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kBannerViewHeight))
         return bannerView
     }()
     
@@ -44,7 +43,7 @@ class RecommendContainerView: UIView {
     /// 底部的HotWordGrid
     fileprivate lazy var hotWordGridView: RecommendHotWordGridView = {
         
-        let hotWordGridView = RecommendHotWordGridView(frame: CGRect(x: 0, y: kBannerViewHeight + kIconGridHeight + kMargin, width: kScreenWidth, height: containerHeight - kBannerViewHeight - kIconGridHeight - 2 * kMargin))
+        let hotWordGridView = RecommendHotWordGridView(frame: CGRect(x: 0, y: kBannerViewHeight + kIconGridHeight + kMargin, width: kScreenWidth, height: containerHeight - kBannerViewHeight - kIconGridHeight - kMargin))
         
         
         return hotWordGridView

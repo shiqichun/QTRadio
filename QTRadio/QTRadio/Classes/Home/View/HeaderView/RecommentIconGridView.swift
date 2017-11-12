@@ -13,9 +13,6 @@ import UIKit
 /// item的宽度
 private let kItemWidth: CGFloat = kScreenWidth / 5.0
 
-/// item的高度
-private let kItemHeight: CGFloat = kItemWidth
-
 /// collectionView的cell可重用标识符
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
@@ -30,7 +27,7 @@ class RecommentIconGridView: UIView {
     fileprivate lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: kItemWidth, height: kItemHeight)
+        layout.itemSize = CGSize(width: kItemWidth, height: iconGridViewHeight * 0.5)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
@@ -39,7 +36,7 @@ class RecommentIconGridView: UIView {
         
         
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        collectionView.register(RecommendIconGridViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
         return collectionView
     }()
@@ -90,9 +87,7 @@ extension RecommentIconGridView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         //
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath)
-        
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! RecommendIconGridViewCell
         
         return cell
     }

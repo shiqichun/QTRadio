@@ -8,37 +8,69 @@
 // 推荐界面的无线轮播器(或者说banner)
 
 import UIKit
+import SnapKit
 
 
 /// collectionViewCell标识符
 private let kBannerCellIdentifier = "kBannerCellIdentifier"
 
+/// recommendIndicator的高度
+private let kRecommendIndicatorHeight: CGFloat = 3
+
 class RecommendBannerView: UIView {
+    
+    // MARK: - 私有属性
+    
+    /// bannerViewHeight
+    fileprivate var bannerViewHeight: CGFloat
 
     // MARK: - 控件属性
     
     /// collectionView控件
-    @IBOutlet weak var bannerCollectionView: UICollectionView!
+    lazy var recommendBannerView: UICollectionView = {
+        
+        // 创建layout
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: kScreenWidth, height: bannerViewHeight)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+
+        // 创建collectionView
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: bannerViewHeight), collectionViewLayout: layout)
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        // 设置数据源代理，并注册cell
+        collectionView.dataSource = self
+        collectionView.register(RecommendBannerViewCell.self, forCellWithReuseIdentifier: kBannerCellIdentifier)
+        
+        return collectionView
+    }()
     
     /// pageControl控件
-    @IBOutlet weak var pageControl: UIPageControl!
+    lazy var recommendIndicator: UIView = {
+        let recommendIndicator = UIView()
+        recommendIndicator.frame = CGRect(x: 0, y: bannerViewHeight - kRecommendIndicatorHeight, width: 50, height: kRecommendIndicatorHeight)
+        recommendIndicator.backgroundColor = UIColor(r: 214, g: 51, b: 52)
+        return recommendIndicator
+    }()
     
     
     // MARK: - 自定义构造函数
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        
+        // 初始化私有属性
+        self.bannerViewHeight = frame.size.height
+        
+        super.init(frame: frame)
         
         // 统一设置UI界面
         setupUI()
     }
     
-    
-    /// 类方法，快速创建一个RecommendBannerView
-    class func recommendBannerView() -> RecommendBannerView {
-        
-        return Bundle.main.loadNibNamed("RecommendBannerView", owner: nil, options: nil)?.first as! RecommendBannerView
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -52,28 +84,11 @@ extension RecommendBannerView {
     /// 统一设置UI界面
     fileprivate func setupUI() {
         
-        // 设置RecommendBannerView不跟随父控件一起
-        // 伸缩。如果忘记设置这个，最后会导致我们的控件
-        // 被缩小得看不见了
-        autoresizingMask = []
+        // 添加collectionView
+        addSubview(recommendBannerView)
         
-        // 注册cell
-        bannerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kBannerCellIdentifier)
-        
-        //
-    }
-    
-    /// 重新布局子控件的frame
-    override func layoutSubviews() {
-        
-        // 取出系统默认的layout，并将其转成流水布局
-        let layout = bannerCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = bannerCollectionView.bounds.size
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        bannerCollectionView.isPagingEnabled = true
-        bannerCollectionView.showsHorizontalScrollIndicator = false
+        // 添加pageControl
+        addSubview(recommendIndicator)
     }
 }
 
@@ -82,17 +97,15 @@ extension RecommendBannerView {
 // MARK: - UICollectionViewDataSource
 extension RecommendBannerView: UICollectionViewDataSource {
     
-    //
+    // 返回cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
     
-    //
+    // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kBannerCellIdentifier, for: indexPath)
-        
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kBannerCellIdentifier, for: indexPath) as! RecommendBannerViewCell
         
         return cell
     }

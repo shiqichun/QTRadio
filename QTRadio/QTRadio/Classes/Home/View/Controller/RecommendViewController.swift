@@ -37,7 +37,7 @@ private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
 
 
 /// containerHeight的高度
-private let kContainerHeight: CGFloat = 380
+private let kContainerHeight: CGFloat = 395
 
 
 
@@ -59,7 +59,7 @@ class RecommendViewController: UIViewController {
         layout.minimumLineSpacing = 0
         
         // 设置item的内边距
-        layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 5, right: kItemMargin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
         
         
         // 设置layout的header
@@ -70,7 +70,7 @@ class RecommendViewController: UIViewController {
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         
         // 设置collectionView的背景颜色
-        collectionView.backgroundColor = UIColor(r: 245, g: 244, b: 249)
+        collectionView.backgroundColor = .white
         
         // 设置collectionView随着父控件的宽度和高度一起拉伸
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -79,11 +79,11 @@ class RecommendViewController: UIViewController {
         collectionView.dataSource = self
         
         // 注册cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        collectionView.register(RecommendViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
         
         // 注册header
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
+        collectionView.register(RecommendReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
         
         
         return collectionView
@@ -148,9 +148,7 @@ extension RecommendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // 根据可重用标识符取出cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath)
-        
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! RecommendViewCell
         
         return cell
     }
@@ -159,9 +157,7 @@ extension RecommendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         // 根据可重用标识符取出header
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath)
-        
-        headerView.backgroundColor = UIColor.randomColor()
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! RecommendReusableView
         
         return headerView
     }

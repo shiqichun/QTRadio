@@ -47,7 +47,7 @@ class RecommendViewModel: NSObject {
     /// hotWordGridModel，用于存储转换完成的HotWordGridModel模型
     lazy var hotWordGridModelArray: [HotWordGridModel] = [HotWordGridModel]()
     
-    /// recommendModel，用于存储转换完成的RecommendModel模型
+    /// recommendModel，用于存储转换完成的RecommendModel模型(33个数据)
     lazy var recommendModelArray: [RecommendModel] = [RecommendModel]()
     
     /// liveShowModel，用于存储转换完成的LiveShowModel模型
@@ -141,8 +141,6 @@ extension RecommendViewModel {
                 self.hotWordGridModelArray.append(hotWordGridItem)
             }
             
-            
-            
             // 取出recommendArray中的字典，然后再将其转为模型
             for recommendDict in self.recommendArray {
                 
@@ -164,13 +162,14 @@ extension RecommendViewModel {
                 self.liveShowModelArray.append(liveShowItem)
             }
             
-            for bannerItem in self.bannerModelArray {
-                for bannerDataItem in bannerItem.bannerDataModelArray {
-                    for bannerDataDataItem in bannerDataItem.bannerDataDataModelArray {
-                        print(bannerDataDataItem.imgUrl)
-                    }
-                }
-            }
+            // 回调
+            completionHandler()
+            
+//            for item in self.recommendModelArray {
+//                for it in item.recommendDataModelArray {
+//                    print(it.data?.count)
+//                }
+//            }
         }
     }
 }

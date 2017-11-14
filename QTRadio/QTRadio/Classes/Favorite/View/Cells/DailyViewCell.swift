@@ -9,7 +9,6 @@
 // 很重要的细节没有实现
 
 import UIKit
-import SnapKit
 
 /// cell距离屏幕左右的间距
 private let kMarigin: CGFloat = 10

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 /// 间距
 private let kMargin: CGFloat = 22

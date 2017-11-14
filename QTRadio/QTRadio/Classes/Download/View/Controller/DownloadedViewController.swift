@@ -8,7 +8,6 @@
 // 主要是用来管理下载模块中已经下载界面
 
 import UIKit
-import SnapKit
 
 class DownloadedViewController: UIViewController {
     

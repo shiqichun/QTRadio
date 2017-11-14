@@ -8,7 +8,6 @@
 // 主要是用来管理下载模块中暂无下载内容这个view
 
 import UIKit
-import SnapKit
 
 
 class DownloadView: UIView {

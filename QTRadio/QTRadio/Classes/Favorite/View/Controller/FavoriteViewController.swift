@@ -8,7 +8,6 @@
 // 收藏模块主控制器
 
 import UIKit
-import Kingfisher
 
 
 /// item之间的间距

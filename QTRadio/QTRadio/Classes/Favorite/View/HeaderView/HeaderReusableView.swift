@@ -8,7 +8,6 @@
 // 主要是用来管理收藏模块中collectionView的headerView
 
 import UIKit
-import SnapKit
 
 
 // 间距

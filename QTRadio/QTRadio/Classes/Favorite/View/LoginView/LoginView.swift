@@ -8,7 +8,6 @@
 // 主要是用来管理收藏模块最顶部立即登录按钮和标题的
 
 import UIKit
-import SnapKit
 
 class LoginView: UIView {
     

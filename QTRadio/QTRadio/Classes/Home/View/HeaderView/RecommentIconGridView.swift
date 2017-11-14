@@ -19,6 +19,20 @@ private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
 
 class RecommentIconGridView: UIView {
+    
+    // MARK: - 模型属性
+    
+    /// 用于接收从控制器传递过来的模型数据
+    var iconGridModelArray: [IconGridModel]? {
+        
+        didSet {
+            // 监听iconGridModelArray数据的改变
+            // 一旦有数据，就刷新表格
+            collectionView.reloadData()
+        }
+    }
+    
+    
 
     // MARK: - 私有属性
     fileprivate var iconGridViewHeight: CGFloat
@@ -33,6 +47,7 @@ class RecommentIconGridView: UIView {
         
         let collectionFrame = CGRect(x: 0, y: 0, width: kScreenWidth, height: iconGridViewHeight)
         let collectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         
         
         collectionView.dataSource = self
@@ -80,14 +95,43 @@ extension RecommentIconGridView: UICollectionViewDataSource {
     
     // 返回每一行cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        // 先校验数组iconGridModelArray是否有值
+        guard let iconGridModelArray = iconGridModelArray else { return 0 }
+        
+        // 再取出分组模型
+        let typeItem = iconGridModelArray[section]
+        
+        // 接着取出标题模型
+        guard let titleItem = typeItem.iconGridDataModelArray.first else { return 0 }
+        
+        // 最后取出标题模型中存放数据的数组，其元素个数就是每一行cell的个数
+        guard let count = titleItem.data?.count else { return 0 }
+        
+        return count
     }
     
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //
+        // 根据可重用标识符取出cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! RecommendIconGridViewCell
+        
+        // 先校验数组iconGridModelArray是否有值
+        guard let iconGridModelArray = iconGridModelArray else { return cell }
+        
+        // 再取出分组模型
+        let typeItem = iconGridModelArray[indexPath.section]
+        
+        // 接着取出标题模型
+        guard let titleItem = typeItem.iconGridDataModelArray.first else { return cell }
+        
+        // 然后取出行模型
+        let dataItem = titleItem.iconGridDataDataModelArray[indexPath.row]
+        
+        // 设置数据
+        cell.cellTitleLabel.text = dataItem.title
+        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
         
         return cell
     }

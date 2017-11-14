@@ -7,11 +7,13 @@
 //
 
 import UIKit
-import SnapKit
 
 
 /// 间距
 private let kMargin: CGFloat = 8
+
+/// imageView的宽度
+private let kImageViewWidth: CGFloat = 42
 
 class RecommendIconGridViewCell: UICollectionViewCell {
     
@@ -22,7 +24,6 @@ class RecommendIconGridViewCell: UICollectionViewCell {
         
         let cellImageView = UIImageView()
         cellImageView.image = UIImage(named: "gridIcon_placeholder_42x42_")
-        cellImageView.sizeToFit()
         
         return cellImageView
     }()
@@ -82,6 +83,8 @@ extension RecommendIconGridViewCell {
         cellImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(kMargin)
             make.centerX.equalTo(self)
+            make.width.equalTo(kImageViewWidth)
+            make.height.equalTo(kImageViewWidth)
         }
         
         

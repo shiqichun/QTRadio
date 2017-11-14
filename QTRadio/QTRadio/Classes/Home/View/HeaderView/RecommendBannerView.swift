@@ -8,7 +8,6 @@
 // 推荐界面的无线轮播器(或者说banner)
 
 import UIKit
-import SnapKit
 
 
 /// collectionViewCell标识符
@@ -18,6 +17,24 @@ private let kBannerCellIdentifier = "kBannerCellIdentifier"
 private let kRecommendIndicatorHeight: CGFloat = 3
 
 class RecommendBannerView: UIView {
+    
+    
+    // MARK: - 模型属性
+    
+    // 用于接收从控制器传递过来的模型数据
+    var bannerModelArray: [BannerModel]? {
+        
+        didSet {
+            
+            // 监听bannerModelArray的改变
+            // 然后刷新表格，重新载入数据
+            recommendBannerView.reloadData()
+        }
+    }
+    
+    
+    
+    
     
     // MARK: - 私有属性
     
@@ -38,6 +55,7 @@ class RecommendBannerView: UIView {
 
         // 创建collectionView
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: bannerViewHeight), collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         
@@ -99,13 +117,41 @@ extension RecommendBannerView: UICollectionViewDataSource {
     
     // 返回cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        
+        // 首先校验数组bannerModelArray是否有值
+        guard let bannerModelArray = bannerModelArray else { return 0 }
+        
+        // 接着取出组模型
+        let typeItem = bannerModelArray[section]
+        
+        // 然后取出title模型
+        guard let titleItem = typeItem.bannerDataModelArray.first else { return 0 }
+        
+        // 接着取出标题模型数组中存放数据的数组data，其中data的个数即为cell的个数
+        guard let count = titleItem.data?.count else { return 0 }
+        
+        return count
     }
     
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kBannerCellIdentifier, for: indexPath) as! RecommendBannerViewCell
+        
+        // 首先校验数组bannerModelArray是否有值
+        guard let bannerModelArray = bannerModelArray else { return cell }
+        
+        // 接着取出分组模型
+        let typeItem = bannerModelArray[indexPath.section]
+        
+        // 然后取出标题模型
+        guard let titleItem = typeItem.bannerDataModelArray.first else { return cell }
+        
+        // 最后取出行模型
+        let dataItem = titleItem.bannerDataDataModelArray[indexPath.row]
+        
+        // 设置数据
+        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
         
         return cell
     }

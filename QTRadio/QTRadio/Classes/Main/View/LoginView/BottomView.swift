@@ -8,7 +8,6 @@
 // 主要是用来管理底部第三方账号注册和登录的圆形按钮
 
 import UIKit
-import SnapKit
 
 /// 第三方登录按钮之间的间距
 private let kButtonMargin: CGFloat = 30

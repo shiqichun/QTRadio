@@ -10,7 +10,6 @@
 import UIKit
 import Kingfisher
 
-
 /// cell可重用标识符
 private let kTableViewCellIdentifier = "tableViewCellIdentifier"
 

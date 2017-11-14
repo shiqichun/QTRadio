@@ -19,7 +19,14 @@ private let kMargin: CGFloat = 5
 
 
 
+
+
+
 class RecommendContainerView: UIView {
+    
+    // MARK: - 模型数据
+    
+    
     
     // MARK: - 私有属性
     fileprivate var containerHeight: CGFloat
@@ -27,21 +34,21 @@ class RecommendContainerView: UIView {
     // MARK: - 懒加载控件
     
     /// 顶部的Banner
-    fileprivate lazy var bannerView: RecommendBannerView = {
+    lazy var bannerView: RecommendBannerView = {
         
         let bannerView = RecommendBannerView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kBannerViewHeight))
         return bannerView
     }()
     
     /// 中间的IconGrid
-    fileprivate lazy var iconGridView: RecommentIconGridView = {
+    lazy var iconGridView: RecommentIconGridView = {
         
         let iconGridView = RecommentIconGridView(frame: CGRect(x: 0, y: kBannerViewHeight, width: kScreenWidth, height: kIconGridHeight))
         return iconGridView
     }()
     
     /// 底部的HotWordGrid
-    fileprivate lazy var hotWordGridView: RecommendHotWordGridView = {
+    lazy var hotWordGridView: RecommendHotWordGridView = {
         
         let hotWordGridView = RecommendHotWordGridView(frame: CGRect(x: 0, y: kBannerViewHeight + kIconGridHeight + kMargin, width: kScreenWidth, height: containerHeight - kBannerViewHeight - kIconGridHeight - kMargin))
         
@@ -88,5 +95,7 @@ extension RecommendContainerView {
         
         // 添加hotWordGridView
         addSubview(hotWordGridView)
+        
+        
     }
 }

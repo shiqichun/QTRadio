@@ -94,12 +94,14 @@ class RecommendViewController: UIViewController {
         
         let contaierView = RecommendContainerView(frame: CGRect(x: 0, y: -kContainerHeight, width: kScreenWidth, height: kContainerHeight))
         
+        // 设置数据
+        
         return contaierView
     }()
     
     
     /// 网络请求
-    fileprivate lazy var reommendViewModel = RecommendViewModel()
+    fileprivate lazy var recommendViewModel = RecommendViewModel()
     
 
     override func viewDidLoad() {
@@ -129,6 +131,8 @@ extension RecommendViewController {
         
         // 请求网络数据
         loadData()
+        
+        
     }
 }
 
@@ -141,10 +145,19 @@ extension RecommendViewController {
     fileprivate func loadData() {
         
         // 通过ViewModel属性来发送网络请求
-        reommendViewModel.requestData(completionHandler: {
+        recommendViewModel.requestData(completionHandler: {
             
             // 重新调用数据源方法
             self.collectionView.reloadData()
+            
+            // 将bannerView的模型数据传递过去
+            self.contaierView.bannerView.bannerModelArray = self.recommendViewModel.bannerModelArray
+            
+            // 将IconGridView的数据传递过去
+            self.contaierView.iconGridView.iconGridModelArray = self.recommendViewModel.iconGridModelArray
+            
+            //
+            self.contaierView.hotWordGridView.hotWordGridModelArray = self.recommendViewModel.hotWordGridModelArray
         })
     }
 }
@@ -157,12 +170,24 @@ extension RecommendViewController: UICollectionViewDataSource {
     
     // 返回collectionView的分组数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        
+        // 分组模型的数量就是分组数
+        return recommendViewModel.recommendModelArray.count
     }
     
     // 返回每一组cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        
+        // 先取出分组模型
+        let typeItem = recommendViewModel.recommendModelArray[section]
+        
+        // 在取出标题模型
+        guard let titleItem = typeItem.recommendDataModelArray.first else { return 0 }
+        
+        // 取出标题模型中包含数据的数组的个数
+        guard let count = titleItem.data?.count else { return 0 }
+        
+        return count
     }
     
     // 返回cell
@@ -170,6 +195,19 @@ extension RecommendViewController: UICollectionViewDataSource {
         
         // 根据可重用标识符取出cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! RecommendViewCell
+
+        // 先取出分组模型
+        let typeItem = recommendViewModel.recommendModelArray[indexPath.section]
+        
+        // 接着取出标题模型
+        guard let titleItem = typeItem.recommendDataModelArray.first else { return cell }
+        
+        // 再取出行模型
+        let dataItem = titleItem.recommendDataDataModelArray[indexPath.row]
+        
+        // 最后设置cell的数据
+        cell.cellTitleLabel.text = dataItem.recWords
+        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
         
         return cell
     }
@@ -179,6 +217,15 @@ extension RecommendViewController: UICollectionViewDataSource {
         
         // 根据可重用标识符取出header
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! RecommendReusableView
+        
+        // 先取出分组模型
+        let typeItem = recommendViewModel.recommendModelArray[indexPath.section]
+        
+        // 再取出类型模型
+        guard let titleItem = typeItem.recommendDataModelArray.first else { return headerView }
+    
+        // 最后取出标题模型，并且将标题赋值给headerView
+        headerView.titleLabel.text = titleItem.title
         
         return headerView
     }

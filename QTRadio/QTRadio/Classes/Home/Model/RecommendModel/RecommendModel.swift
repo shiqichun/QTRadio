@@ -14,7 +14,7 @@ class RecommendModel: NSObject {
     
     // MARK: - 自定义的模型数组
     
-    /// 用于将转换完成的模型数据存储到数组中
+    /// 用于将转换完成的模型数据存储到数组中(只有一个数据)
     lazy var recommendDataModelArray: [RecommendDataModel] = [RecommendDataModel]()
     
     

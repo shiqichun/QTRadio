@@ -8,7 +8,6 @@
 // 主要是用来管理中间登录界面的logo，以及新用户注册按钮和使用手机登录按钮
 
 import UIKit
-import SnapKit
 
 
 /// 按钮距离屏幕两边的距离

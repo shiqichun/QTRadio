@@ -85,39 +85,6 @@ class RecommendHotWordGridView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    /*
-    /// 绘制分割线
-    override func draw(_ rect: CGRect) {
-
-        // 获取图形上下文
-        guard let ctx: CGContext = UIGraphicsGetCurrentContext() else { return }
-
-        // 创建路径对象
-        let path: UIBezierPath = UIBezierPath()
-
-        // 创建第一根线
-        path.move(to: CGPoint(x: frame.width * 0.5, y: 0))  // 设置路径的起点
-        path.addLine(to: CGPoint(x: frame.width * 0.5, y: frame.height))  // 设置路径的终点
-
-        // 添加第二根线
-        path.move(to: CGPoint(x: 0, y: frame.height * 0.5))
-        path.addLine(to: CGPoint(x: frame.width, y: frame.height * 0.5))
-
-        // 将绘制的内容添加到上下文中
-        ctx.addPath(path.cgPath)
-
-        // 设置线宽
-        ctx.setLineWidth(1)
-
-        // 设置线条的颜色
-        UIColor.lightGray.setStroke()
-
-        // 将上下文中的内容显示到view控件上(即渲染到view的layer上，通常用stroke或者fill)
-        ctx.strokePath()
-    }
-    */
 }
 
 
@@ -172,16 +139,16 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
     // 返回cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //
+        // 校验模型数组hotWordGridModelArray是否有值
         guard let hotWordGridModelArray = hotWordGridModelArray else { return 0 }
         
-        //
+        // 取出分组模型
         let typeItem = hotWordGridModelArray[section]
         
-        //
+        // 取出标题模型
         guard let titleItem = typeItem.hotWordGridDataModelArray.first else { return 0 }
         
-        //
+        // 标题模型中的数组data的个数即为cell的行数
         guard let count = titleItem.data?.count else { return 0 }
         
         return count
@@ -190,19 +157,19 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //
+        // 根据可重用标识符从缓存池中取出cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellIdentifier, for: indexPath) as! RecommendHotWordGridCell
         
-        //
+        // 校验模型数组hotWordGridModelArray是否有值
         guard let hotWordGridModelArray = hotWordGridModelArray else { return cell }
         
-        //
+        // 取出分组模型
         let typeItem = hotWordGridModelArray[indexPath.section]
         
-        //
+        // 取出标题模型
         guard let titleItem = typeItem.hotWordGridDataModelArray.first else { return cell }
         
-        //
+        // 从标题模型中取出数据的行模型
         let dataItem = titleItem.hotWordGridDataDataModelArray[indexPath.row]
         
         // 设置cell的数据
@@ -212,3 +179,35 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
         return cell
     }
 }
+
+/*
+ /// 绘制分割线
+ override func draw(_ rect: CGRect) {
+ 
+     // 获取图形上下文
+     guard let ctx: CGContext = UIGraphicsGetCurrentContext() else { return }
+ 
+     // 创建路径对象
+     let path: UIBezierPath = UIBezierPath()
+ 
+     // 创建第一根线
+     path.move(to: CGPoint(x: frame.width * 0.5, y: 0))  // 设置路径的起点
+     path.addLine(to: CGPoint(x: frame.width * 0.5, y: frame.height))  // 设置路径的终点
+ 
+     // 添加第二根线
+     path.move(to: CGPoint(x: 0, y: frame.height * 0.5))
+     path.addLine(to: CGPoint(x: frame.width, y: frame.height * 0.5))
+ 
+     // 将绘制的内容添加到上下文中
+     ctx.addPath(path.cgPath)
+ 
+     // 设置线宽
+     ctx.setLineWidth(1)
+ 
+     // 设置线条的颜色
+     UIColor.lightGray.setStroke()
+ 
+     // 将上下文中的内容显示到view控件上(即渲染到view的layer上，通常用stroke或者fill)
+     ctx.strokePath()
+ }
+ */

@@ -9,6 +9,13 @@
 
 import UIKit
 
+/// 通用间距
+private let kMargin: CGFloat = 5
+
+/// coverView和cell高度之间的比率
+private let kRate: CGFloat = 0.2
+
+
 class RecommendViewCell: UICollectionViewCell {
     
     // MARK: - 私有属性
@@ -22,7 +29,7 @@ class RecommendViewCell: UICollectionViewCell {
     
     // MARK: - 懒加载控件属性
     
-    /// 图片
+    /// cell的图片控件
     lazy var cellImageView: UIImageView = {
         
         let cellImageView = UIImageView()
@@ -32,17 +39,54 @@ class RecommendViewCell: UICollectionViewCell {
     }()
     
     
-    /// 标题
+    /// cell的标题控件
     lazy var cellTitleLabel: UILabel = {
         
         let label = UILabel()
         label.backgroundColor = .white
         label.text = "虎口夺食，暗箭上弦"
         label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 11)
         label.numberOfLines = 0
         return label
     }()
+    
+    /// cell的播放图标控件
+    fileprivate lazy var playImageView: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "playcountWhite_10x10_")
+        imageView.sizeToFit()
+        return imageView
+    }()
+    
+    /// cell图片底部的渐变阴影控件
+    fileprivate lazy var coverView: UIView = {
+        
+        let view = UIView()
+        
+        // 创建渐变层
+        let gradientlayer: CAGradientLayer = CAGradientLayer()
+        gradientlayer.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellHeight * kRate)
+        gradientlayer.colors = [(UIColor.clear.cgColor),(UIColor.lightGray.cgColor)]
+        gradientlayer.locations = [0.0, 1.0]
+        view.layer.insertSublayer(gradientlayer, at: 0)
+        
+        return view
+    }()
+    
+    /// cell图片控件底部显示播放量的label
+    lazy var playCountLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "50亿"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.sizeToFit()
+        return label
+    }()
+    
+    
     
     
     // MARK: - 构造函数
@@ -85,6 +129,15 @@ extension RecommendViewCell {
         
         // 添加cellTitleLabel
         contentView.addSubview(cellTitleLabel)
+        
+        // 添加coverView
+        cellImageView.addSubview(coverView)
+        
+        // 添加播放图标
+        coverView.addSubview(playImageView)
+
+        // 添加播放量label
+        coverView.addSubview(playCountLabel)
     }
     
     /// 重新布局子控件
@@ -105,6 +158,25 @@ extension RecommendViewCell {
             make.width.equalTo(cellWidth)
             make.height.equalTo(cellHeight - cellWidth)
         }
+        
+        // 布局coverView的位置
+        coverView.snp.makeConstraints { (make) in
+            make.width.equalTo(cellWidth)
+            make.height.equalTo(cellHeight * kRate)
+            make.left.equalTo(cellImageView.snp.left)
+            make.bottom.equalTo(cellImageView.snp.bottom)
+        }
+        
+        // 布局播放图标的位置
+        playImageView.snp.makeConstraints { (make) in
+            make.left.equalTo(cellImageView.snp.left).offset(kMargin)
+            make.bottom.equalTo(cellImageView.snp.bottom).offset(-kMargin)
+        }
+
+        // 布局playCountLabel的位置
+        playCountLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(playImageView.snp.right).offset(kMargin)
+            make.centerY.equalTo(playImageView.snp.centerY)
+        }
     }
-    
 }

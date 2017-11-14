@@ -131,8 +131,6 @@ extension RecommendViewController {
         
         // 请求网络数据
         loadData()
-        
-        
     }
 }
 
@@ -156,7 +154,7 @@ extension RecommendViewController {
             // 将IconGridView的数据传递过去
             self.contaierView.iconGridView.iconGridModelArray = self.recommendViewModel.iconGridModelArray
             
-            //
+            // 将hotWordGridView的数据传递过去
             self.contaierView.hotWordGridView.hotWordGridModelArray = self.recommendViewModel.hotWordGridModelArray
         })
     }
@@ -208,6 +206,7 @@ extension RecommendViewController: UICollectionViewDataSource {
         // 最后设置cell的数据
         cell.cellTitleLabel.text = dataItem.recWords
         cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+        cell.playCountLabel.text = dataItem.playCnt
         
         return cell
     }

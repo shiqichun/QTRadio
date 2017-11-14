@@ -19,12 +19,6 @@ class RecommendHotWordGridCell: UICollectionViewCell {
     /// item的高度
     fileprivate var itemHeight: CGFloat
     
-    /// imageName
-//    fileprivate var imageName: String
-    
-    /// title
-//    fileprivate var title: String
-    
     // MARK: - 懒加载属性
     
     /// imageView

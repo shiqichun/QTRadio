@@ -13,7 +13,7 @@ import UIKit
 /// 网络数据请求地址
 private let kRequestURL = "http://recpage.c.qingting.fm/v3/hotpage"
 
-///
+/// deviceid
 private let kDeviceid = "093e8b7e24c02246fe92373727e4a92c"
 
 class RecommendViewModel: NSObject {
@@ -162,14 +162,8 @@ extension RecommendViewModel {
                 self.liveShowModelArray.append(liveShowItem)
             }
             
-            // 回调
+            // 数据处理完毕，将其回调给外界
             completionHandler()
-            
-//            for item in self.recommendModelArray {
-//                for it in item.recommendDataModelArray {
-//                    print(it.data?.count)
-//                }
-//            }
         }
     }
 }

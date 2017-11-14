@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/12.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 负责管理推荐界面
 
 import UIKit
 
@@ -86,7 +87,7 @@ extension RecommendViewCell {
         contentView.addSubview(cellTitleLabel)
     }
     
-    ///
+    /// 重新布局子控件
     override func layoutSubviews() {
         
         // 布局cellImageView

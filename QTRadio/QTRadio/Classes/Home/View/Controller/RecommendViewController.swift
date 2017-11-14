@@ -98,7 +98,8 @@ class RecommendViewController: UIViewController {
     }()
     
     
-    
+    /// 网络请求
+    fileprivate lazy var reommendViewModel = RecommendViewModel()
     
 
     override func viewDidLoad() {
@@ -125,6 +126,26 @@ extension RecommendViewController {
         
         // 将contaierView添加到collectionView上面
         collectionView.addSubview(contaierView)
+        
+        // 请求网络数据
+        loadData()
+    }
+}
+
+
+
+// MARK: - 请求网络数据
+extension RecommendViewController {
+    
+    /// 发送网络请求，获取收藏模块中推荐专辑的数据
+    fileprivate func loadData() {
+        
+        // 通过ViewModel属性来发送网络请求
+        reommendViewModel.requestData(completionHandler: {
+            
+            // 重新调用数据源方法
+            self.collectionView.reloadData()
+        })
     }
 }
 

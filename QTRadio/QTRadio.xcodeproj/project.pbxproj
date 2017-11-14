@@ -21,6 +21,22 @@
 		C52EF21D1FB8150B00E405A8 /* CategoryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EF21C1FB8150B00E405A8 /* CategoryTopView.swift */; };
 		C5325CCA1FB5FC2200F2F797 /* CategoryCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */; };
 		C536DAAC1FB871DA00DC2C02 /* RecommendReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DAAB1FB871DA00DC2C02 /* RecommendReusableView.swift */; };
+		C536DAAE1FB87D3100DC2C02 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DAAD1FB87D3100DC2C02 /* RecommendViewModel.swift */; };
+		C536DB211FBAEBD400DC2C02 /* LiveShowDataDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB121FBAEBD300DC2C02 /* LiveShowDataDataModel.swift */; };
+		C536DB221FBAEBD400DC2C02 /* LiveShowDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB131FBAEBD300DC2C02 /* LiveShowDataModel.swift */; };
+		C536DB231FBAEBD400DC2C02 /* BannerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB141FBAEBD300DC2C02 /* BannerDataModel.swift */; };
+		C536DB241FBAEBD400DC2C02 /* HotWordGridDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB151FBAEBD300DC2C02 /* HotWordGridDataModel.swift */; };
+		C536DB251FBAEBD400DC2C02 /* LiveShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB161FBAEBD300DC2C02 /* LiveShowModel.swift */; };
+		C536DB261FBAEBD400DC2C02 /* IconGridDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB171FBAEBD300DC2C02 /* IconGridDataModel.swift */; };
+		C536DB271FBAEBD400DC2C02 /* IconGridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB181FBAEBD300DC2C02 /* IconGridModel.swift */; };
+		C536DB281FBAEBD400DC2C02 /* IconGridDataDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB191FBAEBD300DC2C02 /* IconGridDataDataModel.swift */; };
+		C536DB291FBAEBD400DC2C02 /* RecommendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1A1FBAEBD300DC2C02 /* RecommendDataModel.swift */; };
+		C536DB2A1FBAEBD400DC2C02 /* HotWordGridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1B1FBAEBD300DC2C02 /* HotWordGridModel.swift */; };
+		C536DB2B1FBAEBD400DC2C02 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1C1FBAEBD300DC2C02 /* BannerModel.swift */; };
+		C536DB2C1FBAEBD400DC2C02 /* RecommendDataDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1D1FBAEBD300DC2C02 /* RecommendDataDataModel.swift */; };
+		C536DB2D1FBAEBD400DC2C02 /* BannerDataDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1E1FBAEBD300DC2C02 /* BannerDataDataModel.swift */; };
+		C536DB2E1FBAEBD400DC2C02 /* HotWordGridDataDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB1F1FBAEBD300DC2C02 /* HotWordGridDataDataModel.swift */; };
+		C536DB2F1FBAEBD400DC2C02 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536DB201FBAEBD300DC2C02 /* RecommendModel.swift */; };
 		C54ABFD41FB7F2EB00DCFCD9 /* RecommendBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD21FB7F2EB00DCFCD9 /* RecommendBannerView.swift */; };
 		C54ABFD71FB7F32900DCFCD9 /* RecommendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD61FB7F32900DCFCD9 /* RecommendContainerView.swift */; };
 		C54ABFD91FB7F81700DCFCD9 /* RecommentIconGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54ABFD81FB7F81700DCFCD9 /* RecommentIconGridView.swift */; };
@@ -102,6 +118,22 @@
 		C52EF21C1FB8150B00E405A8 /* CategoryTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTopView.swift; sourceTree = "<group>"; };
 		C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionModel.swift; sourceTree = "<group>"; };
 		C536DAAB1FB871DA00DC2C02 /* RecommendReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendReusableView.swift; sourceTree = "<group>"; };
+		C536DAAD1FB87D3100DC2C02 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
+		C536DB121FBAEBD300DC2C02 /* LiveShowDataDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveShowDataDataModel.swift; sourceTree = "<group>"; };
+		C536DB131FBAEBD300DC2C02 /* LiveShowDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveShowDataModel.swift; sourceTree = "<group>"; };
+		C536DB141FBAEBD300DC2C02 /* BannerDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerDataModel.swift; sourceTree = "<group>"; };
+		C536DB151FBAEBD300DC2C02 /* HotWordGridDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotWordGridDataModel.swift; sourceTree = "<group>"; };
+		C536DB161FBAEBD300DC2C02 /* LiveShowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveShowModel.swift; sourceTree = "<group>"; };
+		C536DB171FBAEBD300DC2C02 /* IconGridDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGridDataModel.swift; sourceTree = "<group>"; };
+		C536DB181FBAEBD300DC2C02 /* IconGridModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGridModel.swift; sourceTree = "<group>"; };
+		C536DB191FBAEBD300DC2C02 /* IconGridDataDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGridDataDataModel.swift; sourceTree = "<group>"; };
+		C536DB1A1FBAEBD300DC2C02 /* RecommendDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendDataModel.swift; sourceTree = "<group>"; };
+		C536DB1B1FBAEBD300DC2C02 /* HotWordGridModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotWordGridModel.swift; sourceTree = "<group>"; };
+		C536DB1C1FBAEBD300DC2C02 /* BannerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		C536DB1D1FBAEBD300DC2C02 /* RecommendDataDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendDataDataModel.swift; sourceTree = "<group>"; };
+		C536DB1E1FBAEBD300DC2C02 /* BannerDataDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerDataDataModel.swift; sourceTree = "<group>"; };
+		C536DB1F1FBAEBD300DC2C02 /* HotWordGridDataDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotWordGridDataDataModel.swift; sourceTree = "<group>"; };
+		C536DB201FBAEBD300DC2C02 /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		C54ABFD21FB7F2EB00DCFCD9 /* RecommendBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendBannerView.swift; sourceTree = "<group>"; };
 		C54ABFD61FB7F32900DCFCD9 /* RecommendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendContainerView.swift; sourceTree = "<group>"; };
 		C54ABFD81FB7F81700DCFCD9 /* RecommentIconGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentIconGridView.swift; sourceTree = "<group>"; };
@@ -242,6 +274,7 @@
 		C500418F1FA98ED600CD9A7A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C536DAAD1FB87D3100DC2C02 /* RecommendViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,6 +282,7 @@
 		C50041901FA98ED600CD9A7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C536DB111FBAEBD300DC2C02 /* RecommendModel */,
 				C5325CC91FB5FC2200F2F797 /* CategoryCollectionModel.swift */,
 				C55996BD1FB8331300E05B3A /* CategoryTopViewModel.swift */,
 			);
@@ -540,6 +574,28 @@
 				C588CCAB1FB2C48B00D6703A /* AvatarView.xib */,
 			);
 			path = ProfileHeader;
+			sourceTree = "<group>";
+		};
+		C536DB111FBAEBD300DC2C02 /* RecommendModel */ = {
+			isa = PBXGroup;
+			children = (
+				C536DB121FBAEBD300DC2C02 /* LiveShowDataDataModel.swift */,
+				C536DB131FBAEBD300DC2C02 /* LiveShowDataModel.swift */,
+				C536DB141FBAEBD300DC2C02 /* BannerDataModel.swift */,
+				C536DB151FBAEBD300DC2C02 /* HotWordGridDataModel.swift */,
+				C536DB161FBAEBD300DC2C02 /* LiveShowModel.swift */,
+				C536DB171FBAEBD300DC2C02 /* IconGridDataModel.swift */,
+				C536DB181FBAEBD300DC2C02 /* IconGridModel.swift */,
+				C536DB191FBAEBD300DC2C02 /* IconGridDataDataModel.swift */,
+				C536DB1A1FBAEBD300DC2C02 /* RecommendDataModel.swift */,
+				C536DB1B1FBAEBD300DC2C02 /* HotWordGridModel.swift */,
+				C536DB1C1FBAEBD300DC2C02 /* BannerModel.swift */,
+				C536DB1D1FBAEBD300DC2C02 /* RecommendDataDataModel.swift */,
+				C536DB1E1FBAEBD300DC2C02 /* BannerDataDataModel.swift */,
+				C536DB1F1FBAEBD300DC2C02 /* HotWordGridDataDataModel.swift */,
+				C536DB201FBAEBD300DC2C02 /* RecommendModel.swift */,
+			);
+			path = RecommendModel;
 			sourceTree = "<group>";
 		};
 		C54ABFD11FB7F2EB00DCFCD9 /* HeaderView */ = {
@@ -847,10 +903,12 @@
 				C5B97F2E1FAEE4BC00F2BB10 /* DailyViewCell.swift in Sources */,
 				C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */,
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
+				C536DB2D1FBAEBD400DC2C02 /* BannerDataDataModel.swift in Sources */,
 				C55996CC1FB86EB300E05B3A /* RecommendIconGridViewCell.swift in Sources */,
 				C55996C51FB85BFB00E05B3A /* BannerView.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
 				C522CCED1FB05B6400EA20C6 /* ProfileHeader.swift in Sources */,
+				C536DAAE1FB87D3100DC2C02 /* RecommendViewModel.swift in Sources */,
 				C593A4421FA9CF450036CC98 /* ContentView.swift in Sources */,
 				C5FB93F61FACC57F006F721C /* QTNavigationController.swift in Sources */,
 				C52EF21D1FB8150B00E405A8 /* CategoryTopView.swift in Sources */,
@@ -860,6 +918,8 @@
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */,
 				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
+				C536DB241FBAEBD400DC2C02 /* HotWordGridDataModel.swift in Sources */,
+				C536DB2F1FBAEBD400DC2C02 /* RecommendModel.swift in Sources */,
 				C5FB94631FADCF71006F721C /* AlbumModel.swift in Sources */,
 				C55996D41FB86F1200E05B3A /* RecommendViewCell.swift in Sources */,
 				C5FB94611FADC2BE006F721C /* FavoriteViewModel.swift in Sources */,
@@ -867,10 +927,12 @@
 				C593A4431FA9CF450036CC98 /* ContainerView.swift in Sources */,
 				C54ABFDB1FB7F88800DCFCD9 /* RecommendHotWordGridView.swift in Sources */,
 				C5B97F2C1FAEE48300F2BB10 /* AlbumViewCell.swift in Sources */,
+				C536DB2A1FBAEBD400DC2C02 /* HotWordGridModel.swift in Sources */,
 				C5B97F291FAEDDAD00F2BB10 /* DailyViewController.swift in Sources */,
 				C593A44B1FA9D0E80036CC98 /* LiveViewController.swift in Sources */,
 				C593A4491FA9D0D80036CC98 /* BoutiqueViewController.swift in Sources */,
 				C54ABFD71FB7F32900DCFCD9 /* RecommendContainerView.swift in Sources */,
+				C536DB2C1FBAEBD400DC2C02 /* RecommendDataDataModel.swift in Sources */,
 				C588A7C71FB2F28C00FA9A05 /* ProfileCommonView.swift in Sources */,
 				C52EF21B1FB8078900E405A8 /* RecommendHotWordGridItem.swift in Sources */,
 				C57983951FB4983400643B9B /* CategoryHeaderView.swift in Sources */,
@@ -880,14 +942,19 @@
 				C55996D21FB86ECE00E05B3A /* CategoryCollectionCell.swift in Sources */,
 				C50041B71FA990A400CD9A7A /* DownloadViewController.swift in Sources */,
 				C588A7CB1FB33CE800FA9A05 /* ProfileCellModel.swift in Sources */,
+				C536DB231FBAEBD400DC2C02 /* BannerDataModel.swift in Sources */,
 				C588A7CD1FB33D0800FA9A05 /* ProfileGroupModel.swift in Sources */,
+				C536DB271FBAEBD400DC2C02 /* IconGridModel.swift in Sources */,
 				C536DAAC1FB871DA00DC2C02 /* RecommendReusableView.swift in Sources */,
+				C536DB291FBAEBD400DC2C02 /* RecommendDataModel.swift in Sources */,
 				C5B97F791FAF0C0B00F2BB10 /* DailyViewModel.swift in Sources */,
+				C536DB251FBAEBD400DC2C02 /* LiveShowModel.swift in Sources */,
 				C55996D11FB86ECE00E05B3A /* CategoryTopViewCell.swift in Sources */,
 				C5B97F811FAF7DD800F2BB10 /* HeaderBar.swift in Sources */,
 				C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */,
 				C522CCE91FB0346D00EA20C6 /* DailyTableViewCell.swift in Sources */,
 				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
+				C536DB2B1FBAEBD400DC2C02 /* BannerModel.swift in Sources */,
 				C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */,
 				C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */,
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
@@ -898,14 +965,19 @@
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
 				C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
+				C536DB261FBAEBD400DC2C02 /* IconGridDataModel.swift in Sources */,
 				C54ABFD91FB7F81700DCFCD9 /* RecommentIconGridView.swift in Sources */,
 				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,
 				C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */,
 				C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */,
+				C536DB2E1FBAEBD400DC2C02 /* HotWordGridDataDataModel.swift in Sources */,
+				C536DB281FBAEBD400DC2C02 /* IconGridDataDataModel.swift in Sources */,
 				C5325CCA1FB5FC2200F2F797 /* CategoryCollectionModel.swift in Sources */,
+				C536DB211FBAEBD400DC2C02 /* LiveShowDataDataModel.swift in Sources */,
 				C5B97F7B1FAF0DD300F2BB10 /* DailyModel.swift in Sources */,
 				C593A4401FA9CF450036CC98 /* TitleView.swift in Sources */,
 				C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */,
+				C536DB221FBAEBD400DC2C02 /* LiveShowDataModel.swift in Sources */,
 				C5B97F7E1FAF200800F2BB10 /* ToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

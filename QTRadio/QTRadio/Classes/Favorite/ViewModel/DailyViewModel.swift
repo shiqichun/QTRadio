@@ -28,14 +28,14 @@ extension DailyViewModel {
         
         NetworkTools.shareTools.requestData(kRequestURL, .get, parameters: ["deviceid": kDeviceid, "nocache": "\(NSDate.getCurrentTime())"]) { (result) in
             
-            // 将请求结果转成数组
-            guard let resultArr = result as? [String: Any] else { return }
+            // 将JSON数据转成字典
+            guard let resultDict = result as? [String: Any] else { return }
             
-            // 通过data这个键从数组resultArr中取出字典
-            guard let resultDict = resultArr["data"] as? [[String: Any]] else { return }
+            // 根据键data取出字典resultDict中的数据，然后再将其转成成字典数组(即，数组中存放的是字典)
+            guard let resultArr = resultDict["data"] as? [[String: Any]] else { return }
             
-            // 遍历字典，利用KVC将其转为模型
-            for dict in resultDict {
+            // 遍历数组resultArr中的字典数据，然后再将其转为模型
+            for dict in resultArr {
                 
                 // 将字典传入模型AlbumModel进行转换
                 let daily = DailyModel(dict: dict)

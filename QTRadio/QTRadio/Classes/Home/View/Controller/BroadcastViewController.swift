@@ -7,6 +7,9 @@
 //
 // 用来管理首页模块中广播子控制器
 
+// 广播剧
+// http://api2.qingting.fm/v6/media/recommends/guides/section/206?device_id=093e8b7e24c02246fe92373727e4a92c
+
 import UIKit
 
 // 可重用标识符

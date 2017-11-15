@@ -186,7 +186,7 @@ extension RecommendViewCell {
         super.prepareForReuse()
         
         cellTitleLabel.text = nil
-        cellImageView.image = nil
+        cellImageView.image = UIImage(named: "recommend_placeholder_95x95_")
         playCountLabel.text = nil
     }
 }

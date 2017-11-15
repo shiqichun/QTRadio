@@ -9,8 +9,34 @@
 // 因为直播界面的数据被加密了，没办法做，
 // 所以只能搞一个WKWebView糊弄一下。
 
+// 直播的top数据，前三个依次为Banner、热门分类、大咖榜和贡献榜
+// https://api.zhibo.qingting.fm/v2/recommends/template?partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/template?partner=&ptnp=HTTP/1.1
+
+// 房间数据
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=1&page_size=20&room_ids=&partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=1&page_size=20&room_ids=&partner=&ptnp=HTTP/1.1
+
+// https://api.zhibo.qingting.fm/v2/recommends/sections/13/items?page_num=1&page_size=20&room_ids=&partner=&ptnp=
+
+// 倾向于用这一个
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=1&page_size=20&room_ids=&partner=&ptnp=HTTP/1.1
+
+// 上拉刷新数据
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=2&page_size=20&room_ids=&partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=3&page_size=20&room_ids=&partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=4&page_size=20&room_ids=&partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=5&page_size=20&room_ids=&partner=&ptnp=
+// https://api.zhibo.qingting.fm/v2/recommends/sections/12/items?page_num=6&page_size=20&room_ids=&partner=&ptnp=
+
+
+// 直播数据
+// http://api.zhibo.qingting.fm/v2/recommends/sections/14/random_items?wt=json&v=6.0.4&deviceid=093e8b7e24c02246fe92373727e4a92c&phonetype=iOS&osv=11.1.1&device=iPhone&pkg=com.Qting.QTTour
+
 import UIKit
 import WebKit
+
+
 
 
 // item之间的间距
@@ -92,12 +118,17 @@ class LiveViewController: UIViewController {
     /// 网页控件
     fileprivate lazy var webView: WKWebView = {
         
-        let webView = WKWebView(frame: self.view.bounds)
+        let webView = WKWebView()
         guard let url = URL(string: "https://m.zhibo.qingting.fm") else { return webView }
         let request = URLRequest(url: url)
         webView.load(request)
         return webView
     }()
+    
+    
+    override func loadView() {
+        view = webView
+    }
     
 
     override func viewDidLoad() {
@@ -125,7 +156,7 @@ extension LiveViewController {
         //collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 5, right: 0)
         
         // 添加webView
-        view = webView
+        webView.frame = view.bounds
     }
 }
 

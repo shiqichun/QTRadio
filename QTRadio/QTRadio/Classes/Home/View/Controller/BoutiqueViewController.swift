@@ -15,6 +15,11 @@ private let kTableViewCellIdentifier = "kTableViewCellIdentifier"
 
 class BoutiqueViewController: UIViewController {
     
+    // MARK: - 请求网络数据
+    
+    /// viewModel属性
+    fileprivate lazy var boutiqueViewModel: BoutiqueViewModel = BoutiqueViewModel()
+    
     
     // MARK: - 懒加载属性
     
@@ -63,6 +68,28 @@ extension BoutiqueViewController {
         
         
         tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        
+        // 请求网络数据
+        loadData()
+    }
+}
+
+
+
+
+// MARK: - 发送网络数据
+extension BoutiqueViewController {
+    
+    /// 请求网络数据
+    fileprivate func loadData() {
+        
+        boutiqueViewModel.requestData {
+            
+            
+            self.tableView.reloadData()
+            
+            
+        }
     }
 }
 

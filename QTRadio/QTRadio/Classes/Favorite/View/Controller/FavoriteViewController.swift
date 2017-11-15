@@ -148,7 +148,9 @@ extension FavoriteViewController {
 
         
         // 发送网络请求
-        loadData()
+        DispatchQueue.global(qos: .default).async {
+            self.loadData()
+        }
     }
     
     /// 设置导航栏
@@ -180,8 +182,10 @@ extension FavoriteViewController {
         // 通过ViewModel属性来发送网络请求
         favoriteViewModel.requestData(completionHandler: {
             
-            // 重新调用数据源方法
-            self.collectionView.reloadData()
+            // 重新刷新collectionView
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         })
     }
 }

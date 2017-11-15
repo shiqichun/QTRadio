@@ -53,10 +53,6 @@ class DailyViewController: UIViewController {
         // 统一设置UI界面
         setupUI()
     }
-    
-    
-    
-
 }
 
 
@@ -74,7 +70,9 @@ extension DailyViewController {
         tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
         
         // 请求网路数据
-        loadData()
+        DispatchQueue.global(qos: .default).async {
+            self.loadData()
+        }
     }
 }
 
@@ -90,7 +88,9 @@ extension DailyViewController {
         dailyViewModel.requestData {
             
             // 重新调用数据源方法
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 }

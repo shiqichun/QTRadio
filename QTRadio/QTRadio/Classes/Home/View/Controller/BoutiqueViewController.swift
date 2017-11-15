@@ -9,8 +9,17 @@
 
 import UIKit
 
-// 可重用标识符
+/// 可重用标识符
 private let kTableViewCellIdentifier = "kTableViewCellIdentifier"
+
+/// headerView的高度
+private let kHeaderViewHeight: CGFloat = 44
+
+/// headerView的可重用标识符
+private let kHeaderViewCellIdentifer = "kHeaderViewCellIdentifer"
+
+
+
 
 
 class BoutiqueViewController: UIViewController {
@@ -34,6 +43,9 @@ class BoutiqueViewController: UIViewController {
         tableView.sectionHeaderHeight = 5
         tableView.sectionFooterHeight = 0
         
+        // 去掉tableView所有的分割线
+        // tableView.separatorStyle = .none
+        
         // 设置tableView岁父控件一起拉伸
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -41,10 +53,17 @@ class BoutiqueViewController: UIViewController {
         tableView.dataSource = self
         
         // 注册cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
+        tableView.register(BoutiqueTableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
+        
+        tableView.delegate = self
+        
+        // 注册headerView
+        tableView.register(BoutiqueHeaderView.self, forHeaderFooterViewReuseIdentifier: kHeaderViewCellIdentifer)
         
         return tableView
     }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +86,12 @@ extension BoutiqueViewController {
         view.addSubview(tableView)
         
         
-        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        //tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
         
         // 请求网络数据
-        loadData()
+        DispatchQueue.global(qos: .default).async {
+            self.loadData()
+        }
     }
 }
 
@@ -85,8 +106,11 @@ extension BoutiqueViewController {
         
         boutiqueViewModel.requestData {
             
+            // 刷新表格
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
             
-            self.tableView.reloadData()
             
             
         }
@@ -100,25 +124,75 @@ extension BoutiqueViewController {
 // MARK: - UITableViewDataSource
 extension BoutiqueViewController: UITableViewDataSource {
     
-    //
+    // 返回分组数
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        
+        // ViewModel中数组tableModelArray的数量即为分组数
+        return boutiqueViewModel.tableModelArray.count
     }
     
-    //
+    // 返回每一组cell的个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        
+        // 取出分组模型
+        let sectionItem = boutiqueViewModel.tableModelArray[section]
+        
+        // 从分组模型中取出存放行模型的数组，然后返回该数组的个数
+        guard let count = sectionItem.recommends?.count else { return 0 }
+        
+        return count
     }
     
-    //
+    // 返回tableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //
-        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier)
+        // 根据可重用标识符取出cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier) as! BoutiqueTableViewCell
         
-        cell?.textLabel?.text = "cell---\(indexPath.row)"
+        // 先取出分组模型
+        let sectionItem = boutiqueViewModel.tableModelArray[indexPath.section]
         
-        return cell!
+        // 再取出行模型
+        let item = sectionItem.tableRecommendModeArray[indexPath.row]
+        
+        // 设置cell的子标题
+        cell.textLabel?.text = item.title
+        
+        return cell
+    }
+}
+
+
+
+
+// MARK: - UITableViewDelegate
+extension BoutiqueViewController: UITableViewDelegate {
+
+    // 返回tableView的表头
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        // 根据可重用标识符去缓存池中取出headerView
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: kHeaderViewCellIdentifer) as! BoutiqueHeaderView
+        
+        return headerView
+    }
+
+    // 返回headerView的高度
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return kHeaderViewHeight
     }
     
+    // 修改headerView的背景颜色
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        // 先判断view是否为BoutiqueHeaderView
+        if view.isKind(of: BoutiqueHeaderView.self) {
+            
+            // 如果是，则修改其背景颜色
+            (view as? BoutiqueHeaderView)?.backgroundView?.backgroundColor = .white
+        }
+    }
 }
+
+
+

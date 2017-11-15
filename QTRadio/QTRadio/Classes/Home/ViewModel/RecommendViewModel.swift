@@ -6,7 +6,48 @@
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
 
+// 导航栏数据
+// http://recpage.c.qingting.fm/v3/navbar?wt=json&v=6.0.4&deviceid=093e8b7e24c02246fe92373727e4a92c&phonetype=iOS&osv=11.1.1&device=iPhone&pkg=com.Qting.QTTour
+
+// 推荐界面数据
 // http://recpage.c.qingting.fm/v3/hotpage?phonetype=iOS&sex=male&region=23&deviceid=093e8b7e24c02246fe92373727e4a92c&gen=80
+// http://recpage.c.qingting.fm/v3/hotpage?phonetype=iOS&sex=male&region=23&deviceid=093e8b7e24c02246fe92373727e4a92c&gen=80
+
+// 推荐界面刷新数据
+// http://recpage.c.qingting.fm/v3/hotpage?phonetype=iOS&sex=male&region=23&deviceid=093e8b7e24c02246fe92373727e4a92c&gen=80
+// http://recpage.c.qingting.fm/v3/hotpage?phonetype=iOS&sex=male&region=23&deviceid=093e8b7e24c02246fe92373727e4a92c&gen=80
+
+
+// 精品内容数据
+// http://api2.qingting.fm/v6/media/recommends/guides/section/1011?device_id=093e8b7e24c02246fe92373727e4a92c
+
+
+// 位置界面数据
+// http://api2.qingting.fm/v6/media/recommends/guides/section/p/0/section/732/banner/0/other/5/page/5
+
+// 搜索框关键字
+// http://i.qingting.fm/capi/search/keywords
+
+
+// 收藏界面的数据
+// http://rec.c.qingting.fm/v1/recommend/daily?deviceid=093e8b7e24c02246fe92373727e4a92c&wt=json&v=6.0.4&deviceid=093e8b7e24c02246fe92373727e4a92c&phonetype=iOS&osv=11.1.1&device=iPhone&pkg=com.Qting.QTTour
+
+
+// 广告数据
+// http://bdsp.x.jd.com/adx/dragonfly
+
+
+// 直播数据
+// http://api.zhibo.qingting.fm/v2/recommends/sections/14/random_items?wt=json&v=6.0.4&deviceid=093e8b7e24c02246fe92373727e4a92c&phonetype=iOS&osv=11.1.1&device=iPhone&pkg=com.Qting.QTTour
+
+// 直接打开网页的
+// https://m.zhibo.qingting.fm
+
+
+
+// 广播剧
+// http://api2.qingting.fm/v6/media/recommends/guides/section/206?device_id=093e8b7e24c02246fe92373727e4a92c
+
 
 import UIKit
 

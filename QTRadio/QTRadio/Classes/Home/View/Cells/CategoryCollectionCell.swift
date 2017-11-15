@@ -98,4 +98,13 @@ extension CategoryCollectionCell {
             make.centerX.equalTo(self)
         }
     }
+    
+    
+    /// 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        titleLabel.text = nil
+    }
 }

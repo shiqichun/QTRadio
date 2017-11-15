@@ -94,4 +94,13 @@ extension RecommendIconGridViewCell {
             make.bottom.equalTo(self).offset(-kMargin)
         }
     }
+    
+    
+    /// 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cellTitleLabel.text = nil
+        cellImageView.image = nil
+    }
 }

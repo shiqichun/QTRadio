@@ -113,18 +113,18 @@ extension CategoryTopViewCell {
         
         // 添加imageView
         if isImageViewHidden == false {
-            addSubview(imageView)
+            contentView.addSubview(imageView)
         }
         
         // 添加titleLabel
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         
         // 添加箭头
-        addSubview(arrow)
+        contentView.addSubview(arrow)
         
         // 添加分割线
         if isSeperateLineHidden == false {
-            addSubview(seperateLine)
+            contentView.addSubview(seperateLine)
         }
     }
     
@@ -169,5 +169,14 @@ extension CategoryTopViewCell {
                 make.height.equalTo(0.5)
             }
         }
+    }
+    
+    
+    /// 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        titleLabel.text = nil
     }
 }

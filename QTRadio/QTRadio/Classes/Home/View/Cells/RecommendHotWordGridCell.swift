@@ -81,6 +81,15 @@ extension RecommendHotWordGridCell {
     }
     
     
+    // 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cellImageView.image = nil
+        cellTitleLabel.text = nil
+    }
+    
+    
     override func layoutSubviews() {
         
         // imageView

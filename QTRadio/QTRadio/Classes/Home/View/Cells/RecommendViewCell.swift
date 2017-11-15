@@ -179,4 +179,14 @@ extension RecommendViewCell {
             make.centerY.equalTo(playImageView.snp.centerY)
         }
     }
+    
+    
+    /// 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cellTitleLabel.text = nil
+        cellImageView.image = nil
+        playCountLabel.text = nil
+    }
 }

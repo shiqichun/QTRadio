@@ -19,6 +19,11 @@ private let kRecommendIndicatorHeight: CGFloat = 3
 class RecommendBannerView: UIView {
     
     
+    // MARK: - 定时器属性
+    
+    fileprivate var bannerTimer: Timer?
+    
+    
     // MARK: - 模型属性
     
     // 用于接收从控制器传递过来的模型数据
@@ -29,6 +34,32 @@ class RecommendBannerView: UIView {
             // 监听bannerModelArray的改变
             // 然后刷新表格，重新载入数据
             recommendBannerView.reloadData()
+            
+            var ItemCount = 0
+            
+            // 校验数组bannerModelArray是否有值
+            guard let bannerModelArray = bannerModelArray else { return }
+            
+            // 取出行模型的个数
+            for typeItem in bannerModelArray {
+                for titleItem in typeItem.bannerDataModelArray {
+                    guard let count = titleItem.data?.count else { return }
+                    ItemCount = count
+                }
+            }
+            
+            // 创建一个比较大的indexPath
+            let indexPath = IndexPath(item: ItemCount * 100, section: 0)
+            
+            // 让recommendBannerView滚动到这个indexPath，从而可以往左边无限滚动
+            recommendBannerView.scrollToItem(at: indexPath, at: .left, animated: false)
+            
+            // MARK: - 当模型中有数据时，我们就添加定时器
+            
+            // 在添加定时器之前，先移除定时器
+            // 然后再添加定时器
+            removeBannerTimer()
+            addBannerTimer()
         }
     }
     
@@ -40,6 +71,9 @@ class RecommendBannerView: UIView {
     
     /// bannerViewHeight
     fileprivate var bannerViewHeight: CGFloat
+    
+    /// 保存行模型的数量
+    fileprivate var ItemCount: Int = 0
 
     // MARK: - 控件属性
     
@@ -62,6 +96,9 @@ class RecommendBannerView: UIView {
         // 设置数据源代理，并注册cell
         collectionView.dataSource = self
         collectionView.register(RecommendBannerViewCell.self, forCellWithReuseIdentifier: kBannerCellIdentifier)
+        
+        // 设置代理
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -130,7 +167,11 @@ extension RecommendBannerView: UICollectionViewDataSource {
         // 接着取出标题模型数组中存放数据的数组data，其中data的个数即为cell的个数
         guard let count = titleItem.data?.count else { return 0 }
         
-        return count
+        // 将行模型的数量保存起来
+        ItemCount = count
+        
+        // 让它的真实数量乘以一个很大的数，可以让它有充分的滚动控件
+        return count * 10000
     }
     
     // 返回cell
@@ -147,12 +188,75 @@ extension RecommendBannerView: UICollectionViewDataSource {
         // 然后取出标题模型
         guard let titleItem = typeItem.bannerDataModelArray.first else { return cell }
         
-        // 最后取出行模型
-        let dataItem = titleItem.bannerDataDataModelArray[indexPath.row]
+        // 最后取出行模型(因为上面乘以了一个很大的数，为了不越界，这里indexPath.item需要模上行模型的个数)
+        let dataItem = titleItem.bannerDataDataModelArray[indexPath.item % ItemCount]
         
         // 设置数据
         cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
         
         return cell
+    }
+    
+}
+
+
+
+// MARK: - UICollectionViewDelegate
+extension RecommendBannerView: UICollectionViewDelegate {
+    
+    // 监听用户拖动手势，一旦用户手动拖拽bannerView，要将定时器移除
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        // 移除定时器
+        removeBannerTimer()
+    }
+    
+    // 用户结束拖拽bannerView，再次添加定时器
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        // 添加定时器
+        addBannerTimer()
+    }
+}
+
+
+
+
+
+// MARK: - 定时器相关的操作方法
+extension RecommendBannerView {
+    
+    /// 添加定时器
+    fileprivate func addBannerTimer() {
+        
+        // 创建定时器
+        bannerTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(RecommendBannerView.scrollToFuture), userInfo: nil, repeats: true)
+        
+        // 将定时器添加到运行循环中
+        RunLoop.main.add(bannerTimer!, forMode: .commonModes)
+    }
+    
+    
+    /// 移除定时器
+    fileprivate func removeBannerTimer() {
+        
+        // 将定时器从运行循环中移除
+        bannerTimer?.invalidate()
+        
+        // 将bannerTimer清空
+        bannerTimer = nil
+    }
+    
+    /// 执行滚动的方法
+    @objc fileprivate func scrollToFuture() {
+        
+        // 获取当前的偏移量
+        let currentOffsetX = recommendBannerView.contentOffset.x
+        
+        // 计算需要滚动的偏移量(即滚动一个bannerView的宽度即可)
+        let offsetX = currentOffsetX + recommendBannerView.bounds.width
+        
+        // 滚动到下一个位置
+        recommendBannerView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }
 }

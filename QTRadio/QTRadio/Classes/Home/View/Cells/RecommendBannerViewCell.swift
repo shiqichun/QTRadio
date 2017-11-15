@@ -5,6 +5,7 @@
 //  Created by Enrica on 2017/11/12.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
+// 无线轮播器(Banner)的cell
 
 import UIKit
 
@@ -59,5 +60,13 @@ extension RecommendBannerViewCell {
         
         // 将cellImageView添加到contentView中
         contentView.addSubview(cellImageView)
+    }
+    
+    
+    /// 清除之前的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cellImageView.image = nil
     }
 }

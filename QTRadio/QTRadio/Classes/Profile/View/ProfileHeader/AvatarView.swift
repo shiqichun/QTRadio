@@ -59,13 +59,13 @@ extension AvatarView {
     fileprivate func setupLoginBtn() {
         
         // 设置边框颜色
-        loginBtn.layer.borderColor = (UIColor.lightGray).cgColor
+        loginBtn.layer.borderColor = UIColor(r: 237, g: 237, b: 237).cgColor
         
         // 设置边框粗细
         loginBtn.layer.borderWidth = 1.0
         
         // 设置按钮字体颜色
-        loginBtn.setTitleColor(UIColor(r: 246, g: 91, b: 90), for: .normal)
+        loginBtn.setTitleColor(UIColor(r: 222, g: 32, b: 36), for: .normal)
         loginBtn.setTitleColor(.darkGray, for: .highlighted)
         
         // 设置按钮的圆角

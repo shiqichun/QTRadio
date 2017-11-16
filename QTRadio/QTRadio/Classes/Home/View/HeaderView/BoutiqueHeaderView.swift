@@ -19,6 +19,14 @@ class BoutiqueHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - 懒加载控件
     
+    /// 顶部的水平分割线
+    fileprivate lazy var horizontalLine: UIView = {
+        
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 245, g: 244, b: 249)
+        return view
+    }()
+    
     /// 左边红色的竖线
     fileprivate lazy var verticalLine: UIView = {
         
@@ -89,6 +97,9 @@ extension BoutiqueHeaderView {
             subview.removeFromSuperview()
         }
         
+        // 添加水平分割线
+        contentView.addSubview(horizontalLine)
+        
         // 添加竖线
         contentView.addSubview(verticalLine)
         
@@ -105,12 +116,20 @@ extension BoutiqueHeaderView {
     /// 重新布局子控件的位置
     override func layoutSubviews() {
         
+        // 布局horizontalLine的位置
+        horizontalLine.snp.makeConstraints { (make) in
+            make.width.equalTo(self)
+            make.height.equalTo(kMargin * 0.5)
+            make.top.equalTo(self)
+            make.left.equalTo(self)
+        }
+        
         // 布局竖线的位置
         verticalLine.snp.makeConstraints { (make) in
-            make.left.equalTo(self).offset(kMargin)
-            make.centerY.equalTo(self)
             make.width.equalTo(3)
             make.height.equalTo(kVerticalLineHeight)
+            make.left.equalTo(self).offset(kMargin)
+            make.centerY.equalTo(self).offset(kMargin * 0.5)
         }
         
         // 布局主标题的位置
@@ -122,7 +141,7 @@ extension BoutiqueHeaderView {
         // 布局小箭头的位置
         arrow.snp.makeConstraints { (make) in
             make.right.equalTo(self).offset(-kMargin)
-            make.centerY.equalTo(self)
+            make.centerY.equalTo(self).offset(kMargin * 0.5)
         }
         
         // 布局moreLabel的位置

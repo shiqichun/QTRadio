@@ -15,8 +15,11 @@ class BoutiqueTableRecommendsModel: NSObject {
     
     // MARK: - 模型数组
     
-    /// 用于存储转换完成的模型数据
+    /// 用于存储转换完成的parent_info模型数据
     lazy var tableParentInfoModelArray = [BoutiqueTableParentInfoModel]()
+    
+    /// 用于存储转换完成的detail模型数据
+    lazy var tableDetailModelArray = [BoutiqueTableDetailModel]()
 
     
     // MARK: - 服务器返回的模型属性
@@ -40,6 +43,21 @@ class BoutiqueTableRecommendsModel: NSObject {
             
             // 将转换完成的模型数据保存起来
             tableParentInfoModelArray.append(item)
+        }
+    }
+    
+    /// 还是主标题字典
+    var detail: [String: Any]? {
+        didSet {
+            
+            // 校验字典detail是否有值
+            guard let detail = detail else { return }
+            
+            // 将字典转为模型
+            let item = BoutiqueTableDetailModel(dict: detail)
+            
+            // 将转换完成的模型数据保存起来
+            tableDetailModelArray.append(item)
         }
     }
     

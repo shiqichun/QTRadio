@@ -44,7 +44,7 @@ class BoutiqueViewController: UIViewController {
         tableView.sectionFooterHeight = 0
         
         // 去掉tableView所有的分割线
-        // tableView.separatorStyle = .none
+        tableView.separatorStyle = .none
         
         // 设置tableView岁父控件一起拉伸
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -62,6 +62,9 @@ class BoutiqueViewController: UIViewController {
         
         return tableView
     }()
+    
+    
+    
     
     
 
@@ -86,7 +89,7 @@ extension BoutiqueViewController {
         view.addSubview(tableView)
         
         
-        //tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 233, left: 0, bottom: 10, right: 0)
         
         // 请求网络数据
         DispatchQueue.global(qos: .default).async {
@@ -156,7 +159,22 @@ extension BoutiqueViewController: UITableViewDataSource {
         let item = sectionItem.tableRecommendModeArray[indexPath.row]
         
         // 设置cell的子标题
-        cell.textLabel?.text = item.title
+        cell.cellSubtitleLabel.text = item.title
+        cell.cellImageView.kf.setImage(with: URL(string: item.thumb))
+        
+        
+        /// 它这个主标题很变态，有一部分是存储在parent_info这个
+        /// 字典当中的，而有一部分是存储在detail这个字典当中的
+        if let infoItem = item.tableParentInfoModelArray.first {
+            
+            // 如果tableParentInfoModelArray不为空，则主标题为parent_name
+            cell.cellTitleLabel.text = infoItem.parent_name
+            
+        } else if let detailItem = item.tableDetailModelArray.first {
+            
+            // 否则，cell的主标题为tableDetailModel模型的title
+            cell.cellTitleLabel.text = detailItem.title
+        }
         
         return cell
     }
@@ -173,6 +191,10 @@ extension BoutiqueViewController: UITableViewDelegate {
 
         // 根据可重用标识符去缓存池中取出headerView
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: kHeaderViewCellIdentifer) as! BoutiqueHeaderView
+        
+        let sectionItem = boutiqueViewModel.tableModelArray[section]
+        
+        headerView.titleLabel.text = sectionItem.name
         
         return headerView
     }
@@ -191,6 +213,14 @@ extension BoutiqueViewController: UITableViewDelegate {
             // 如果是，则修改其背景颜色
             (view as? BoutiqueHeaderView)?.backgroundView?.backgroundColor = .white
         }
+    }
+    
+    // 返回cell的高度
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // 因为是静态cell，为了避免麻烦，直接在
+        // 这里写死
+        return 90
     }
 }
 

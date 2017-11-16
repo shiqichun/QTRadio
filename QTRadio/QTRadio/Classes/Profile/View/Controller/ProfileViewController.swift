@@ -16,7 +16,7 @@ private let kMargin: CGFloat = 5
 private let kTableViewCellIdentifier = "kTableViewCellIdentifier"
 
 /// ProfileHeader的高度
-private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.3  // iPhone X中是162.4
+private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.25   // iPhone X中是162.4
 
 class ProfileViewController: UIViewController {
     
@@ -39,10 +39,10 @@ class ProfileViewController: UIViewController {
         let tableView = UITableView(frame: self.view.bounds, style: .grouped)
         
         // 调整tableView默认的组间距
-        tableView.sectionHeaderHeight = kMargin
-        tableView.sectionFooterHeight = kMargin
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
         
-        // 设置tableView岁父控件一起拉伸
+        // 设置tableView随父控件一起拉伸
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // 设置数据源代理
@@ -323,15 +323,16 @@ extension ProfileViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     
-    // 关闭grouped样式顶部默认的空白
+    // 调整grouped样式顶部默认空白的高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
-        // 相当于之前的CGFloat.min
-        return CGFloat.leastNormalMagnitude
+        return kMargin
     }
     
     // 关闭grouped样式底部默认的空白
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        // 相当于之前的CGFloat.min
         return CGFloat.leastNormalMagnitude
     }
 }

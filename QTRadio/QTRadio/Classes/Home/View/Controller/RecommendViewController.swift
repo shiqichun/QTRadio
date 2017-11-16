@@ -148,7 +148,7 @@ extension RecommendViewController {
         recommendViewModel.requestData(completionHandler: {
             
             DispatchQueue.main.async {
-                
+
                 // 重新调用数据源方法
                 self.collectionView.reloadData()
             }

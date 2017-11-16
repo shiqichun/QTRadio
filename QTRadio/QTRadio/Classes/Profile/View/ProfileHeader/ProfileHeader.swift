@@ -8,14 +8,8 @@
 
 import UIKit
 
-/// 顶部ProfileHeader的总高度
-private let kProfileHeaderHeight: CGFloat = kScreenHeight * 0.3
-
 /// 间距
 private let kMargin: CGFloat = 5
-
-/// avatarView的高度
-private let kAvatarViewHeight: CGFloat = kProfileHeaderHeight * 0.4 - kMargin
 
 class ProfileHeader: UIView {
     
@@ -24,7 +18,8 @@ class ProfileHeader: UIView {
     /// 父控制器
     fileprivate var parentVc: UIViewController
     
-    
+    /// profileHeaderHeight
+    fileprivate var profileHeaderHeight: CGFloat
     
     
     // MARK: - 懒加载属性
@@ -36,7 +31,7 @@ class ProfileHeader: UIView {
         let avatarView = Bundle.main.loadNibNamed("AvatarView", owner: nil, options: nil)?[0] as! AvatarView
         
         // 设置avatarView的frame
-        avatarView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kAvatarViewHeight)
+        avatarView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: profileHeaderHeight * 0.45)
         
         return avatarView
     }()
@@ -45,7 +40,7 @@ class ProfileHeader: UIView {
     fileprivate lazy var profileView: ProfileView = {
         
         // 从xib中加载profileView
-        let profileView = ProfileView(frame: CGRect(x: 0, y: kAvatarViewHeight + kMargin, width: kScreenWidth, height: kProfileHeaderHeight - kAvatarViewHeight - 2 * kMargin))
+        let profileView = ProfileView(frame: CGRect(x: 0, y: profileHeaderHeight * 0.45 + kMargin, width: kScreenWidth, height: profileHeaderHeight - (profileHeaderHeight * 0.45 + kMargin)))
         
         return profileView
     }()
@@ -61,6 +56,7 @@ class ProfileHeader: UIView {
         
         // 初始化私有属性
         self.parentVc = parentVc
+        self.profileHeaderHeight = frame.size.height
         
         super.init(frame: frame)
         

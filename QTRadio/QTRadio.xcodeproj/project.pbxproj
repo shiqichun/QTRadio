@@ -99,6 +99,7 @@
 		C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AC1FA9AA280054DD79 /* Constant.swift */; };
 		C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */; };
 		C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */; };
+		C5C596011FBDCFD9006AA280 /* LiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C596001FBDCFD9006AA280 /* LiveViewModel.swift */; };
 		C5FB93D41FAB141B006F721C /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93D31FAB141B006F721C /* DownloadView.swift */; };
 		C5FB93DC1FAB1F5E006F721C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */; };
 		C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB93DD1FAB1F94006F721C /* HeaderReusableView.swift */; };
@@ -212,6 +213,7 @@
 		C5C0D7AC1FA9AA280054DD79 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C5C0D7AE1FA9B42D0054DD79 /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
 		C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		C5C596001FBDCFD9006AA280 /* LiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewModel.swift; sourceTree = "<group>"; };
 		C5FB93D31FAB141B006F721C /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		C5FB93DD1FAB1F94006F721C /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				C536DAAD1FB87D3100DC2C02 /* RecommendViewModel.swift */,
 				C536DB321FBC593600DC2C02 /* BoutiqueViewModel.swift */,
+				C5C596001FBDCFD9006AA280 /* LiveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 				C58C39531FBD7F110068A27D /* BoutiqueBannerView.swift in Sources */,
 				C55996BE1FB8331300E05B3A /* CategoryTopViewModel.swift in Sources */,
+				C5C596011FBDCFD9006AA280 /* LiveViewModel.swift in Sources */,
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
 				C536DB441FBC786E00DC2C02 /* BoutiqueTableParentInfoModel.swift in Sources */,
 				C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */,

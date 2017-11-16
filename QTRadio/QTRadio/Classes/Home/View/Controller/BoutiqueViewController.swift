@@ -30,6 +30,8 @@ class BoutiqueViewController: UIViewController {
     /// viewModel属性
     fileprivate lazy var boutiqueViewModel: BoutiqueViewModel = BoutiqueViewModel()
     
+    /// playCountModel属性
+    
     
     // MARK: - 懒加载属性
     
@@ -178,18 +180,117 @@ extension BoutiqueViewController: UITableViewDataSource {
         cell.cellSubtitleLabel.text = item.title
         cell.cellImageView.kf.setImage(with: URL(string: item.thumb))
         
+        // 取出parentInforItem
+        let parentInfoItem = item.tableParentInfoModelArray.first
+        
         
         /// 它这个主标题很变态，有一部分是存储在parent_info这个
         /// 字典当中的，而有一部分是存储在detail这个字典当中的
-        if let infoItem = item.tableParentInfoModelArray.first {
-            
+        if let infoItem = parentInfoItem {
+
             // 如果tableParentInfoModelArray不为空，则主标题为parent_name
             cell.cellTitleLabel.text = infoItem.parent_name
-            
+
         } else if let detailItem = item.tableDetailModelArray.first {
-            
+
             // 否则，cell的主标题为tableDetailModel模型的title
             cell.cellTitleLabel.text = detailItem.title
+        }
+        
+        
+        // 如果parent_info这个字典中的数据不为空，此时才需要
+        // 设置cell的播放次数图片和label
+        if item.tableParentInfoModelArray.count != 0 {
+            cell.playCountLabel.isHidden = false
+            cell.playImageView.isHidden = false
+            
+            cell.starImageView1.isHidden = false
+            cell.starImageView2.isHidden = false
+            cell.starImageView3.isHidden = false
+            cell.starImageView4.isHidden = false
+            cell.starImageView5.isHidden = false
+            
+            for playItem in boutiqueViewModel.playCountModelArray {
+                if item.tableParentInfoModelArray.first!.parent_id == playItem.id {
+                    
+                    // 设置playCountLabel的数据
+                    cell.playCountLabel.text = playItem.playcount
+                    
+                    // 处理小星星
+                    switch playItem.score {
+                        
+                    case 1:
+                        cell.starImageView1.image = UIImage(named: "halfStar_13x12_")
+                        cell.starImageView2.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView3.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                      
+                    case 2:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView3.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 3:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "halfStar_13x12_")
+                        cell.starImageView3.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 4:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 5:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "halfStar_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                       
+                    case 6:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "star_13x12_")
+                        cell.starImageView4.image = UIImage(named: "noStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 7:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "star_13x12_")
+                        cell.starImageView4.image = UIImage(named: "halfStar_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 8:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "star_13x12_")
+                        cell.starImageView4.image = UIImage(named: "star_13x12_")
+                        cell.starImageView5.image = UIImage(named: "noStar_13x12_")
+                        
+                    case 9:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "star_13x12_")
+                        cell.starImageView4.image = UIImage(named: "star_13x12_")
+                        cell.starImageView5.image = UIImage(named: "halfStar_13x12_")
+                        
+                    default:
+                        cell.starImageView1.image = UIImage(named: "star_13x12_")
+                        cell.starImageView2.image = UIImage(named: "star_13x12_")
+                        cell.starImageView3.image = UIImage(named: "star_13x12_")
+                        cell.starImageView4.image = UIImage(named: "star_13x12_")
+                        cell.starImageView5.image = UIImage(named: "star_13x12_")
+                    }
+                }
+            }
         }
         
         return cell

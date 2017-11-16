@@ -9,6 +9,10 @@
 // 精品内容数据
 // http://api2.qingting.fm/v6/media/recommends/guides/section/1011?device_id=093e8b7e24c02246fe92373727e4a92c
 
+// 播放次数
+// http://i.qingting.fm/wapi/channel_playcount?cids=231638,231789,231341,,,,,205768,73958,,219773,224063,216713,222062,221748,226851,226839,230286,227575,199318,227810,207497,227594,225141,221748,227027,196502,207658,216133,199566,221146,226634,223378,194188,194928,192784,223905,210967,226522,219453,222352,205665,119466,208227,134436,220928,225815,204898,224195,223569,204554,221743,208447,215416&wt=json&v=6.0.4&deviceid=093e8b7e24c02246fe92373727e4a92c&phonetype=iOS&osv=11.1.1&device=iPhone&pkg=com.Qting.QTTour
+
+
 import UIKit
 
 /// URL地址
@@ -16,6 +20,17 @@ private let kRequestURL = "http://api2.qingting.fm/v6/media/recommends/guides/se
 
 /// device_id
 private let kDeviceId = "093e8b7e24c02246fe92373727e4a92c"
+
+/// 播放次数的URL地址
+private let kPlayRequestURL = "http://i.qingting.fm/wapi/channel_playcount"
+
+
+private let kCids = "231638,231789,231341,,,,,205768,73958,,219773,224063,216713,222062,221748,226851,226839,230286,227575,199318,227810,207497,227594,225141,221748,227027,196502,207658,216133,199566,221146,226634,223378,194188,194928,192784,223905,210967,226522,219453,222352,205665,119466,208227,134436,220928,225815,204898,224195,223569,204554,221743,208447,215416"
+
+
+
+
+
 
 class BoutiqueViewModel: NSObject {
     
@@ -32,6 +47,9 @@ class BoutiqueViewModel: NSObject {
     
     /// 用于存储TableView的模型
     lazy var tableModelArray: [BoutiqueTableModel] = [BoutiqueTableModel]()
+    
+    /// 用于存储playCountModel
+    lazy var playCountModelArray: [BoutiquePlayCountModel] = [BoutiquePlayCountModel]()
 }
 
 
@@ -75,6 +93,30 @@ extension BoutiqueViewModel {
             
             // 将转换完成的数据进行回调
             completionHandler()
+        }
+        
+        
+        
+        // 请求播放次数的数据
+        NetworkTools.shareTools.requestData(kPlayRequestURL, .get, parameters: ["cids": kCids, "wt": "json", "v": "6.0.4", "deviceid": kDeviceId, "phonetype": "iOS", "osv": "11.1.1", "device": "iPhone", "pkg": "com.Qting.QTTour"]) { (playResult) in
+            
+            // 将数据转为字典
+            guard let playResultDict = playResult as? [String: Any] else { return }
+            
+            // 根据字典中的键data取出与之对应的数据
+            guard let playResultArray = playResultDict["data"] as? [[String: Any]] else { return }
+            
+            // 遍历数组playResultArray中的字典
+            for dict in playResultArray {
+                
+                // 将字典转为模型
+                let playItem = BoutiquePlayCountModel(dict: dict)
+                
+                // 将转换完成的模型数据保存起来
+                self.playCountModelArray.append(playItem)
+            }
+            
+//            completionHandler()
         }
     }
 }

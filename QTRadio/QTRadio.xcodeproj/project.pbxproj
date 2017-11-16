@@ -63,6 +63,7 @@
 		C57983951FB4983400643B9B /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983941FB4983400643B9B /* CategoryHeaderView.swift */; };
 		C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983961FB49CDB00643B9B /* CategoryBottomView.swift */; };
 		C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579839A1FB4A11D00643B9B /* ItemView.swift */; };
+		C58076D11FBE05CC00D884E4 /* BoutiquePlayCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58076D01FBE05CC00D884E4 /* BoutiquePlayCountModel.swift */; };
 		C588A7C71FB2F28C00FA9A05 /* ProfileCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588A7C61FB2F28C00FA9A05 /* ProfileCommonView.swift */; };
 		C588A7CB1FB33CE800FA9A05 /* ProfileCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588A7CA1FB33CE800FA9A05 /* ProfileCellModel.swift */; };
 		C588A7CD1FB33D0800FA9A05 /* ProfileGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C588A7CC1FB33D0800FA9A05 /* ProfileGroupModel.swift */; };
@@ -177,6 +178,7 @@
 		C57983941FB4983400643B9B /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		C57983961FB49CDB00643B9B /* CategoryBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBottomView.swift; sourceTree = "<group>"; };
 		C579839A1FB4A11D00643B9B /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		C58076D01FBE05CC00D884E4 /* BoutiquePlayCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiquePlayCountModel.swift; sourceTree = "<group>"; };
 		C588A7C61FB2F28C00FA9A05 /* ProfileCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCommonView.swift; sourceTree = "<group>"; };
 		C588A7CA1FB33CE800FA9A05 /* ProfileCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellModel.swift; sourceTree = "<group>"; };
 		C588A7CC1FB33D0800FA9A05 /* ProfileGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGroupModel.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				C536DB431FBC786E00DC2C02 /* BoutiqueTableParentInfoModel.swift */,
 				C58C39491FBD679E0068A27D /* BoutiqueTableDetailModel.swift */,
 				C58C39581FBDA1190068A27D /* BoutiqueCategoryTitleModel.swift */,
+				C58076D01FBE05CC00D884E4 /* BoutiquePlayCountModel.swift */,
 			);
 			path = BoutiqueModel;
 			sourceTree = "<group>";
@@ -991,6 +994,7 @@
 				C54ABFD41FB7F2EB00DCFCD9 /* RecommendBannerView.swift in Sources */,
 				C5C0D7A91FA9A4950054DD79 /* QTTabBar.swift in Sources */,
 				C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */,
+				C58076D11FBE05CC00D884E4 /* BoutiquePlayCountModel.swift in Sources */,
 				C593A4451FA9D0240036CC98 /* CategoryViewController.swift in Sources */,
 				C536DB241FBAEBD400DC2C02 /* HotWordGridDataModel.swift in Sources */,
 				C536DB2F1FBAEBD400DC2C02 /* RecommendModel.swift in Sources */,

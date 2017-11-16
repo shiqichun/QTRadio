@@ -147,8 +147,8 @@ extension BoutiqueCategoryTitleView: UICollectionViewDataSource {
         cell.cellTitleLabel.text = item.title
         
         // 设置cell文字的颜色
-        if item.isDarkGray {
-            cell.cellTitleLabel.textColor = .darkGray
+        if item.isLightGray {
+            cell.cellTitleLabel.textColor = .lightGray
         } else {
             cell.cellTitleLabel.textColor = .black
         }

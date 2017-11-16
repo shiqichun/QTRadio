@@ -22,7 +22,7 @@ class BoutiqueCategoryTitleModel: NSObject {
     var isHiddenArrow: Bool = false
     
     /// 是否需要设置darkGray
-    var isDarkGray: Bool = false
+    var isLightGray: Bool = false
     
     
     // MARK: - 构造函数

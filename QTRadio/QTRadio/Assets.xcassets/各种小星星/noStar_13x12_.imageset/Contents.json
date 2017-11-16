@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "noStar_13x12_@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "noStar_13x12_@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "star_13x12_@3x.png",
+      "filename" : "noStar_13x12_@3x.png",
       "scale" : "3x"
     }
   ],

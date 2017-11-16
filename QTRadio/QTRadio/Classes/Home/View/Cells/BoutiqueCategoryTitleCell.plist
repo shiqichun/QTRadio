@@ -3,7 +3,7 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -11,7 +11,7 @@
 		<string>文化</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -19,7 +19,7 @@
 		<string>职场</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -27,7 +27,7 @@
 		<string>教育</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -35,7 +35,7 @@
 		<string>理财</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -43,7 +43,7 @@
 		<string>情感</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -51,7 +51,7 @@
 		<string>小课</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<false/>
 		<key>isHiddenArrow</key>
 		<true/>
@@ -59,7 +59,7 @@
 		<string>蒋勋</string>
 	</dict>
 	<dict>
-		<key>isDarkGray</key>
+		<key>isLightGray</key>
 		<true/>
 		<key>isHiddenArrow</key>
 		<false/>

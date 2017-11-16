@@ -13,7 +13,7 @@ import UIKit
 private let kVerticalLineHeight: CGFloat = 15
 
 // 间距
-private let kMargin: CGFloat = 10
+private let kMargin: CGFloat = 15
 
 class BoutiqueHeaderView: UITableViewHeaderFooterView {
 

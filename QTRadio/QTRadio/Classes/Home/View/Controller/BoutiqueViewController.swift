@@ -18,7 +18,8 @@ private let kHeaderViewHeight: CGFloat = 44
 /// headerView的可重用标识符
 private let kHeaderViewCellIdentifer = "kHeaderViewCellIdentifer"
 
-
+/// topView的高度
+private let kTopViewHeight: CGFloat = 233
 
 
 
@@ -64,7 +65,12 @@ class BoutiqueViewController: UIViewController {
     }()
     
     
-    
+    /// 顶部的Banner和表格
+    fileprivate lazy var topView: BoutiqueTopView = {
+        
+        let topView = BoutiqueTopView(frame: CGRect(x: 0, y: -kTopViewHeight, width: kScreenWidth, height: kTopViewHeight))
+        return topView
+    }()
     
     
 
@@ -88,8 +94,11 @@ extension BoutiqueViewController {
         // 添加tableView
         view.addSubview(tableView)
         
+        // 设置tableView的边距
+        tableView.contentInset = UIEdgeInsets(top: kTopViewHeight, left: 0, bottom: 10, right: 0)
         
-        tableView.contentInset = UIEdgeInsets(top: 233, left: 0, bottom: 10, right: 0)
+        // 添加topView
+        tableView.addSubview(topView)
         
         // 请求网络数据
         DispatchQueue.global(qos: .default).async {
@@ -114,8 +123,8 @@ extension BoutiqueViewController {
                 self.tableView.reloadData()
             }
             
-            
-            
+            // 将Banner的模型数据传递过去
+            self.topView.boutiqueBannerView.bannerModelArray = self.boutiqueViewModel.bannerModelArray
         }
     }
 }

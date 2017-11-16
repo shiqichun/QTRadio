@@ -323,13 +323,16 @@ extension ProfileViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     
-    // 设置tableView的header的高度。当使用grouped样式时，
-    // 将header的高度设置为极小值，可以去掉顶部巨大的留白
+    // 关闭grouped样式顶部默认的空白
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
         // 相当于之前的CGFloat.min
         return CGFloat.leastNormalMagnitude
     }
     
+    // 关闭grouped样式底部默认的空白
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
 }
 

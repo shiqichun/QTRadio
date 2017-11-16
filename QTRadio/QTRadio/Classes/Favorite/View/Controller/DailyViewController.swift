@@ -23,6 +23,9 @@ class DailyViewController: UIViewController {
         
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
         
+        // 设置tableView的宽度和高度随着父控件一起拉伸
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         tableView.backgroundColor = UIColor(r: 190, g: 158, b: 105)
         
         // 去掉默认的分割线
@@ -66,7 +69,7 @@ extension DailyViewController {
         // 添加tableView
         view.addSubview(tableView)
         
-        // 设置tableView的contentInset
+        // 设置tableView的contentInset(顶部留100的间距，底部留100的间距)
         tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
         
         // 请求网路数据

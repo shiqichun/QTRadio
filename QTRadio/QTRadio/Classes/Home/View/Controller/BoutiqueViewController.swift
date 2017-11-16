@@ -38,7 +38,10 @@ class BoutiqueViewController: UIViewController {
     fileprivate lazy var tableView: UITableView = {
         
         // 创建tableView
-        let tableView = UITableView(frame: self.view.bounds, style: .grouped)
+        let tableView = UITableView(frame: view.bounds, style: .grouped)
+        
+        // 让tableView跟随父控件一起拉伸
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // 调整tableView默认的组间距
         tableView.sectionHeaderHeight = 5
@@ -47,8 +50,6 @@ class BoutiqueViewController: UIViewController {
         // 去掉tableView所有的分割线
         tableView.separatorStyle = .none
         
-        // 设置tableView岁父控件一起拉伸
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // 设置数据源代理
         tableView.dataSource = self
@@ -69,6 +70,7 @@ class BoutiqueViewController: UIViewController {
     fileprivate lazy var topView: BoutiqueTopView = {
         
         let topView = BoutiqueTopView(frame: CGRect(x: 0, y: -kTopViewHeight, width: kScreenWidth, height: kTopViewHeight))
+       
         return topView
     }()
     
@@ -94,8 +96,13 @@ extension BoutiqueViewController {
         // 添加tableView
         view.addSubview(tableView)
         
-        // 设置tableView的边距
-        tableView.contentInset = UIEdgeInsets(top: kTopViewHeight, left: 0, bottom: 10, right: 0)
+        
+        
+        // 设置tableView的边距。有一点需要注意，由于iOS 11中增加了安全区域的概念，tableView使用grouped样式
+        // 时，顶部会默认增加64的空白，底部会默认增加20的空白，一方面可以通过contentInset来进行相应的设置，另
+        // 一方面，可以在代理方法中设置heightForFooterInSection和heightForHeaderInSection的高度为一
+        // 个极小值CGFloat.leastNormalMagnitude来消除它
+        tableView.contentInset = UIEdgeInsets(top: kTopViewHeight, left: 0, bottom: 0, right: 0)
         
         // 添加topView
         tableView.addSubview(topView)
@@ -230,6 +237,11 @@ extension BoutiqueViewController: UITableViewDelegate {
         // 因为是静态cell，为了避免麻烦，直接在
         // 这里写死
         return 90
+    }
+    
+    // 关闭grouped样式底部默认的空白
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }
 

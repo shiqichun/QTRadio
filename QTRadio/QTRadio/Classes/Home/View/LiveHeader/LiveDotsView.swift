@@ -24,6 +24,20 @@ private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
 class LiveDotsView: UIView {
     
+    // MARK: - 模型属性
+    
+    /// 用于接收从控制器传递过来的模型数据
+    var dotsModelArray: [LiveDotsModel]? {
+        
+        didSet {
+            
+            // 监听dotsModelArray数据的改变，一旦发现控制器有把
+            // 模型数据传递过来，立马刷新表格，重新加载数据
+            dotsCollectionView.reloadData()
+        }
+    }
+    
+    
     // MARK: - 私有属性
     
     /// 保存dotsView的高度
@@ -133,7 +147,14 @@ extension LiveDotsView: UICollectionViewDataSource {
     
     // 返回cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        
+        // 从数组中取出dots模型
+        let dotsItem = dotsModelArray?.first
+        
+        // 取出行模型的个数
+        let itemCount = dotsItem?.dotsItemsModelArray.count
+        
+        return itemCount ?? 8
     }
     
     // 返回cell
@@ -142,6 +163,18 @@ extension LiveDotsView: UICollectionViewDataSource {
         // 根据可重用标识符取出cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! LiveDotsViewCell
         
+        // 校验dotsModelArray是否有值
+        guard let dotsModelArray = dotsModelArray else { return cell }
+        
+        // 取出items模型
+        let dotsItem = dotsModelArray.first!
+        
+        // 取出航模型
+        let item = dotsItem.dotsItemsModelArray[indexPath.item]
+        
+        // 设置cell的数据
+        cell.cellImageView.kf.setImage(with: URL(string: item.img_url))
+        cell.titleLabel.text = item.name
         
         return cell
     }

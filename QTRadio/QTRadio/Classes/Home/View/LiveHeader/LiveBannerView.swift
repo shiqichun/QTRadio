@@ -24,6 +24,27 @@ class LiveBannerView: UIView {
             // 监听bannerModelArray的变化，一旦发现控制器
             // 将模型数据传递过来，重新刷新表格
             bannerCollectionView.reloadData()
+            
+            // 校验bannerModelArray是否有数据
+            guard let bannerModelArray = bannerModelArray else { return }
+            
+            // 取出Banner
+            let bannerItem = bannerModelArray.first!
+            
+            // 在取出Item
+            let itemCount = bannerItem.bannerItemsModelArray.count
+            
+            // 搞一个超大的indexPath
+            let indexPath = IndexPath(item: itemCount * 100, section: 0)
+            
+            // 往左边滚动到这个超大的indexPath
+            bannerCollectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+            
+            
+            
+            // 搞一个定时器
+            removeBannerTimer()
+            addBannerTimer()
         }
     }
     
@@ -31,6 +52,11 @@ class LiveBannerView: UIView {
     
     /// 保存bannerView的高度
     fileprivate var bannerViewHeight: CGFloat
+    
+    /// 保存定时器
+    fileprivate var bannerTimer: Timer?
+    
+    
     
     
     // MARK: - 懒加载属性
@@ -53,6 +79,10 @@ class LiveBannerView: UIView {
         
         collectionView.dataSource = self
         collectionView.register(LiveBannerViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        
+        
+        // 设置代理，监听用户拖拽
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -129,5 +159,65 @@ extension LiveBannerView: UICollectionViewDataSource {
         cell.cellImageView.kf.setImage(with: URL(string: item.cover))
         
         return cell
+    }
+}
+
+
+
+
+
+// MARK: - 监听用户的拖拽动作
+extension LiveBannerView: UICollectionViewDelegate {
+    
+    // 即将拖拽时停止定时器
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        removeBannerTimer()
+    }
+    
+    // 拖拽结束之后添加定时器
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        addBannerTimer()
+    }
+}
+
+
+
+
+// MARK: - 定时器相关的操作
+extension LiveBannerView {
+    
+    /// 添加定时器
+    fileprivate func addBannerTimer() {
+        
+        // 创建定时器并将其进行保存
+        bannerTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(scrollToFuture), userInfo: nil, repeats: true)
+        
+        // 将定时器添加到运行循环
+        RunLoop.main.add(bannerTimer!, forMode: .commonModes)
+    }
+    
+    
+    /// 移除定时器
+    fileprivate func removeBannerTimer() {
+        
+        // 移除定时器
+        bannerTimer?.invalidate()
+        
+        // 清空定时器
+        bannerTimer = nil
+    }
+    
+    
+    /// 滚动到下一个位置
+    @objc fileprivate func scrollToFuture() {
+        
+        // 获取当前的contentOffsetX
+        let currentOffsetX = bannerCollectionView.contentOffset.x
+        
+        // 计算需要滚动的距离
+        let offsetX = currentOffsetX + bannerCollectionView.bounds.width
+        
+        // 滚动到下一个位置
+        bannerCollectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }
 }

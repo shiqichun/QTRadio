@@ -170,21 +170,49 @@ extension LiveViewController: UICollectionViewDataSource {
         // 取出模型
         let hotItem = liveViewModel.hotModelArray[indexPath.row]
         
-        // 从hotItem中取出currentItem
-        for currentItem in hotItem.currentModelArray {
+        // 设置cell的图片
+        cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
+        
+        
+        
+        // 如果是正在直播(也就是currentModelArray里面有值)
+        if hotItem.currentModelArray.count != 0 {
             
-            // 设置cell的配图地址
-            cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
+            // 显示正在直播信息
             
-            // 设置cell的title
-            cell.titleLabel.text = currentItem.title
+            // 从hotItem中取出currentItem
+            for currentItem in hotItem.currentModelArray {
+                
+                // 设置cell的图片(因为hotItem.cover有时没有值，为了安全起见，设置两次)
+                cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
+                
+                
+                // 设置cell的title
+                cell.titleLabel.text = currentItem.title
+            }
+        } else {
+            
+            // 显示预约直播时间
+            
+            for forecastItem in hotItem.forecastModelArray {
+                
+                // 设置cell的图片
+                cell.cellImageView.kf.setImage(with: URL(string: forecastItem.cover))
+                
+                // 设置cell的title
+                cell.titleLabel.text = forecastItem.title
+            }
         }
+        
+        
+        
+        
         
         // 设置用户昵称
         cell.nickLabel.text = hotItem.nick_name
         
         // 设置标签
-        cell.tagLabel.text = hotItem.tag
+        cell.tagLabel.text = "#" + hotItem.tag
         
 
         return cell
@@ -196,7 +224,7 @@ extension LiveViewController: UICollectionViewDataSource {
         // 根据可重用标识符取出header
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! LiveCollectionReusableView
 
-        headerView.backgroundColor = UIColor.randomColor()
+        
 
         return headerView
     }

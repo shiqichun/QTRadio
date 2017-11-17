@@ -47,7 +47,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
         
         // 创建imageView
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "live_placeholder")
+        imageView.image = UIImage(named: "live_placeholder_95x95_")
         return imageView
     }()
     
@@ -181,7 +181,7 @@ extension LiveCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        cellImageView.image = UIImage(named: "live_placeholder")
+        cellImageView.image = nil
         nickLabel.text = nil
         tagLabel.text = nil
         titleLabel.text = nil

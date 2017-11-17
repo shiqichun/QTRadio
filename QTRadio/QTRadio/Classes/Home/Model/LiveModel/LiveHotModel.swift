@@ -19,6 +19,10 @@ class LiveHotModel: NSObject {
     /// 将转换完成的current字典模型存储起来
     lazy var currentModelArray: [LiveCurrentModel] = [LiveCurrentModel]()
     
+    /// 将转换完成的forecast字典模型存储起来
+    lazy var forecastModelArray: [LiveForecastModel] = [LiveForecastModel]()
+    
+    
     
     // MARK: - 服务器返回的模型属性
     
@@ -43,7 +47,7 @@ class LiveHotModel: NSObject {
     /// online_user(在线收听人数)
     var online_user: Int = 0
 
-    /// current(当前的直播信息)
+    /// current(正在直播的数据)
     var current: [String: Any]? {
         
         didSet {
@@ -74,6 +78,22 @@ class LiveHotModel: NSObject {
     /// is_pinned(是否显示hot图标)
     var is_pinned: Bool = false
     
+    
+    /// 预约直播的数据
+    var forecast: [String: Any]? {
+        
+        didSet {
+            
+            // 校验forecast是否有值
+            guard let forecast = forecast else { return }
+            
+            // 直接将字典forecast转为模型
+            let item = LiveForecastModel(dict: forecast)
+            
+            // 将转换完成的模型数据保存起来
+            forecastModelArray.append(item)
+        }
+    }
     
     
     

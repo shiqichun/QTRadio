@@ -58,8 +58,19 @@ class BoutiqueViewModel: NSObject {
 // MARK: - 发送网络请求
 extension BoutiqueViewModel {
     
+    
     /// 请求网络数据，并且将其转为模型
     func requestData(completionHandler: @escaping () -> ()) {
+        
+        
+        // 创建组
+        let group = DispatchGroup()
+        
+        
+        
+        
+        // 进组
+        group.enter()
         
         // 发送网络请求
         NetworkTools.shareTools.requestData(kRequestURL, .get, parameters: ["device_id": kDeviceId]) { (result) in
@@ -90,12 +101,17 @@ extension BoutiqueViewModel {
                 self.tableModelArray.append(tableItem)
             }
             
-            
-            // 将转换完成的数据进行回调
-            completionHandler()
+            // 离开组
+            group.leave()
         }
         
         
+        
+        
+        
+        
+        // 进组
+        group.enter()
         
         // 请求播放次数的数据
         NetworkTools.shareTools.requestData(kPlayRequestURL, .get, parameters: ["cids": kCids, "wt": "json", "v": "6.0.4", "deviceid": kDeviceId, "phonetype": "iOS", "osv": "11.1.1", "device": "iPhone", "pkg": "com.Qting.QTTour"]) { (playResult) in
@@ -116,7 +132,19 @@ extension BoutiqueViewModel {
                 self.playCountModelArray.append(playItem)
             }
             
-//            completionHandler()
+            // 离开组
+            group.leave()
+        }
+        
+        
+        
+        
+        
+        // 所有数据请求完成以后，在进行回调
+        group.notify(queue: DispatchQueue.main) {
+            
+            // 回调
+            completionHandler()
         }
     }
 }

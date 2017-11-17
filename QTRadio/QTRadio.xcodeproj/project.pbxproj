@@ -61,6 +61,14 @@
 		C56809341FBE8FBA00ED5868 /* LiveCurrentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809331FBE8FBA00ED5868 /* LiveCurrentModel.swift */; };
 		C56809361FBEA4B600ED5868 /* LiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809351FBEA4B600ED5868 /* LiveCollectionViewCell.swift */; };
 		C56809381FBEB87D00ED5868 /* LiveCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809371FBEB87D00ED5868 /* LiveCollectionReusableView.swift */; };
+		C568093A1FBEE5BA00ED5868 /* LiveForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809391FBEE5BA00ED5868 /* LiveForecastModel.swift */; };
+		C568093C1FBF0D6900ED5868 /* LiveBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C568093B1FBF0D6900ED5868 /* LiveBannerModel.swift */; };
+		C568093E1FBF0D8100ED5868 /* LiveDotsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C568093D1FBF0D8100ED5868 /* LiveDotsModel.swift */; };
+		C56809401FBF0D9700ED5868 /* LiveBillboardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C568093F1FBF0D9700ED5868 /* LiveBillboardsModel.swift */; };
+		C56809421FBF10C900ED5868 /* LivebannerItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809411FBF10C900ED5868 /* LivebannerItemsModel.swift */; };
+		C56809441FBF10E600ED5868 /* LiveDotsItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809431FBF10E600ED5868 /* LiveDotsItemsModel.swift */; };
+		C56809461FBF110A00ED5868 /* LiveBillboardsItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809451FBF110A00ED5868 /* LiveBillboardsItemsModel.swift */; };
+		C56809481FBF141700ED5868 /* LiveBillboardsItemsUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809471FBF141700ED5868 /* LiveBillboardsItemsUserInfoModel.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
@@ -180,6 +188,14 @@
 		C56809331FBE8FBA00ED5868 /* LiveCurrentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCurrentModel.swift; sourceTree = "<group>"; };
 		C56809351FBEA4B600ED5868 /* LiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCollectionViewCell.swift; sourceTree = "<group>"; };
 		C56809371FBEB87D00ED5868 /* LiveCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCollectionReusableView.swift; sourceTree = "<group>"; };
+		C56809391FBEE5BA00ED5868 /* LiveForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveForecastModel.swift; sourceTree = "<group>"; };
+		C568093B1FBF0D6900ED5868 /* LiveBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBannerModel.swift; sourceTree = "<group>"; };
+		C568093D1FBF0D8100ED5868 /* LiveDotsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDotsModel.swift; sourceTree = "<group>"; };
+		C568093F1FBF0D9700ED5868 /* LiveBillboardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBillboardsModel.swift; sourceTree = "<group>"; };
+		C56809411FBF10C900ED5868 /* LivebannerItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivebannerItemsModel.swift; sourceTree = "<group>"; };
+		C56809431FBF10E600ED5868 /* LiveDotsItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDotsItemsModel.swift; sourceTree = "<group>"; };
+		C56809451FBF110A00ED5868 /* LiveBillboardsItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBillboardsItemsModel.swift; sourceTree = "<group>"; };
+		C56809471FBF141700ED5868 /* LiveBillboardsItemsUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBillboardsItemsUserInfoModel.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
@@ -708,6 +724,14 @@
 			children = (
 				C56809311FBE8E0800ED5868 /* LiveHotModel.swift */,
 				C56809331FBE8FBA00ED5868 /* LiveCurrentModel.swift */,
+				C56809391FBEE5BA00ED5868 /* LiveForecastModel.swift */,
+				C568093B1FBF0D6900ED5868 /* LiveBannerModel.swift */,
+				C56809411FBF10C900ED5868 /* LivebannerItemsModel.swift */,
+				C568093D1FBF0D8100ED5868 /* LiveDotsModel.swift */,
+				C56809431FBF10E600ED5868 /* LiveDotsItemsModel.swift */,
+				C568093F1FBF0D9700ED5868 /* LiveBillboardsModel.swift */,
+				C56809451FBF110A00ED5868 /* LiveBillboardsItemsModel.swift */,
+				C56809471FBF141700ED5868 /* LiveBillboardsItemsUserInfoModel.swift */,
 			);
 			path = LiveModel;
 			sourceTree = "<group>";
@@ -996,11 +1020,13 @@
 				C58C39591FBDA1190068A27D /* BoutiqueCategoryTitleModel.swift in Sources */,
 				C5B97F2E1FAEE4BC00F2BB10 /* DailyViewCell.swift in Sources */,
 				C536DB3A1FBC6E7200DC2C02 /* BoutiqueBannerRecommendsModel.swift in Sources */,
+				C56809481FBF141700ED5868 /* LiveBillboardsItemsUserInfoModel.swift in Sources */,
 				C5FB93DE1FAB1F94006F721C /* HeaderReusableView.swift in Sources */,
 				C593A4471FA9D0420036CC98 /* RecommendViewController.swift in Sources */,
 				C536DB401FBC75C200DC2C02 /* BoutiqueTableRecommendsModel.swift in Sources */,
 				C536DB2D1FBAEBD400DC2C02 /* BannerDataDataModel.swift in Sources */,
 				C55996CC1FB86EB300E05B3A /* RecommendIconGridViewCell.swift in Sources */,
+				C56809441FBF10E600ED5868 /* LiveDotsItemsModel.swift in Sources */,
 				C536DB4A1FBC83AD00DC2C02 /* BoutiqueHeaderView.swift in Sources */,
 				C55996C51FB85BFB00E05B3A /* BannerView.swift in Sources */,
 				C50041591FA98E5800CD9A7A /* AppDelegate.swift in Sources */,
@@ -1060,15 +1086,20 @@
 				C522CCE91FB0346D00EA20C6 /* DailyTableViewCell.swift in Sources */,
 				C5C0D7B11FA9B8150054DD79 /* UIButton-Extension.swift in Sources */,
 				C536DB2B1FBAEBD400DC2C02 /* BannerModel.swift in Sources */,
+				C56809421FBF10C900ED5868 /* LivebannerItemsModel.swift in Sources */,
+				C568093C1FBF0D6900ED5868 /* LiveBannerModel.swift in Sources */,
 				C5C0D7AF1FA9B42D0054DD79 /* PlayButtonView.swift in Sources */,
+				C568093E1FBF0D8100ED5868 /* LiveDotsModel.swift in Sources */,
 				C5C0D7AD1FA9AA280054DD79 /* Constant.swift in Sources */,
 				C536DB381FBC6B4600DC2C02 /* BoutiqueBannerModel.swift in Sources */,
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
+				C56809401FBF0D9700ED5868 /* LiveBillboardsModel.swift in Sources */,
 				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C56809321FBE8E0800ED5868 /* LiveHotModel.swift in Sources */,
 				C588CCAA1FB2102B00D6703A /* AvatarView.swift in Sources */,
 				C50041B31FA9907800CD9A7A /* HomeViewController.swift in Sources */,
 				C58C39531FBD7F110068A27D /* BoutiqueBannerView.swift in Sources */,
+				C568093A1FBEE5BA00ED5868 /* LiveForecastModel.swift in Sources */,
 				C55996BE1FB8331300E05B3A /* CategoryTopViewModel.swift in Sources */,
 				C5C596011FBDCFD9006AA280 /* LiveViewModel.swift in Sources */,
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
@@ -1078,6 +1109,7 @@
 				C536DB261FBAEBD400DC2C02 /* IconGridDataModel.swift in Sources */,
 				C54ABFD91FB7F81700DCFCD9 /* RecommentIconGridView.swift in Sources */,
 				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,
+				C56809461FBF110A00ED5868 /* LiveBillboardsItemsModel.swift in Sources */,
 				C5FB93EE1FAC4EDB006F721C /* TopView.swift in Sources */,
 				C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */,
 				C536DB2E1FBAEBD400DC2C02 /* HotWordGridDataDataModel.swift in Sources */,

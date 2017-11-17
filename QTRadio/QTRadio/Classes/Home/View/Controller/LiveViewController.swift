@@ -56,7 +56,7 @@ class LiveViewController: UIViewController {
 
         // 设置item之间的间距和行间距
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = kItemMargin
 
         // 调整item的内间距
         layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: kItemMargin, right: kItemMargin)
@@ -70,7 +70,7 @@ class LiveViewController: UIViewController {
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
 
         // 设置collectionView的背景颜色
-        collectionView.backgroundColor = UIColor(r: 245, g: 244, b: 249)
+        collectionView.backgroundColor = .white
 
         // 设置collectionView随着父控件的宽度和高度一起拉伸
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -79,31 +79,22 @@ class LiveViewController: UIViewController {
         collectionView.dataSource = self
 
         // 注册cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
+        collectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
 
 
         // 注册header
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
+        collectionView.register(LiveCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
 
 
         return collectionView
     }()
     
     
-    /// 网页控件
-//    fileprivate lazy var webView: WKWebView = {
-//
-//        let webView = WKWebView()
-//        guard let url = URL(string: "https://m.zhibo.qingting.fm") else { return webView }
-//        let request = URLRequest(url: url)
-//        webView.load(request)
-//        return webView
-//    }()
+    /// viewModel属性
+    fileprivate lazy var liveViewModel: LiveViewModel = LiveViewModel()
     
     
-//    override func loadView() {
-//        view = webView
-//    }
+   
     
 
     override func viewDidLoad() {
@@ -150,7 +141,10 @@ extension LiveViewController {
     fileprivate func loadData() {
         
         // 通过viewModle发送网络请求
-        
+        liveViewModel.requestData {
+            
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -163,16 +157,35 @@ extension LiveViewController: UICollectionViewDataSource {
 
     // 返回每一组cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 55
+        
+        return liveViewModel.hotModelArray.count
     }
 
     // 返回cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         // 根据可重用标识符取出cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionViewCellIdentifier, for: indexPath) as! LiveCollectionViewCell
 
-        cell.backgroundColor = UIColor.randomColor()
+        // 取出模型
+        let hotItem = liveViewModel.hotModelArray[indexPath.row]
+        
+        // 从hotItem中取出currentItem
+        for currentItem in hotItem.currentModelArray {
+            
+            // 设置cell的配图地址
+            cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
+            
+            // 设置cell的title
+            cell.titleLabel.text = currentItem.title
+        }
+        
+        // 设置用户昵称
+        cell.nickLabel.text = hotItem.nick_name
+        
+        // 设置标签
+        cell.tagLabel.text = hotItem.tag
+        
 
         return cell
     }
@@ -181,7 +194,7 @@ extension LiveViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         // 根据可重用标识符取出header
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! LiveCollectionReusableView
 
         headerView.backgroundColor = UIColor.randomColor()
 

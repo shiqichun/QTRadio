@@ -198,6 +198,8 @@ extension BoutiqueViewController: UITableViewDataSource {
         }
         
         
+        // FIXME: - 这里的代码比较挫！先实现需求，后面再慢慢重构
+        
         // 如果parent_info这个字典中的数据不为空，此时才需要
         // 设置cell的播放次数图片和label
         if item.tableParentInfoModelArray.count != 0 {

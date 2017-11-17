@@ -101,6 +101,6 @@ extension RecommendIconGridViewCell {
         super.prepareForReuse()
         
         cellTitleLabel.text = nil
-        cellImageView.image = nil
+        cellImageView.image = UIImage(named: "gridIcon_placeholder_42x42_")
     }
 }

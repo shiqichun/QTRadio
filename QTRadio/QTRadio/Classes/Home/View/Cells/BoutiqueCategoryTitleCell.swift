@@ -90,4 +90,12 @@ extension BoutiqueCategoryTitleCell {
             make.centerY.equalTo(cellTitleLabel)
         })
     }
+    
+    /// 清除之前循环利用的数据
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cellTitleLabel.text = nil
+        cellArrow.image = UIImage(named: "my_fav_more_8x12_")
+    }
 }

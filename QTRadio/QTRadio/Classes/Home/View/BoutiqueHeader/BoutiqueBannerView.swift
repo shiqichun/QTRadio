@@ -136,14 +136,13 @@ extension BoutiqueBannerView: UICollectionViewDataSource {
     // 返回cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // 先校验数组bannerModelArray是否有值
-        guard let bannerModelArray = bannerModelArray else { return 0 }
-        
         // 在取出分组模型
-        let sectionItem = bannerModelArray[section]
+        let sectionItem = bannerModelArray?[section]
+        
+        let count = sectionItem?.bannerRecommendsModelArray.count
         
         // 从分组模型中取出行模型的个数，直接返回
-        return sectionItem.bannerRecommendsModelArray.count * 10000
+        return (count ?? 6) * 10000
     }
     
     // 返回cell

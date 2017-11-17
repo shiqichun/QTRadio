@@ -96,19 +96,16 @@ extension RecommentIconGridView: UICollectionViewDataSource {
     // 返回每一行cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // 先校验数组iconGridModelArray是否有值
-        guard let iconGridModelArray = iconGridModelArray else { return 0 }
-        
         // 再取出分组模型
-        let typeItem = iconGridModelArray[section]
+        let typeItem = iconGridModelArray?[section]
         
         // 接着取出标题模型
-        guard let titleItem = typeItem.iconGridDataModelArray.first else { return 0 }
+        let titleItem = typeItem?.iconGridDataModelArray.first
         
         // 最后取出标题模型中存放数据的数组，其元素个数就是每一行cell的个数
-        guard let count = titleItem.data?.count else { return 0 }
+        let count = titleItem?.data?.count
         
-        return count
+        return count ?? 10
     }
     
     // 返回cell

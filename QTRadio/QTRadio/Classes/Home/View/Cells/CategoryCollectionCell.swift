@@ -104,7 +104,7 @@ extension CategoryCollectionCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.image = nil
+        imageView.image = UIImage(named: "category_01")
         titleLabel.text = nil
     }
 }

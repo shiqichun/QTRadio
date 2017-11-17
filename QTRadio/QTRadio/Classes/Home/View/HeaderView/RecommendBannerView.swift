@@ -71,9 +71,6 @@ class RecommendBannerView: UIView {
     
     /// bannerViewHeight
     fileprivate var bannerViewHeight: CGFloat
-    
-    /// 保存行模型的数量
-    fileprivate var ItemCount: Int = 0
 
     // MARK: - 控件属性
     
@@ -155,23 +152,17 @@ extension RecommendBannerView: UICollectionViewDataSource {
     // 返回cell的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // 首先校验数组bannerModelArray是否有值
-        guard let bannerModelArray = bannerModelArray else { return 0 }
-        
         // 接着取出组模型
-        let typeItem = bannerModelArray[section]
+        let typeItem = bannerModelArray?[section]
         
         // 然后取出title模型
-        guard let titleItem = typeItem.bannerDataModelArray.first else { return 0 }
+        let titleItem = typeItem?.bannerDataModelArray.first
         
         // 接着取出标题模型数组中存放数据的数组data，其中data的个数即为cell的个数
-        guard let count = titleItem.data?.count else { return 0 }
-        
-        // 将行模型的数量保存起来
-        ItemCount = count
+        let count = titleItem?.data?.count
         
         // 让它的真实数量乘以一个很大的数，可以让它有充分的滚动控件
-        return count * 10000
+        return (count ?? 6) * 10000
     }
     
     // 返回cell
@@ -189,7 +180,7 @@ extension RecommendBannerView: UICollectionViewDataSource {
         guard let titleItem = typeItem.bannerDataModelArray.first else { return cell }
         
         // 最后取出行模型(因为上面乘以了一个很大的数，为了不越界，这里indexPath.item需要模上行模型的个数)
-        let dataItem = titleItem.bannerDataDataModelArray[indexPath.item % ItemCount]
+        let dataItem = titleItem.bannerDataDataModelArray[indexPath.item % titleItem.data!.count]
         
         // 设置数据
         cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))

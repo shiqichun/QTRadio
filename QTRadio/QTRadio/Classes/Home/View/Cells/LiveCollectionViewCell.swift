@@ -181,7 +181,7 @@ extension LiveCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        cellImageView.image = nil
+        cellImageView.image = UIImage(named: "live_placeholder_95x95_")
         nickLabel.text = nil
         tagLabel.text = nil
         titleLabel.text = nil

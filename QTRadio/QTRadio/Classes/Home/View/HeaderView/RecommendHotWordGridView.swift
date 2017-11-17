@@ -139,19 +139,16 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
     // 返回cell的行数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // 校验模型数组hotWordGridModelArray是否有值
-        guard let hotWordGridModelArray = hotWordGridModelArray else { return 0 }
-        
         // 取出分组模型
-        let typeItem = hotWordGridModelArray[section]
+        let typeItem = hotWordGridModelArray?[section]
         
         // 取出标题模型
-        guard let titleItem = typeItem.hotWordGridDataModelArray.first else { return 0 }
+        let titleItem = typeItem?.hotWordGridDataModelArray.first
         
         // 标题模型中的数组data的个数即为cell的行数
-        guard let count = titleItem.data?.count else { return 0 }
+        let count = titleItem?.data?.count
         
-        return count
+        return count ?? 4
     }
     
     // 返回cell

@@ -176,7 +176,7 @@ extension CategoryTopViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.image = nil
+        imageView.image = UIImage(named: "taxonomy_category_3617_54x54_")
         titleLabel.text = nil
     }
 }

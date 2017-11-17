@@ -40,6 +40,11 @@ private let kHeaderReferenceIdentifier = "kHeaderReferenceIdentifier"
 
 
 
+/// 顶部Banner、dots、biliboards的总高度
+private let kTopViewHeight: CGFloat = 325
+
+
+
 class LiveViewController: UIViewController {
     
     
@@ -90,6 +95,15 @@ class LiveViewController: UIViewController {
     }()
     
     
+    /// 顶部Banner、Dots和BillBoards的总高度
+    fileprivate lazy var liveTopView: LiveTopView = {
+        
+        let view = LiveTopView(frame: CGRect(x: 0, y: -kTopViewHeight, width: kScreenWidth, height: kTopViewHeight))
+        return view
+    }()
+    
+    
+    
     /// viewModel属性
     fileprivate lazy var liveViewModel: LiveViewModel = LiveViewModel()
     
@@ -119,10 +133,10 @@ extension LiveViewController {
         view.addSubview(collectionView)
         
         // 设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 5, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kTopViewHeight, left: 0, bottom: 5, right: 0)
         
-        // 添加webView
-        //webView.frame = view.bounds
+        // 添加liveTopView
+        collectionView.addSubview(liveTopView)
         
         // 请求网络数据
         DispatchQueue.global(qos: .default).async {
@@ -144,6 +158,9 @@ extension LiveViewController {
         liveViewModel.requestData {
             
             self.collectionView.reloadData()
+            
+            // 将Banner的模型数据传递过去
+            self.liveTopView.bannerView.bannerModelArray = self.liveViewModel.bannerModelArray
         }
     }
 }

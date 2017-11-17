@@ -85,7 +85,7 @@ extension RecommendHotWordGridCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        cellImageView.image = nil
+        cellImageView.image = UIImage(named: "hotWordIcon_placeholder_22x22_")
         cellTitleLabel.text = nil
     }
     

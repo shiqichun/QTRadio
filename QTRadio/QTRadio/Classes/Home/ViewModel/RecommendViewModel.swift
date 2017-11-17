@@ -49,23 +49,6 @@ private let kDeviceid = "093e8b7e24c02246fe92373727e4a92c"
 
 class RecommendViewModel: NSObject {
     
-    // MARK: - 字典数组
-    
-    /// 存储Banner字典
-    fileprivate lazy var bannerArray: [[String: Any]] = [[String: Any]]()
-    
-    /// 存储IconGrid字典
-    fileprivate lazy var iconGridArray: [[String: Any]] = [[String: Any]]()
-    
-    /// 存储HotWordGrid字典
-    fileprivate lazy var hotWordGridArray: [[String: Any]] = [[String: Any]]()
-    
-    /// 存储Recommend字典
-    fileprivate lazy var recommendArray: [[String: Any]] = [[String: Any]]()
-    
-    /// 存储LiveShow字典
-    fileprivate lazy var liveShowArray: [[String: Any]] = [[String: Any]]()
-    
     
     // MARK: - 模型数组
     
@@ -106,6 +89,8 @@ extension RecommendViewModel {
             // 再根据字典中的键modules取出与之对应的值，其结果为一个数组，而数组中存储的又是字典
             guard let modulesArray = dataDict["modules"] as? [[String: Any]] else { return }
             
+            
+            
             // 遍历数组modulesArray，取出它里面的字典
             for dict in modulesArray {
                 
@@ -114,83 +99,45 @@ extension RecommendViewModel {
                     
                 case "Banner":
                     
-                    // 将Banner模块的字典数据存储到bannerArray
-                    self.bannerArray.append(dict)
+                    // 将字典转为模型
+                    let bannerItem = BannerModel(dict: dict)
+                    
+                    // 将转换完成的模型存储到模型数组中
+                    self.bannerModelArray.append(bannerItem)
+                    
                     
                 case "IconGrid":
                     
-                    // 将IconGrid模块的字典数据存储到iconGridArray
-                    self.iconGridArray.append(dict)
+                    // 将字典转为模型
+                    let iconGridItem = IconGridModel(dict: dict)
+                    
+                    // 将转换完成的模型存储到模型数组中
+                    self.iconGridModelArray.append(iconGridItem)
                     
                 case "HotWordGrid":
                     
-                    // 将HotWordGrid模块的字典数据存储到hotWordGridArray
-                    self.hotWordGridArray.append(dict)
+                    // 将字典转为模型
+                    let hotWordGridItem = HotWordGridModel(dict: dict)
+                    
+                    // 将转换完成的模型数组存储到数组中
+                    self.hotWordGridModelArray.append(hotWordGridItem)
                     
                 case "Recommend":
                     
-                    // 将Recommend模块的字典数据存储到recommendArray
-                    self.recommendArray.append(dict)
+                    // 将字典转为模型
+                    let recommendItem = RecommendModel(dict: dict)
+                    
+                    // 将转换完成的模型存储到模型数组中
+                    self.recommendModelArray.append(recommendItem)
                     
                 default:
                     
-                    // 将LiveShow模块的字典数据存储到liveShowArray
-                    self.liveShowArray.append(dict)
+                    // 将字典转为模型
+                    let liveShowItem = LiveShowModel(dict: dict)
+                    
+                    // 将转换完成的模型存储到模型数组中
+                    self.liveShowModelArray.append(liveShowItem)
                 }
-            }
-            
-            // 取出bannerArray中的字典，然后将其转为模型
-            for bannerDict in self.bannerArray {
-                
-                // 将字典转为模型
-                let bannerItem = BannerModel(dict: bannerDict)
-                
-                // 将转换完成的模型存储到模型数组中
-                self.bannerModelArray.append(bannerItem)
-            }
-            
-            
-            // 取出iconGridArray中的字典，然后再将其转为模型
-            for iconGridDict in self.iconGridArray {
-                
-                // 将字典转为模型
-                let iconGridItem = IconGridModel(dict: iconGridDict)
-                
-                // 将转换完成的模型存储到模型数组中
-                self.iconGridModelArray.append(iconGridItem)
-            }
-            
-            
-            // FIXME: - 这个字典转模型性的数据居然是空的
-            // 取出hotWordGridArray中的字典，然后再将其转为模型
-            for hotWordGridDict in self.hotWordGridArray {
-                
-                // 将字典转为模型
-                let hotWordGridItem = HotWordGridModel(dict: hotWordGridDict)
-                
-                // 将转换完成的模型数组存储到数组中
-                self.hotWordGridModelArray.append(hotWordGridItem)
-            }
-            
-            // 取出recommendArray中的字典，然后再将其转为模型
-            for recommendDict in self.recommendArray {
-                
-                // 将字典转为模型
-                let recommendItem = RecommendModel(dict: recommendDict)
-                
-                // 将转换完成的模型存储到模型数组中
-                self.recommendModelArray.append(recommendItem)
-            }
-            
-            
-            // 取出liveShowArray中的字典，然后再将其转为模型
-            for liveShowDict in self.liveShowArray {
-                
-                // 利用KVC将字典转为模型
-                let liveShowItem = LiveShowModel(dict: liveShowDict)
-                
-                // 将转换完成的模型存储到模型数组中
-                self.liveShowModelArray.append(liveShowItem)
             }
             
             // 数据处理完毕，将其回调给外界

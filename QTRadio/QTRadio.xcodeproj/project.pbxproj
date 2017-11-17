@@ -75,6 +75,7 @@
 		C56809511FBF1FBC00ED5868 /* LiveBillboardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809501FBF1FBC00ED5868 /* LiveBillboardsView.swift */; };
 		C56809531FBF342600ED5868 /* LiveBannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809521FBF342600ED5868 /* LiveBannerViewCell.swift */; };
 		C56809551FBF351300ED5868 /* LiveDotsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809541FBF351300ED5868 /* LiveDotsViewCell.swift */; };
+		C56809571FBF5CE600ED5868 /* LiveAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809561FBF5CE600ED5868 /* LiveAvatarView.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
@@ -208,6 +209,7 @@
 		C56809501FBF1FBC00ED5868 /* LiveBillboardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBillboardsView.swift; sourceTree = "<group>"; };
 		C56809521FBF342600ED5868 /* LiveBannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBannerViewCell.swift; sourceTree = "<group>"; };
 		C56809541FBF351300ED5868 /* LiveDotsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDotsViewCell.swift; sourceTree = "<group>"; };
+		C56809561FBF5CE600ED5868 /* LiveAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAvatarView.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 				C568094C1FBF1F6100ED5868 /* LiveBannerView.swift */,
 				C568094E1FBF1F7C00ED5868 /* LiveDotsView.swift */,
 				C56809501FBF1FBC00ED5868 /* LiveBillboardsView.swift */,
+				C56809561FBF5CE600ED5868 /* LiveAvatarView.swift */,
 			);
 			path = LiveHeader;
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 				C536DB381FBC6B4600DC2C02 /* BoutiqueBannerModel.swift in Sources */,
 				C5C0D7A61FA99F890054DD79 /* UIColor-Extension.swift in Sources */,
 				C56809401FBF0D9700ED5868 /* LiveBillboardsModel.swift in Sources */,
+				C56809571FBF5CE600ED5868 /* LiveAvatarView.swift in Sources */,
 				C593A4411FA9CF450036CC98 /* TitleStyle.swift in Sources */,
 				C56809321FBE8E0800ED5868 /* LiveHotModel.swift in Sources */,
 				C588CCAA1FB2102B00D6703A /* AvatarView.swift in Sources */,

@@ -11,18 +11,64 @@ import UIKit
 /// 通用间距
 private let kMargin: CGFloat = 5
 
-/// 图片的高度
-private let kImageHeight: CGFloat = 60
+
+/// BillBoard间距
+private let kBillboardMargin: CGFloat = 15
+
+/// 大咖榜的宽度
+private let kImageWidth: CGFloat = 50
 
 
+/// 大咖榜的高度
+private let kImageHeight: CGFloat = 20
 
 
 class LiveBillboardsView: UIView {
+    
+    // MARK: - 模型属性
+    var billboardsModelArray: [LiveBillboardsModel]? {
+
+        didSet {
+            
+            // 刷新屏幕，获取数据
+            setNeedsDisplay()
+
+            // 校验billboardsModelArray是否有值
+            guard let billboardsModelArray = billboardsModelArray else { return }
+
+            // 从数组billboardsModelArray中取出billItem模型
+            let billItem = billboardsModelArray.first!
+
+            // 取出模型数据
+            for item in billItem.billboardsItemsModelArray {
+                
+                switch (item.title) {
+                case "大咖榜":
+                    // 设置大咖榜头像
+                    leftAvatarView.leftIcon.kf.setImage(with: URL(string: item.userInfoModelArray[0].avatar))
+                    leftAvatarView.centerIcon.kf.setImage(with: URL(string: item.userInfoModelArray[1].avatar))
+                    leftAvatarView.rightIcon.kf.setImage(with: URL(string: item.userInfoModelArray[2].avatar))
+                default:
+                    // 设置贡献榜头像
+                    rightAvatarView.leftIcon.kf.setImage(with: URL(string: item.userInfoModelArray[0].avatar))
+                    rightAvatarView.centerIcon.kf.setImage(with: URL(string: item.userInfoModelArray[1].avatar))
+                    rightAvatarView.rightIcon.kf.setImage(with: URL(string: item.userInfoModelArray[2].avatar))
+                }
+            }
+        }
+    }
     
     // MARK: - 私有属性
     
     /// 保存dotsView的高度
     fileprivate var billboardsViewHeight: CGFloat
+    
+    /// 头像控件的宽度
+    fileprivate var avatarViewWidth: CGFloat = 0
+    
+    /// 头像控件的高度
+    fileprivate var avatarViewHeight: CGFloat = 0
+    
     
     
     // MARK: - 懒加载属性
@@ -54,6 +100,38 @@ class LiveBillboardsView: UIView {
     }()
     
     
+    /// 大咖榜
+    fileprivate lazy var daKaImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "daka")
+        return imageView
+    }()
+    
+    
+    /// 贡献榜
+    fileprivate lazy var gongXianImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "gongxian")
+        return imageView
+    }()
+    
+    
+    /// 左边圆形图片控件
+    lazy var leftAvatarView: LiveAvatarView = {
+        
+        avatarViewWidth = leftView.bounds.width - kImageWidth - 3 * kBillboardMargin
+        avatarViewHeight = leftView.bounds.height - 2 * kMargin
+        
+        let view = LiveAvatarView(frame: CGRect(x: 0, y: 0, width: avatarViewWidth, height: avatarViewHeight))
+        return view
+    }()
+    
+    /// 右边圆形图片控件
+    lazy var rightAvatarView: LiveAvatarView = {
+        
+        let view = LiveAvatarView(frame: CGRect(x: 0, y: 0, width: avatarViewWidth, height: avatarViewHeight))
+        return view
+    }()
     
     
     // MARK: - 构造函数
@@ -93,5 +171,53 @@ extension LiveBillboardsView {
         
         // 添加rightView
         addSubview(rightView)
+        
+        // 添加大咖榜
+        leftView.addSubview(daKaImageView)
+        
+        // 添加贡献榜
+        rightView.addSubview(gongXianImageView)
+        
+        // 添加左边的圆形头像
+        leftView.addSubview(leftAvatarView)
+        
+        // 添加右边圆形头像
+        rightView.addSubview(rightAvatarView)
+    }
+    
+    /// 从新布局子空间呢
+    override func layoutSubviews() {
+        
+        // 布局大咖榜
+        daKaImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(kImageWidth)
+            make.height.equalTo(kImageHeight)
+            make.left.equalTo(self).offset(kBillboardMargin)
+            make.centerY.equalTo(self)
+        }
+        
+        // 布局贡献榜
+        gongXianImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(kImageWidth)
+            make.height.equalTo(kImageHeight)
+            make.left.equalTo(rightView.snp.left).offset(kBillboardMargin)
+            make.centerY.equalTo(self)
+        }
+        
+        // 布局左边的圆形头像
+        leftAvatarView.snp.makeConstraints { (make) in
+            make.width.equalTo(avatarViewWidth)
+            make.height.equalTo(avatarViewHeight)
+            make.top.equalTo(leftView).offset(kMargin)
+            make.left.equalTo(daKaImageView.snp.right).offset(kBillboardMargin)
+        }
+        
+        // 布局右边的圆形头像
+        rightAvatarView.snp.makeConstraints { (make) in
+            make.width.equalTo(avatarViewWidth)
+            make.height.equalTo(avatarViewHeight)
+            make.top.equalTo(rightView).offset(kMargin)
+            make.left.equalTo(gongXianImageView.snp.right).offset(kBillboardMargin)
+        }
     }
 }

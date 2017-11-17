@@ -164,6 +164,9 @@ extension LiveViewController {
             
             // 将Dots的模型数据传递过去
             self.liveTopView.dotsView.dotsModelArray = self.liveViewModel.dotsModelArray
+            
+            // 将Billboards的模型数据传递过去
+            self.liveTopView.billboardsView.billboardsModelArray = self.liveViewModel.billboardsModelArray
         }
     }
 }

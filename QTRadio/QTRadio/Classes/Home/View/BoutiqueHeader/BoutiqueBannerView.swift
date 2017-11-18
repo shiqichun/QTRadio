@@ -11,6 +11,9 @@ import UIKit
 /// cell的可重用标识符
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
+/// pageControl的高度
+private let kPageControlHeight: CGFloat = 25
+
 
 class BoutiqueBannerView: UIView {
     
@@ -26,16 +29,13 @@ class BoutiqueBannerView: UIView {
             // 从而获取数据
             collectionView.reloadData()
             
-            // 用于记录行模型的个数
-            var itemCount: Int = 0
-            
             // 校验数组bannerModelArray是否有值
             guard let bannerModelArray = bannerModelArray else { return }
             
             // 如果数组bannerModelArray有值，则取出行模型的个数
             for sectionItem in bannerModelArray {
                 
-                // 从行模型数组中取出它的个数
+                // 从行模型数组中取出它的个数，并将其保存起来
                 itemCount = sectionItem.bannerRecommendsModelArray.count
             }
             
@@ -66,6 +66,9 @@ class BoutiqueBannerView: UIView {
     /// banner的高度
     fileprivate var bannerHeight: CGFloat
     
+    /// 行模型的个数
+    fileprivate var itemCount: Int = 0
+    
     
     
     
@@ -91,6 +94,19 @@ class BoutiqueBannerView: UIView {
         collectionView.delegate = self
         
         return collectionView
+    }()
+    
+    
+    /// pageControl
+    lazy var pageControl: UIPageControl = {
+        
+        let pageControl = UIPageControl()
+        pageControl.hidesForSinglePage = true
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = UIColor(r: 245, g: 244, b: 249)
+        pageControl.numberOfPages = 6
+        
+        return pageControl
     }()
     
     
@@ -123,6 +139,20 @@ extension BoutiqueBannerView {
         
         // 添加Banner
         addSubview(collectionView)
+        
+        // 添加pageControl
+        addSubview(pageControl)
+    }
+    
+    /// 布局子控件的位置
+    override func layoutSubviews() {
+        
+        // 布局pageControl的位置
+        pageControl.snp.makeConstraints { (make) in
+            make.height.equalTo(kPageControlHeight)
+            make.bottom.equalTo(self)
+            make.centerX.equalTo(self)
+        }
     }
 }
 
@@ -158,7 +188,7 @@ extension BoutiqueBannerView: UICollectionViewDataSource {
         let sectionItem = bannerModelArray[indexPath.section]
         
         // 接着取出行模型
-        let item = sectionItem.bannerRecommendsModelArray[indexPath.row % sectionItem.bannerRecommendsModelArray.count]
+        let item = sectionItem.bannerRecommendsModelArray[indexPath.row % itemCount]
         
         // 设置cell的数据
         cell.cellImageView.kf.setImage(with: URL(string: item.thumb))
@@ -172,6 +202,18 @@ extension BoutiqueBannerView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension BoutiqueBannerView: UICollectionViewDelegate {
+    
+    // 监听collectionView的滚动，修改pageControl的currentPage
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // 获取当前滚动的偏移量(主要是x轴方向上的滚动)。如果希望实现banner滚动到一半，currentPage就
+        // 显示为下一个，只需要在contentOffsetX的基础上再加上banner宽度的一半即可，用代码描述如下：
+        // let currentOffsetX = scrollView.contentOffset.x + scrollView.bounds.width * 0.5
+        let currentOffsetX = scrollView.contentOffset.x
+        
+        // 计算pageControl的currentIndex
+        pageControl.currentPage = Int(currentOffsetX / scrollView.bounds.width) % itemCount
+    }
     
     // 监听用户拖动手势，一旦用户手动拖拽bannerView，要将定时器移除
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

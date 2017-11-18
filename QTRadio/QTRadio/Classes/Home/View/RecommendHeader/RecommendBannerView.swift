@@ -35,8 +35,6 @@ class RecommendBannerView: UIView {
             // 然后刷新表格，重新载入数据
             recommendBannerView.reloadData()
             
-            var ItemCount = 0
-            
             // 校验数组bannerModelArray是否有值
             guard let bannerModelArray = bannerModelArray else { return }
             
@@ -44,12 +42,14 @@ class RecommendBannerView: UIView {
             for typeItem in bannerModelArray {
                 for titleItem in typeItem.bannerDataModelArray {
                     guard let count = titleItem.data?.count else { return }
-                    ItemCount = count
+                    
+                    // 保存itemCount
+                    itemCount = count
                 }
             }
             
             // 创建一个比较大的indexPath
-            let indexPath = IndexPath(item: ItemCount * 100, section: 0)
+            let indexPath = IndexPath(item: itemCount * 100, section: 0)
             
             // 让recommendBannerView滚动到这个indexPath，从而可以往左边无限滚动
             recommendBannerView.scrollToItem(at: indexPath, at: .left, animated: false)
@@ -71,6 +71,10 @@ class RecommendBannerView: UIView {
     
     /// bannerViewHeight
     fileprivate var bannerViewHeight: CGFloat
+    
+    /// 保存行模型的个数
+    fileprivate var itemCount: Int = 0
+    
 
     // MARK: - 控件属性
     
@@ -109,6 +113,14 @@ class RecommendBannerView: UIView {
     }()
     
     
+    fileprivate lazy var pageControl: RecommendPageControl = {
+        
+        let pageControl = RecommendPageControl(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 25))
+        return pageControl
+    }()
+    
+    
+    
     // MARK: - 自定义构造函数
     override init(frame: CGRect) {
         
@@ -140,7 +152,20 @@ extension RecommendBannerView {
         addSubview(recommendBannerView)
         
         // 添加pageControl
-        addSubview(recommendIndicator)
+        addSubview(pageControl)
+    }
+    
+    // 重新布局子控件的位置
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // 重新布局pageControl的位置
+        pageControl.snp.makeConstraints { (make) in
+            make.height.equalTo(4)
+            make.left.equalTo(self)
+            make.bottom.equalTo(self)
+            make.right.equalTo(self)
+        }
     }
 }
 
@@ -194,6 +219,16 @@ extension RecommendBannerView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension RecommendBannerView: UICollectionViewDelegate {
+    
+    // 监听Banner的滚动
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // 获取当前的偏移量
+        let currentOffsetX = scrollView.contentOffset.x
+        
+        // 计算pageControl当前的
+         pageControl.currentPage = Int(currentOffsetX / scrollView.bounds.width) % itemCount
+    }
     
     // 监听用户拖动手势，一旦用户手动拖拽bannerView，要将定时器移除
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

@@ -133,6 +133,7 @@ extension LiveCollectionReusableView {
     
     /// 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局hotBtn的位置
         hotBtn.snp.makeConstraints { (make) in

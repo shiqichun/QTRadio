@@ -109,6 +109,7 @@ extension CenterView {
     
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局logoImageView的位置
         logoImageView.snp.makeConstraints { (make) in

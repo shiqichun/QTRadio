@@ -52,7 +52,7 @@ extension HeaderBar {
     
     // 重新布局子控件
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
         
         // 布局顶部分割线的位置
         topLine.snp.makeConstraints { (make) in

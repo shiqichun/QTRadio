@@ -105,6 +105,7 @@ extension LoginView {
     
     /// 重新布局子控件
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局whiteImage的位置
         whiteImage.snp.makeConstraints { (make) in

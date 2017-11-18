@@ -89,6 +89,7 @@ extension RecommendReusableView {
     
     /// 布局子控件
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局titleLabel
         titleLabel.snp.makeConstraints { (make) in

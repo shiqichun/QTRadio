@@ -129,6 +129,7 @@ extension LiveDotsView {
     
     /// 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 重新布局titleLabel的位置
         titleLabel.snp.makeConstraints { (make) in

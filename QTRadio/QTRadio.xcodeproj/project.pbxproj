@@ -77,6 +77,7 @@
 		C56809641FC0153000ED5868 /* RecommendHotWordGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C568095F1FC0153000ED5868 /* RecommendHotWordGridView.swift */; };
 		C56809661FC0154D00ED5868 /* BoutiqueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809651FC0154D00ED5868 /* BoutiqueHeaderView.swift */; };
 		C56809681FC0156200ED5868 /* LiveCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809671FC0156200ED5868 /* LiveCollectionReusableView.swift */; };
+		C568096A1FC025B800ED5868 /* RecommendPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56809691FC025B800ED5868 /* RecommendPageControl.swift */; };
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
@@ -212,6 +213,7 @@
 		C568095F1FC0153000ED5868 /* RecommendHotWordGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHotWordGridView.swift; sourceTree = "<group>"; };
 		C56809651FC0154D00ED5868 /* BoutiqueHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoutiqueHeaderView.swift; sourceTree = "<group>"; };
 		C56809671FC0156200ED5868 /* LiveCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveCollectionReusableView.swift; sourceTree = "<group>"; };
+		C56809691FC025B800ED5868 /* RecommendPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendPageControl.swift; sourceTree = "<group>"; };
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				C568095D1FC0152F00ED5868 /* RecommendBannerView.swift */,
+				C56809691FC025B800ED5868 /* RecommendPageControl.swift */,
 				C568095E1FC0153000ED5868 /* RecommendContainerView.swift */,
 				C568095F1FC0153000ED5868 /* RecommendHotWordGridView.swift */,
 				C568095B1FC0152F00ED5868 /* RecommendReusableView.swift */,
@@ -1109,6 +1112,7 @@
 				C588A7CB1FB33CE800FA9A05 /* ProfileCellModel.swift in Sources */,
 				C536DB231FBAEBD400DC2C02 /* BannerDataModel.swift in Sources */,
 				C58C394F1FBD79220068A27D /* BoutiqueBannerCell.swift in Sources */,
+				C568096A1FC025B800ED5868 /* RecommendPageControl.swift in Sources */,
 				C588A7CD1FB33D0800FA9A05 /* ProfileGroupModel.swift in Sources */,
 				C536DB271FBAEBD400DC2C02 /* IconGridModel.swift in Sources */,
 				C56809511FBF1FBC00ED5868 /* LiveBillboardsView.swift in Sources */,

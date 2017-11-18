@@ -112,6 +112,7 @@ extension RecommendHotWordGridView {
     
     // 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局水平分割线
         horizontalLine.snp.makeConstraints { (make) in

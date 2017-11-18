@@ -247,7 +247,7 @@ extension DailyViewCell {
     
     
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
         
         // 布局headerBar的位置
         headerBar.snp.makeConstraints { (make) in

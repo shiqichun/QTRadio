@@ -146,6 +146,7 @@ extension BoutiqueBannerView {
     
     /// 布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局pageControl的位置
         pageControl.snp.makeConstraints { (make) in

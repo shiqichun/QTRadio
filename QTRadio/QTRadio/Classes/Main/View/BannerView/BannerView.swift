@@ -21,16 +21,6 @@ class BannerView: UIView {
     /// 保存layout
     fileprivate var bannerLayout: UICollectionViewFlowLayout
     
-
-    // MARK: - 懒加载控件
-    
-    /// collectionView
-    fileprivate lazy var collectionView: UICollectionView = {
-        
-        let collectionView = UICollectionView(frame: bounds, collectionViewLayout: bannerLayout)
-        
-        return collectionView
-    }()
     
     
     // MARK: - 自定义构造函数
@@ -63,6 +53,6 @@ extension BannerView {
     /// 统一设置UI界面
     fileprivate func setupUI() {
         
-        // 先移除
+        // 
     }
 }

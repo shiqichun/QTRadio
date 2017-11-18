@@ -89,6 +89,7 @@ extension ToolBar {
     
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局横着的分割线
         horizonLine.snp.makeConstraints { (make) in

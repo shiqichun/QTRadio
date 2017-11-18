@@ -94,6 +94,7 @@ extension HeaderReusableView {
     
     // 布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局titleLabel的位置
         titleLabel.snp.makeConstraints { (make) in

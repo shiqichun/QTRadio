@@ -184,6 +184,7 @@ extension LiveBillboardsView {
     
     /// 从新布局子空间呢
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局大咖榜
         daKaImageView.snp.makeConstraints { (make) in

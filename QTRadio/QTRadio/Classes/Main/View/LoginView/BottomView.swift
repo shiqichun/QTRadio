@@ -140,6 +140,7 @@ extension BottomView {
     
     // 重新布局所有的子控件
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局标题控件的位置
         titleLabel.snp.makeConstraints { (make) in

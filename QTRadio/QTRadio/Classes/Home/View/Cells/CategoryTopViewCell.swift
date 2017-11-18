@@ -130,6 +130,7 @@ extension CategoryTopViewCell {
     
     /// 重新布局子控件
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局imageView
         if isImageViewHidden == false {

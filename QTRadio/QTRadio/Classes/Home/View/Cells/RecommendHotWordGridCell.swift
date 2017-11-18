@@ -91,6 +91,7 @@ extension RecommendHotWordGridCell {
     
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // imageView
         cellImageView.snp.makeConstraints { (make) in

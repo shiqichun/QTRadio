@@ -83,6 +83,7 @@ extension CategoryCollectionCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局imageView的位置
         imageView.snp.makeConstraints { (make) in

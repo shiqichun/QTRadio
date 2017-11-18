@@ -106,6 +106,7 @@ extension ProfileCommonView {
     
     // 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局图片控件的位置
         imageView.snp.makeConstraints { (make) in

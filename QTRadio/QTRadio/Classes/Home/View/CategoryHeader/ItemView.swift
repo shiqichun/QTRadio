@@ -83,6 +83,7 @@ extension ItemView {
     
     /// 布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局imageView控件
         imageView.snp.makeConstraints { (make) in

@@ -108,6 +108,7 @@ extension LiveAvatarView {
     
     /// 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 布局leftIcon的位置
         rightIcon.snp.makeConstraints { (make) in

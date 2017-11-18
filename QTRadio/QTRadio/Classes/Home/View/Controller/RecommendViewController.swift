@@ -110,7 +110,6 @@ class RecommendViewController: UIViewController {
         // 统一设置UI界面
         setupUI()
     }
-
 }
 
 

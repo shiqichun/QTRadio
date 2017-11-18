@@ -105,6 +105,7 @@ extension DownloadView {
     
     /// 设置子控件的约束
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 设置container的位置
         container.center = center

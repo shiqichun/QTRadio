@@ -89,7 +89,4 @@ extension LiveTopView {
         // 添加BillBoardS
         addSubview(dotsView)
     }
-    
-    
-    /// 重新布局子控件的位置
 }

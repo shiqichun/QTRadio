@@ -78,6 +78,7 @@ extension BoutiqueCategoryTitleCell {
     
     /// 重新布局子控件的位置
     override func layoutSubviews() {
+        super.layoutSubviews()
         
         // 重新布局cellTitleLabel的位置
         cellTitleLabel.snp.makeConstraints { (make) in

@@ -12,6 +12,12 @@ import UIKit
 /// collectionViewCell的可重用标识符
 private let kCollectionViewCellIdentifier = "kCollectionViewCellIdentifier"
 
+
+/// pageControl的高度
+private let kPageControlHeight: CGFloat = 25
+
+
+
 class LiveBannerView: UIView {
     
     // MARK: - 模型属性
@@ -31,8 +37,8 @@ class LiveBannerView: UIView {
             // 取出Banner
             let bannerItem = bannerModelArray.first!
             
-            // 在取出Item
-            let itemCount = bannerItem.bannerItemsModelArray.count
+            // 再取出Item行模型的个数，并且将其保存起来
+            itemCount = bannerItem.bannerItemsModelArray.count
             
             // 搞一个超大的indexPath
             let indexPath = IndexPath(item: itemCount * 100, section: 0)
@@ -56,6 +62,8 @@ class LiveBannerView: UIView {
     /// 保存定时器
     fileprivate var bannerTimer: Timer?
     
+    /// 行模型的个数
+    fileprivate var itemCount: Int = 0
     
     
     
@@ -85,6 +93,19 @@ class LiveBannerView: UIView {
         collectionView.delegate = self
         
         return collectionView
+    }()
+    
+    
+    /// pageControl
+    fileprivate lazy var pageControl: UIPageControl = {
+        
+        let pageControl = UIPageControl()
+        pageControl.hidesForSinglePage = true
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = UIColor(r: 245, g: 244, b: 249)
+        pageControl.numberOfPages = 6
+        
+        return pageControl
     }()
     
     
@@ -118,6 +139,21 @@ extension LiveBannerView {
         
         // 添加collectionView
         addSubview(bannerCollectionView)
+        
+        // 添加pageControl
+        addSubview(pageControl)
+    }
+    
+    
+    /// 布局子控件的位置
+    override func layoutSubviews() {
+        
+        // 布局pageControl的位置
+        pageControl.snp.makeConstraints { (make) in
+            make.height.equalTo(kPageControlHeight)
+            make.bottom.equalTo(self)
+            make.centerX.equalTo(self)
+        }
     }
 }
 
@@ -153,7 +189,7 @@ extension LiveBannerView: UICollectionViewDataSource {
         guard let bannerItem = bannerModelArray.first else { return cell }
         
         // 从banner模型中取出bannerItem模型
-        let item = bannerItem.bannerItemsModelArray[indexPath.item % bannerItem.bannerItemsModelArray.count]
+        let item = bannerItem.bannerItemsModelArray[indexPath.item % itemCount]
         
         // 设置cell的图片数据
         cell.cellImageView.kf.setImage(with: URL(string: item.cover))
@@ -168,6 +204,16 @@ extension LiveBannerView: UICollectionViewDataSource {
 
 // MARK: - 监听用户的拖拽动作
 extension LiveBannerView: UICollectionViewDelegate {
+    
+    // 监听collectionView的滚动，修改pageControl的currentPage
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // 获取当前滚动的偏移量
+        let currentOffsetX = scrollView.contentOffset.x
+        
+        // 计算pageControl的currentIndex
+        pageControl.currentPage = Int(currentOffsetX / scrollView.bounds.width) % itemCount
+    }
     
     // 即将拖拽时停止定时器
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

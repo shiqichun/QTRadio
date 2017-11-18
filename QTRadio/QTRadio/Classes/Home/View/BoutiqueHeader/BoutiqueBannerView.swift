@@ -98,7 +98,7 @@ class BoutiqueBannerView: UIView {
     
     
     /// pageControl
-    lazy var pageControl: UIPageControl = {
+    fileprivate lazy var pageControl: UIPageControl = {
         
         let pageControl = UIPageControl()
         pageControl.hidesForSinglePage = true

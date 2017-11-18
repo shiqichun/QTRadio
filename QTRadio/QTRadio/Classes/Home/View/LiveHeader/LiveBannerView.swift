@@ -190,7 +190,7 @@ extension LiveBannerView {
     fileprivate func addBannerTimer() {
         
         // 创建定时器并将其进行保存
-        bannerTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(scrollToFuture), userInfo: nil, repeats: true)
+        bannerTimer = Timer(timeInterval: 2.0, target: self, selector: #selector(scrollToFuture), userInfo: nil, repeats: true)
         
         // 将定时器添加到运行循环
         RunLoop.main.add(bannerTimer!, forMode: .commonModes)

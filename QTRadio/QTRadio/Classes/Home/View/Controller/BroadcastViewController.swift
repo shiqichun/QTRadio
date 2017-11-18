@@ -30,7 +30,7 @@ class BroadcastViewController: UIViewController {
         
         // 调整tableView默认的组间距
         tableView.sectionHeaderHeight = 5
-        tableView.sectionFooterHeight = 0
+        tableView.sectionFooterHeight = 5
         
         // 设置tableView岁父控件一起拉伸
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -40,6 +40,9 @@ class BroadcastViewController: UIViewController {
 
         // 注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableViewCellIdentifier)
+        
+        
+        tableView.delegate = self
         
         return tableView
     }()
@@ -64,7 +67,7 @@ extension BroadcastViewController {
         // 添加tableView
         view.addSubview(tableView)
         
-        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
+        // tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 10, right: 0)
     }
 }
 
@@ -74,25 +77,43 @@ extension BroadcastViewController {
 // MARK: - UITableViewDataSource
 extension BroadcastViewController: UITableViewDataSource {
     
-    //
+    // 返回cell的分组数量
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10
     }
     
-    //
+    // 返回组内cell的数量
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    //
+    // 返回cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //
+        // 根据可重用标识符取出cell
         let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier)
         
         cell?.textLabel?.text = "cell---\(indexPath.row)"
         
         return cell!
     }
+}
+
+
+
+
+
+
+// MARK: - UITableViewDelegate
+extension BroadcastViewController: UITableViewDelegate {
     
+    // 调整header的高度
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    // 调整footer的高度
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
+    }
 }

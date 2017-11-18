@@ -29,9 +29,6 @@ class LiveBillboardsView: UIView {
     var billboardsModelArray: [LiveBillboardsModel]? {
 
         didSet {
-            
-            // 刷新屏幕，获取数据
-            setNeedsDisplay()
 
             // 校验billboardsModelArray是否有值
             guard let billboardsModelArray = billboardsModelArray else { return }

@@ -221,7 +221,7 @@ extension RecommendBannerView {
     fileprivate func addBannerTimer() {
         
         // 创建定时器
-        bannerTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(RecommendBannerView.scrollToFuture), userInfo: nil, repeats: true)
+        bannerTimer = Timer(timeInterval: 2.0, target: self, selector: #selector(RecommendBannerView.scrollToFuture), userInfo: nil, repeats: true)
         
         // 将定时器添加到运行循环中
         RunLoop.main.add(bannerTimer!, forMode: .commonModes)

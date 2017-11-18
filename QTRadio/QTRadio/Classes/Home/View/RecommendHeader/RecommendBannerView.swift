@@ -48,6 +48,9 @@ class RecommendBannerView: UIView {
                 }
             }
             
+            // 设置recommendIndicator的frame
+            recommendIndicator.frame = CGRect(x: 0, y: bannerViewHeight - kRecommendIndicatorHeight, width: kScreenWidth / CGFloat(itemCount), height: kRecommendIndicatorHeight)
+            
             // 创建一个比较大的indexPath
             let indexPath = IndexPath(item: itemCount * 100, section: 0)
             
@@ -79,7 +82,7 @@ class RecommendBannerView: UIView {
     // MARK: - 控件属性
     
     /// collectionView控件
-    lazy var recommendBannerView: UICollectionView = {
+    fileprivate lazy var recommendBannerView: UICollectionView = {
         
         // 创建layout
         let layout = UICollectionViewFlowLayout()
@@ -105,9 +108,8 @@ class RecommendBannerView: UIView {
     }()
     
     /// pageControl控件
-    lazy var recommendIndicator: UIView = {
+    fileprivate lazy var recommendIndicator: UIView = {
         let recommendIndicator = UIView()
-        recommendIndicator.frame = CGRect(x: 0, y: bannerViewHeight - kRecommendIndicatorHeight, width: 50, height: kRecommendIndicatorHeight)
         recommendIndicator.backgroundColor = UIColor(r: 214, g: 51, b: 52)
         return recommendIndicator
     }()
@@ -153,11 +155,18 @@ extension RecommendBannerView {
         
         // 添加pageControl
         addSubview(pageControl)
+        
+        // 添加recommendIndicator
+        //addSubview(recommendIndicator)
+        
     }
     
     // 重新布局子控件的位置
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // 重新布局recommendIndicator的尺寸
+        
         
         // 重新布局pageControl的位置
         pageControl.snp.makeConstraints { (make) in
@@ -227,7 +236,8 @@ extension RecommendBannerView: UICollectionViewDelegate {
         let currentOffsetX = scrollView.contentOffset.x
         
         // 计算pageControl当前的
-         pageControl.currentPage = Int(currentOffsetX / scrollView.bounds.width) % itemCount
+        pageControl.currentPage = Int(currentOffsetX / scrollView.bounds.width) % itemCount
+        
     }
     
     // 监听用户拖动手势，一旦用户手动拖拽bannerView，要将定时器移除

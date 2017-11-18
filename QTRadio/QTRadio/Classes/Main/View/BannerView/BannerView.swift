@@ -53,6 +53,6 @@ extension BannerView {
     /// 统一设置UI界面
     fileprivate func setupUI() {
         
-        // 
+        //
     }
 }

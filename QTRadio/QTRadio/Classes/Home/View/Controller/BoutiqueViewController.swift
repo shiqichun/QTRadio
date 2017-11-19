@@ -110,9 +110,7 @@ extension BoutiqueViewController {
         tableView.addSubview(topView)
         
         // 请求网络数据
-        DispatchQueue.global(qos: .default).async {
-            self.loadData()
-        }
+        loadData()
     }
 }
 

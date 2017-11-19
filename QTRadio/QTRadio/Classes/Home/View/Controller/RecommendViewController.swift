@@ -129,9 +129,7 @@ extension RecommendViewController {
         collectionView.addSubview(contaierView)
         
         // 请求网络数据
-        DispatchQueue.global(qos: .default).async {
-            self.loadData()
-        }
+        loadData()
     }
 }
 

@@ -139,9 +139,7 @@ extension LiveViewController {
         collectionView.addSubview(liveTopView)
         
         // 请求网络数据
-        DispatchQueue.global(qos: .default).async {
-            self.loadData()
-        }
+        loadData()
     }
 }
 
@@ -153,7 +151,7 @@ extension LiveViewController {
     
     /// 请求网络数据
     fileprivate func loadData() {
-        
+        print(Thread.current)
         // 通过viewModle发送网络请求
         liveViewModel.requestData {
             

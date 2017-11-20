@@ -194,24 +194,51 @@ extension LiveViewController: UICollectionViewDataSource {
         // 设置cell的图片
         cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
         
-        // 处理正在直播的小挂件
-        if hotItem.room_status == 2 {
-            cell.livingLabel.isHidden = false
-            cell.pendantView.isHidden = false
-            cell.onlineLabel.text = "\(hotItem.online_user)"
-        } else {
-            cell.livingLabel.isHidden = true
-            cell.pendantView.isHidden = true
+        
+        
+        
+        /// hotItem.room_status ==  0 表示休息
+        /// hotItem.room_status ==  1 表示预约
+        /// hotItem.room_status ==  2 表示直播
+        
+        
+        // 如果是在休息(也就是currentModelArray和forecastModelArray里面都没有值)
+        if hotItem.currentModelArray.count == 0 && hotItem.forecastModelArray.count == 0 {
+            
+            // 表示正在休息
+            
+            // 显示正在预约的透明控件
+            cell.reservationView.isHidden = false
+            
+            // 更改小黄点为小红点
+            cell.reservationDot.backgroundColor = .red
+            
+            // 更改预约时间label的文字为正在休息
+            cell.reservationTimeLabel.text = "正在休息"
+            
+            // 隐藏预约label
+            cell.reservationLabel.isHidden = true
         }
         
         
-        
-        
-        
-        // 如果是正在直播(也就是currentModelArray里面有值)
-        if hotItem.currentModelArray.count != 0 {
+        // 如果是正在直播(也就是currentModelArray里面有值，而forecastModelArray里面没有值)
+        if hotItem.currentModelArray.count != 0 && hotItem.forecastModelArray.count == 0 {
             
-            // 显示正在直播信息
+            // 表示正在直播
+            
+            // 隐藏预约直播的透明控件
+            cell.reservationView.isHidden = true
+            
+            // 显示正在直播label
+            cell.livingLabel.isHidden = false
+            
+            // 现在在线人数背景控件
+            cell.pendantView.isHidden = false
+            
+            // 设置在线人数
+            cell.onlineLabel.text =  "\(hotItem.online_user)"
+            
+            
             
             // 从hotItem中取出currentItem
             for currentItem in hotItem.currentModelArray {
@@ -223,27 +250,42 @@ extension LiveViewController: UICollectionViewDataSource {
                 // 设置cell的title
                 cell.titleLabel.text = currentItem.title
             }
-        } else {
+        }
+        
+        // 如果是预约直播(也就是currentModelArray里面没有值，而forecastModelArray里面有值)
+        if hotItem.currentModelArray.count == 0 && hotItem.forecastModelArray.count != 0 {
             
-            // 显示预约直播时间
+            // 说明是预约直播
             
+            
+            // 隐藏正在直播控件
+            cell.livingLabel.isHidden = true
+            
+            // 隐藏在线收听人数控件
+            cell.pendantView.isHidden = true
+            
+            // 显示预约透明控件
+            cell.reservationView.isHidden = false
+            
+            // 修改小红点为小黄点
+            cell.reservationDot.backgroundColor = UIColor(r: 250, g: 162, b: 54)
+            
+            // 修改预约时间
             for forecastItem in hotItem.forecastModelArray {
+                
+                cell.reservationTimeLabel.text = NSDate.dealWith(timeString: forecastItem.scheduled_at)
                 
                 // 设置cell的图片
                 cell.cellImageView.kf.setImage(with: URL(string: forecastItem.cover))
                 
                 // 设置cell的title
                 cell.titleLabel.text = forecastItem.title
-                
-                // 处理预约的挂件
-                if hotItem.room_status == 1 {
-                    cell.reservationView.isHidden = false
-                    // cell.reservationTimeLabel.text = forecastItem.scheduled_at
-                } else {
-                    cell.reservationView.isHidden = true
-                }
             }
+            
+            
         }
+        
+        
         
         
         

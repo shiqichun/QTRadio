@@ -112,7 +112,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    /// 在线挂件
+    /// 在人数线挂件
     lazy var pendantView: UIView = {
         
         let view = UIView()
@@ -134,6 +134,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
         
         let imageView = UIImageView()
         imageView.image = UIImage(named: "slight_32x32_")
+        
         return imageView
     }()
     
@@ -150,7 +151,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    // 预约view
+    // 预约背景控件
     lazy var reservationView: UIView = {
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: cellImageWidth * 0.6, height: kPendantHeight))
@@ -168,7 +169,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     // 预约小黄点
-    fileprivate lazy var reservationDot: UIView = {
+    lazy var reservationDot: UIView = {
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 3, height: 3))
         view.backgroundColor = UIColor(r: 250, g: 162, b: 54)
@@ -193,7 +194,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     // 预约label
-    fileprivate var reservationLabel: UILabel = {
+    var reservationLabel: UILabel = {
         
         let label = UILabel()
         label.text = "预约"
@@ -254,8 +255,14 @@ extension LiveCollectionViewCell {
         // 添加titleLabel
         contentView.addSubview(titleLabel)
         
+        
+        
+        
         // 添加直播中标签
         cellImageView.addSubview(livingLabel)
+        
+        
+        
         
         // 添加右下侧的在线挂件
         cellImageView.addSubview(pendantView)
@@ -265,6 +272,9 @@ extension LiveCollectionViewCell {
         
         // 添加在线人数label
         pendantView.addSubview(onlineLabel)
+        
+        
+        
         
         // 添加在线预约View
         cellImageView.addSubview(reservationView)

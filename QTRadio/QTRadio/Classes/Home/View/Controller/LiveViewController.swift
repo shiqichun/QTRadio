@@ -217,7 +217,7 @@ extension LiveViewController: UICollectionViewDataSource {
             cell.reservationTimeLabel.text = "正在休息"
             
             // 隐藏预约label
-            cell.reservationLabel.isHidden = true
+            cell.reservationTitleLabel.isHidden = true
         }
         
         
@@ -233,7 +233,7 @@ extension LiveViewController: UICollectionViewDataSource {
             cell.livingLabel.isHidden = false
             
             // 现在在线人数背景控件
-            cell.pendantView.isHidden = false
+            cell.onlineView.isHidden = false
             
             // 设置在线人数
             cell.onlineLabel.text =  "\(hotItem.online_user)"
@@ -262,7 +262,7 @@ extension LiveViewController: UICollectionViewDataSource {
             cell.livingLabel.isHidden = true
             
             // 隐藏在线收听人数控件
-            cell.pendantView.isHidden = true
+            cell.onlineView.isHidden = true
             
             // 显示预约透明控件
             cell.reservationView.isHidden = false
@@ -281,8 +281,6 @@ extension LiveViewController: UICollectionViewDataSource {
                 // 设置cell的title
                 cell.titleLabel.text = forecastItem.title
             }
-            
-            
         }
         
         

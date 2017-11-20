@@ -97,7 +97,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    /// livingLabel
+    /// 正在直播控件(绿色背景，白色文字)
     lazy var livingLabel: UILabel = {
         
         let label = UILabel()
@@ -112,8 +112,8 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    /// 在人数线挂件
-    lazy var pendantView: UIView = {
+    /// 右下角的在线人数背景控件(从左至右透明效果)
+    lazy var onlineView: UIView = {
         
         let view = UIView()
         
@@ -151,10 +151,10 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    // 预约背景控件
+    // 预约透明控件
     lazy var reservationView: UIView = {
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: cellImageWidth * 0.6, height: kPendantHeight))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: cellImageWidth * 0.7, height: kPendantHeight))
         
         // 设置reservationView为半透明，但是添加到它上面的子控件不受影响
         view.backgroundColor = UIColor(white: 0.1, alpha: 0.3)
@@ -183,7 +183,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     lazy var reservationTimeLabel: UILabel = {
         
         let label = UILabel()
-        label.text = "明天20:58"
+        label.text = "11月23日 20:58"
         label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 9)
@@ -194,7 +194,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
     }()
     
     // 预约label
-    var reservationLabel: UILabel = {
+    var reservationTitleLabel: UILabel = {
         
         let label = UILabel()
         label.text = "预约"
@@ -265,13 +265,13 @@ extension LiveCollectionViewCell {
         
         
         // 添加右下侧的在线挂件
-        cellImageView.addSubview(pendantView)
+        cellImageView.addSubview(onlineView)
         
         // 添加在线人数图标
-        pendantView.addSubview(onlineImageView)
+        onlineView.addSubview(onlineImageView)
         
         // 添加在线人数label
-        pendantView.addSubview(onlineLabel)
+        onlineView.addSubview(onlineLabel)
         
         
         
@@ -286,7 +286,7 @@ extension LiveCollectionViewCell {
         reservationView.addSubview(reservationTimeLabel)
         
         // 添加预约label
-        reservationView.addSubview(reservationLabel)
+        reservationView.addSubview(reservationTitleLabel)
     }
     
     
@@ -334,8 +334,8 @@ extension LiveCollectionViewCell {
             make.left.equalTo(cellImageView)
         }
         
-        // 布局pendantView的位置
-        pendantView.snp.makeConstraints { (make) in
+        // 布局onlineView的位置
+        onlineView.snp.makeConstraints { (make) in
             make.width.equalTo(kPendantWidth)
             make.height.equalTo(kPendantHeight)
             make.right.equalTo(cellImageView)
@@ -346,19 +346,19 @@ extension LiveCollectionViewCell {
         onlineImageView.snp.makeConstraints { (make) in
             make.width.equalTo(10)
             make.height.equalTo(10)
-            make.left.equalTo(pendantView.snp.left).offset(5)
-            make.centerY.equalTo(pendantView)
+            make.left.equalTo(onlineView.snp.left).offset(5)
+            make.centerY.equalTo(onlineView)
         }
         
         // 布局onlineLabel
         onlineLabel.snp.makeConstraints { (make) in
             make.left.equalTo(onlineImageView.snp.right).offset(3)
-            make.centerY.equalTo(pendantView)
+            make.centerY.equalTo(onlineView)
         }
         
         // 布局reservationView的位置
         reservationView.snp.makeConstraints { (make) in
-            make.width.equalTo(cellImageWidth * 0.6)
+            make.width.equalTo(cellImageWidth * 0.7)
             make.height.equalTo(kPendantHeight)
             make.top.equalTo(cellImageView).offset(5)
             make.left.equalTo(cellImageView).offset(5)
@@ -372,16 +372,16 @@ extension LiveCollectionViewCell {
             make.centerY.equalTo(reservationView)
         }
         
-        // 布局reservationTimeLabel
+        // 布局预约时间
         reservationTimeLabel.snp.makeConstraints { (make) in
             make.left.equalTo(reservationDot.snp.right).offset(5)
             make.centerY.equalTo(reservationView)
         }
         
-        // 布局reservationLabel
-        reservationLabel.snp.makeConstraints { (make) in
+        // 布局预约文字控件
+        reservationTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(reservationView)
-            make.left.equalTo(reservationTimeLabel.snp.right).offset(5)
+            make.width.equalTo(35)
             make.bottom.equalTo(reservationView)
             make.right.equalTo(reservationView)
         }

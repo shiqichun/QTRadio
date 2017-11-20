@@ -144,11 +144,8 @@ extension RecommendViewController {
         // 通过ViewModel属性来发送网络请求
         recommendViewModel.requestData(completionHandler: {
             
-            DispatchQueue.main.async {
-
-                // 重新调用数据源方法
-                self.collectionView.reloadData()
-            }
+            // 重新调用数据源方法
+            self.collectionView.reloadData()
             
             // 将bannerView的模型数据传递过去
             self.contaierView.bannerView.bannerModelArray = self.recommendViewModel.bannerModelArray

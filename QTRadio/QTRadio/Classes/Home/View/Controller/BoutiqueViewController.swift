@@ -126,9 +126,7 @@ extension BoutiqueViewController {
         boutiqueViewModel.requestData {
             
             // 刷新表格
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
             
             // 将Banner的模型数据传递过去
             self.topView.boutiqueBannerView.bannerModelArray = self.boutiqueViewModel.bannerModelArray

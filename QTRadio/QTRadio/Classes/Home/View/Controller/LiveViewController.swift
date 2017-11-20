@@ -151,7 +151,7 @@ extension LiveViewController {
     
     /// 请求网络数据
     fileprivate func loadData() {
-        print(Thread.current)
+        
         // 通过viewModle发送网络请求
         liveViewModel.requestData {
             
@@ -194,6 +194,18 @@ extension LiveViewController: UICollectionViewDataSource {
         // 设置cell的图片
         cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
         
+        // 处理正在直播的小挂件
+        if hotItem.room_status == 2 {
+            cell.livingLabel.isHidden = false
+            cell.pendantView.isHidden = false
+            cell.onlineLabel.text = "\(hotItem.online_user)"
+        } else {
+            cell.livingLabel.isHidden = true
+            cell.pendantView.isHidden = true
+        }
+        
+        
+        
         
         
         // 如果是正在直播(也就是currentModelArray里面有值)
@@ -222,6 +234,14 @@ extension LiveViewController: UICollectionViewDataSource {
                 
                 // 设置cell的title
                 cell.titleLabel.text = forecastItem.title
+                
+                // 处理预约的挂件
+                if hotItem.room_status == 1 {
+                    cell.reservationView.isHidden = false
+                    // cell.reservationTimeLabel.text = forecastItem.scheduled_at
+                } else {
+                    cell.reservationView.isHidden = true
+                }
             }
         }
         

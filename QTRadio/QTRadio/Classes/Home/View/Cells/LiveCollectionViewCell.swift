@@ -9,6 +9,14 @@
 
 import UIKit
 
+/// 挂件的宽度
+private let kPendantWidth: CGFloat = 45
+
+/// 挂件的高度
+private let kPendantHeight: CGFloat = 20
+
+
+
 class LiveCollectionViewCell: UICollectionViewCell {
     
     
@@ -89,6 +97,114 @@ class LiveCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    /// livingLabel
+    lazy var livingLabel: UILabel = {
+        
+        let label = UILabel()
+        label.backgroundColor = UIColor(r: 14, g: 168, b: 83)
+        label.text = "直播中"
+        label.isHidden = true
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 11)
+        
+        return label
+    }()
+    
+    
+    /// 在线挂件
+    lazy var pendantView: UIView = {
+        
+        let view = UIView()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: kPendantWidth, height: kPendantHeight)
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.lightGray.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        view.isHidden = true
+        
+        return view
+    }()
+    
+    /// 在线人数图标(蜻蜓的美工太牛逼，实在是找不到原始图标，就随便搞一个)
+    lazy var onlineImageView: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "slight_32x32_")
+        return imageView
+    }()
+    
+    /// 在线人数label
+    lazy var onlineLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "444"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 9)
+        label.sizeToFit()
+        
+        return label
+    }()
+    
+    
+    // 预约view
+    lazy var reservationView: UIView = {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: cellImageWidth * 0.6, height: kPendantHeight))
+        
+        // 设置reservationView为半透明，但是添加到它上面的子控件不受影响
+        view.backgroundColor = UIColor(white: 0.1, alpha: 0.3)
+        
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 0.2
+        view.layer.cornerRadius = kPendantHeight * 0.5
+        view.layer.masksToBounds = true
+        view.isHidden = true
+        
+        return view
+    }()
+    
+    // 预约小黄点
+    fileprivate lazy var reservationDot: UIView = {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 3, height: 3))
+        view.backgroundColor = UIColor(r: 250, g: 162, b: 54)
+        view.layer.cornerRadius = 1.5
+        view.layer.masksToBounds = true
+        
+        return view
+    }()
+    
+    // 预约时间label
+    lazy var reservationTimeLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "明天20:58"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 9)
+        
+        label.sizeToFit()
+        
+        return label
+    }()
+    
+    // 预约label
+    fileprivate var reservationLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "预约"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 9)
+        label.backgroundColor = UIColor(r: 250, g: 162, b: 54)
+        
+        return label
+    }()
+    
     
     // MARK: - 构造函数
     override init(frame: CGRect) {
@@ -137,6 +253,30 @@ extension LiveCollectionViewCell {
         
         // 添加titleLabel
         contentView.addSubview(titleLabel)
+        
+        // 添加直播中标签
+        cellImageView.addSubview(livingLabel)
+        
+        // 添加右下侧的在线挂件
+        cellImageView.addSubview(pendantView)
+        
+        // 添加在线人数图标
+        pendantView.addSubview(onlineImageView)
+        
+        // 添加在线人数label
+        pendantView.addSubview(onlineLabel)
+        
+        // 添加在线预约View
+        cellImageView.addSubview(reservationView)
+        
+        // 添加预约小黄点
+        reservationView.addSubview(reservationDot)
+        
+        // 添加预约时间label
+        reservationView.addSubview(reservationTimeLabel)
+        
+        // 添加预约label
+        reservationView.addSubview(reservationLabel)
     }
     
     
@@ -174,6 +314,66 @@ extension LiveCollectionViewCell {
             make.height.equalTo(nickLabel)
             make.top.equalTo(nickLabel.snp.bottom)
             make.left.equalTo(self)
+        }
+        
+        // 布局直播中标签的位置
+        livingLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(kPendantWidth)
+            make.height.equalTo(kPendantHeight)
+            make.top.equalTo(cellImageView)
+            make.left.equalTo(cellImageView)
+        }
+        
+        // 布局pendantView的位置
+        pendantView.snp.makeConstraints { (make) in
+            make.width.equalTo(kPendantWidth)
+            make.height.equalTo(kPendantHeight)
+            make.right.equalTo(cellImageView)
+            make.bottom.equalTo(cellImageView)
+        }
+        
+        // 布局onlineImageView
+        onlineImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(10)
+            make.height.equalTo(10)
+            make.left.equalTo(pendantView.snp.left).offset(5)
+            make.centerY.equalTo(pendantView)
+        }
+        
+        // 布局onlineLabel
+        onlineLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(onlineImageView.snp.right).offset(3)
+            make.centerY.equalTo(pendantView)
+        }
+        
+        // 布局reservationView的位置
+        reservationView.snp.makeConstraints { (make) in
+            make.width.equalTo(cellImageWidth * 0.6)
+            make.height.equalTo(kPendantHeight)
+            make.top.equalTo(cellImageView).offset(5)
+            make.left.equalTo(cellImageView).offset(5)
+        }
+        
+        // 布局预约小黄点
+        reservationDot.snp.makeConstraints { (make) in
+            make.width.equalTo(3)
+            make.height.equalTo(3)
+            make.left.equalTo(5)
+            make.centerY.equalTo(reservationView)
+        }
+        
+        // 布局reservationTimeLabel
+        reservationTimeLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(reservationDot.snp.right).offset(5)
+            make.centerY.equalTo(reservationView)
+        }
+        
+        // 布局reservationLabel
+        reservationLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(reservationView)
+            make.left.equalTo(reservationTimeLabel.snp.right).offset(5)
+            make.bottom.equalTo(reservationView)
+            make.right.equalTo(reservationView)
         }
     }
     

@@ -267,6 +267,9 @@ extension LiveViewController: UICollectionViewDataSource {
             // 显示预约透明控件
             cell.reservationView.isHidden = false
             
+            // 显示预约label
+            cell.reservationTitleLabel.isHidden = false
+            
             // 修改小红点为小黄点
             cell.reservationDot.backgroundColor = UIColor(r: 250, g: 162, b: 54)
             

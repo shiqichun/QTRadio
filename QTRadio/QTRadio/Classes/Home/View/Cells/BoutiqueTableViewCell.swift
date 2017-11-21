@@ -271,9 +271,11 @@ extension BoutiqueTableViewCell {
         cellImageView.image = UIImage(named: "recommend_placeholder_95x95_")
         cellTitleLabel.text = nil
         cellSubtitleLabel.text = nil
-        playCountLabel.text = nil
+        
+        // 处理播放小图标
         playImageView.isHidden = true
         playCountLabel.isHidden = true
+        playCountLabel.text = nil
         
         // 处理小星星
         starImageView1.isHidden = true

@@ -202,6 +202,7 @@ class LiveCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 9)
         label.backgroundColor = UIColor(r: 250, g: 162, b: 54)
+        label.isHidden = true
         
         return label
     }()
@@ -358,7 +359,8 @@ extension LiveCollectionViewCell {
         
         // 布局reservationView的位置
         reservationView.snp.makeConstraints { (make) in
-            make.width.equalTo(cellImageWidth * 0.7)
+            make.width.lessThanOrEqualTo(cellImageWidth * 0.7) // (cellImageWidth * 0.7).priority(250)
+            make.width.greaterThanOrEqualTo(cellImageWidth * 0.35)  // 刚好可以处理正在休息cellImageWidth * 0.35
             make.height.equalTo(kPendantHeight)
             make.top.equalTo(cellImageView).offset(5)
             make.left.equalTo(cellImageView).offset(5)
@@ -374,14 +376,15 @@ extension LiveCollectionViewCell {
         
         // 布局预约时间
         reservationTimeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(reservationDot.snp.right).offset(5)
+            make.left.equalTo(reservationDot.snp.right).offset(3)
             make.centerY.equalTo(reservationView)
         }
         
         // 布局预约文字控件
         reservationTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(reservationView)
-            make.width.equalTo(35)
+            make.left.equalTo(reservationTimeLabel.snp.right).offset(3)
+            make.width.equalTo(30)
             make.bottom.equalTo(reservationView)
             make.right.equalTo(reservationView)
         }
@@ -396,5 +399,14 @@ extension LiveCollectionViewCell {
         nickLabel.text = nil
         tagLabel.text = nil
         titleLabel.text = nil
+        
+        livingLabel.isHidden = true
+        onlineView.isHidden = true
+        onlineLabel.text = nil
+        
+        
+        reservationView.isHidden = true
+        reservationTitleLabel.isHidden = true
+        reservationTimeLabel.text = nil
     }
 }

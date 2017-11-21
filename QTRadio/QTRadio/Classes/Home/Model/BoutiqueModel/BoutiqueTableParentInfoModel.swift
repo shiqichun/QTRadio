@@ -18,7 +18,7 @@ class BoutiqueTableParentInfoModel: NSObject {
     var parent_name: String = ""
     
     /// 对应评分机制和播放量中的id
-    var parent_id: Int = 231638
+    var parent_id: Int = 0
     
     
     // MARK: - 自定义构造函数

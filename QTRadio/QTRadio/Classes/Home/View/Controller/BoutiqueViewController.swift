@@ -198,17 +198,23 @@ extension BoutiqueViewController: UITableViewDataSource {
         
         // 如果parent_info这个字典中的数据不为空，此时才需要
         // 设置cell的播放次数图片和label
-        if item.tableParentInfoModelArray.count != 0 {
+        
+        if item.tableParentInfoModelArray.count > 0 {
+            
+            // 显示播放次数和播放图标
             cell.playCountLabel.isHidden = false
             cell.playImageView.isHidden = false
             
+            // 显示小星星
             cell.starImageView1.isHidden = false
             cell.starImageView2.isHidden = false
             cell.starImageView3.isHidden = false
             cell.starImageView4.isHidden = false
             cell.starImageView5.isHidden = false
             
+            // 遍历playCountModelArray模型数组
             for playItem in boutiqueViewModel.playCountModelArray {
+            
                 if item.tableParentInfoModelArray.first!.parent_id == playItem.id {
                     
                     // 设置playCountLabel的数据
@@ -290,6 +296,8 @@ extension BoutiqueViewController: UITableViewDataSource {
                 }
             }
         }
+ 
+        
         
         return cell
     }

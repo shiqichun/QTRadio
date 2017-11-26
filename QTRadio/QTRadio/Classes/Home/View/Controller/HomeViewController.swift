@@ -26,6 +26,10 @@ class HomeViewController: UIViewController {
     }()
     
     
+    /// viewModel属性，用来请求网络数据
+    fileprivate lazy var navBarViewModel: NavBarViewModel = NavBarViewModel()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,13 +75,14 @@ extension HomeViewController {
     
     
 
+/// 创建子控制器
+private func setupChildViewControllers() {
     
-    private func setupChildViewControllers() {
+    // 发送网络请求，获取网络上的标题
+    navBarViewModel.requestData {
         
-        // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
-        // 创建子控制器的标题
-        let titles = ["分类", "推荐", "精品", "直播", "广播"]
-        
+        // 从模型中取出标题，并且将其存放到一个数组中
+        let titles = self.navBarViewModel.navBarModelArray.map({ $0.title })
         
         // 创建标题样式
         let titleStyle = TitleStyle()
@@ -115,8 +120,9 @@ extension HomeViewController {
         let containerView = ContainerView(frame: containerFrame, titles: titles, titleStyle: titleStyle, childVcs: childVcs, parentVc: self)
         
         // 将创建好的ContainerView对象添加到当前控制器的View中
-        view.addSubview(containerView)
+        self.view.addSubview(containerView)
     }
+}
 }
 
 

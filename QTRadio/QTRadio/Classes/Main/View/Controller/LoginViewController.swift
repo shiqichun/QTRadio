@@ -5,12 +5,12 @@
 //  Created by Enrica on 2017/11/3.
 //  Copyright © 2017年 Enrica. All rights reserved.
 //
-// 用来管理点击登录按钮时的登录界面
+// 用来管理点击登录按钮时的登录界面(存在内存泄漏)
 
 import UIKit
 
 /// topView的高度
-private let kTopViewHeight: CGFloat = kScreenHeight * 0.15
+private let kTopViewHeight: CGFloat = kScreenHeight * 0.15  // 这里有问题？
 
 /// bottomView的高度
 private let kBottomViewHeight: CGFloat = kScreenHeight * 0.375

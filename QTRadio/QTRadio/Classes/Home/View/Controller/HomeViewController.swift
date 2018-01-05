@@ -84,16 +84,24 @@ private func setupChildViewControllers() {
         // 从模型中取出标题，并且将其存放到一个数组中
         let titles = self.navBarViewModel.navBarModelArray.map({ $0.title })
         
-        // 创建标题样式
-        let titleStyle = TitleStyle()
-        titleStyle.titleViewHeight = 44
-        titleStyle.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
-        titleStyle.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
-        titleStyle.scrollSlideBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
-        titleStyle.isShowScrollSlide = true  // 需要滚动指示器
-        titleStyle.isNeedScale = false  // 需要对选中标题进行缩放
-        titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
-        titleStyle.titleBackgroundColor = UIColor(r: 246, g: 246, b: 246)  // 设置子控制器标题的背景颜色
+        // 对标题进行初始化设置
+        let initializeSetting = InitializeSettings()
+        initializeSetting.titleViewHeight = 44
+        
+        // 根据服务器返回的数据来设置默认选中的标题和控制器
+        for (index, item) in (self.navBarViewModel.navBarModelArray.map({ $0.current })).enumerated() {
+            if item {
+                initializeSetting.defaultIndex = index
+            }
+        }
+        
+        initializeSetting.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
+        initializeSetting.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
+        initializeSetting.titleIndicatorBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
+        initializeSetting.showsTitleIndicator = true  // 需要滚动指示器
+        initializeSetting.needsToScale = false  // 需要对选中标题进行缩放
+        initializeSetting.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
+        initializeSetting.titleBackgroundColor = UIColor(r: 246, g: 246, b: 246)  // 设置子控制器标题的背景颜色
         
         
         // 创建一个数组，用来存放子控制器
@@ -117,7 +125,7 @@ private func setupChildViewControllers() {
         let containerFrame = CGRect(x: 0, y: kStatusBarHeight + kNavigationBarHeight, width: kScreenWidth, height: kScreenHeight - kStatusBarHeight - kNavigationBarHeight - kTabBarHeight - kTabBarMargin)
         
         // 调用自定义构造函数，根据实际需求创建合适的ContainerView对象
-        let containerView = ContainerView(frame: containerFrame, titles: titles, titleStyle: titleStyle, childVcs: childVcs, parentVc: self)
+        let containerView = ContainerView(frame: containerFrame, titles: titles, initializeSetting: initializeSetting, childViewControllers: childVcs, parentViewController: self)
         
         // 将创建好的ContainerView对象添加到当前控制器的View中
         self.view.addSubview(containerView)

@@ -68,20 +68,19 @@ extension DownloadViewController {
     
     private func setupChildViewControllers() {
         
-        // FIXME: - 从网络获取标题的Tabs，然后通过JSON来设置标题
         // 创建子控制器的标题
-        let titles = ["已经下载", "正在下载"]
+        let titles = ["已下载", "正在下载"]
         
         // 创建标题样式
-        let titleStyle = TitleStyle()
-        titleStyle.titleViewHeight = 44
-        titleStyle.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
-        titleStyle.normalTextColor = .lightGray
-        titleStyle.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
-        titleStyle.scrollSlideBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
-        titleStyle.isShowScrollSlide = true  // 需要滚动指示器
-        titleStyle.isNeedScale = false  // 需要对选中标题进行缩放
-        titleStyle.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
+        let initializeSetting = InitializeSettings()
+        initializeSetting.titleViewHeight = 44
+        initializeSetting.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
+        initializeSetting.normalTextColor = .lightGray
+        initializeSetting.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
+        initializeSetting.titleIndicatorBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
+        initializeSetting.showsTitleIndicator = true  // 需要滚动指示器
+        initializeSetting.needsToScale = false  // 需要对选中标题进行缩放
+        initializeSetting.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
         
         // 创建一个数组，用来存放子控制器
         var childVcs = [UIViewController]()
@@ -93,7 +92,7 @@ extension DownloadViewController {
         let containerFrame = CGRect(x: 0, y: kStatusBarHeight + kNavigationBarHeight, width: kScreenWidth, height: kScreenHeight - kStatusBarHeight - kNavigationBarHeight - kTabBarHeight - kTabBarMargin)
         
         // 调用自定义构造函数，根据实际需求创建合适的ContainerView对象
-        let containerView = ContainerView(frame: containerFrame, titles: titles, titleStyle: titleStyle, childVcs: childVcs, parentVc: self)
+        let containerView = ContainerView(frame: containerFrame, titles: titles, initializeSetting: initializeSetting, childViewControllers: childVcs, parentViewController: self)
         
         // 将创建好的ContainerView对象添加到当前控制器的View中
         view.addSubview(containerView)

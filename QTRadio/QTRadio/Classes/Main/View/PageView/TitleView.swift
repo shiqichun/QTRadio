@@ -50,7 +50,7 @@ class TitleView: UIView {
         scrollView.frame = self.bounds
         
         // FIXME: - 设置scrollView的背景颜色
-        scrollView.backgroundColor = self.initializeSetting.titleBackgroundColor  // self.initializeSetting.titleBackgroundColor
+        scrollView.backgroundColor = self.initializeSetting.titleBackgroundColor
         
         
         // FIXME: - 适配iPhone X
@@ -210,7 +210,7 @@ extension TitleView {
             let label = UILabel()
             
             // FIXME: - 设置标题控件label的背景颜色
-            label.backgroundColor = initializeSetting.titleBackgroundColor  // initializeSetting.titleBackgroundColor
+            label.backgroundColor = initializeSetting.titleBackgroundColor
             
             // 将标题设置到标题控件label上面去
             label.text = title
@@ -498,7 +498,7 @@ extension TitleView {
 extension TitleView {
     
     /// 接收从ContentView中传递过来的下标值，执行相应的操作
-    func scrollLabel(toIndex: Int) {
+    func scrollTitleIndicator(toIndex: Int) {
         
         // 取出与当前子控制器对应的label
         let selectedLabel = labels[toIndex]
@@ -518,8 +518,12 @@ extension TitleView {
         selectedLabelIndex = toIndex
         
         
-        // 让label自动移动到中间合适的位置
-        autoChangeLabelPosition()
+        // 如果titleView上面的标题需要滚动
+        if initializeSetting.isScrollEnable {
+            
+            // 让label自动移动到中间合适的位置
+            autoChangeLabelPosition()
+        }
         
         
         // MARK: - 这里需要重写指示器滚动的动画(毛毛虫动画)

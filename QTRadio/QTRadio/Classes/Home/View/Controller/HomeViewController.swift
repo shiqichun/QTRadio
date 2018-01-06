@@ -91,15 +91,15 @@ private func setupChildViewControllers() {
         // 根据服务器返回的数据来设置默认选中的标题和控制器
         for (index, item) in (self.navBarViewModel.navBarModelArray.map({ $0.current })).enumerated() {
             if item {
+                
+                // 设置默认选中的标题和子控制器
                 initializeSetting.defaultIndex = index
             }
         }
         
-        initializeSetting.isScrollEnable = true  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
         initializeSetting.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
-        initializeSetting.titleIndicatorBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
+        initializeSetting.titleIndicatorBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器背景颜色
         initializeSetting.showsTitleIndicator = true  // 需要滚动指示器
-        initializeSetting.needsToScale = false  // 需要对选中标题进行缩放
         initializeSetting.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
         initializeSetting.titleBackgroundColor = UIColor(r: 246, g: 246, b: 246)  // 设置子控制器标题的背景颜色
         

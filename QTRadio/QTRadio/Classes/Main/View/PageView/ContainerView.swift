@@ -137,7 +137,7 @@ extension ContainerView: ContentViewDelegate {
     func contentView(_ contentView: ContentView, selectedControllerIndex: Int) {
         
         // 通过TitleView中对外暴露的方法，将从contentView中传递过来的下标值传递给titleView
-        titleView.scrollLabel(toIndex: selectedControllerIndex)
+        titleView.scrollTitleIndicator(toIndex: selectedControllerIndex)
     }
 }
 

@@ -55,7 +55,7 @@ class TitleView: UIView {
         
         // FIXME: - 适配iPhone X
         if #available(iOS 11.0, *) {
-            
+
             // 消除底部指示器被遮挡的情况
             scrollView.contentInsetAdjustmentBehavior = .never
         }

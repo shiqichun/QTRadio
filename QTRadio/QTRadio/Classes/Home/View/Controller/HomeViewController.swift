@@ -95,7 +95,7 @@ private func setupChildViewControllers() {
             }
         }
         
-        initializeSetting.isScrollEnable = false  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
+        initializeSetting.isScrollEnable = true  // 设置标题下面的指示器是否可以滚动(其实默认为不可以滚动)
         initializeSetting.selectedTextColor = UIColor(r: 246, g: 91, b: 90)  // 设置选中标题的颜色
         initializeSetting.titleIndicatorBackgroundColor = UIColor(r: 246, g: 91, b: 90)  // 设置滚动指示器的背景颜色
         initializeSetting.showsTitleIndicator = true  // 需要滚动指示器

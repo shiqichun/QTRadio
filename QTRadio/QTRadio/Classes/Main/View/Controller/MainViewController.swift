@@ -70,7 +70,7 @@ extension MainViewController {
         // childController.tabBarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         
         // 将子控制器包装秤导航控制器
-        let nav = UINavigationController(rootViewController: childController)
+        let nav = QTNavigationController(rootViewController: childController)
         
         // 将导航控制器添加到父控制器中
         addChildViewController(nav)

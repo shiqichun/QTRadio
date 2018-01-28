@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         // 创建searchBar
         let searchBar = UISearchBar()
         searchBar.tintColor = .lightGray
-        searchBar.delegate = self
+//        searchBar.delegate = self
         
         return searchBar
     }()
@@ -60,16 +60,16 @@ extension HomeViewController {
     
     /// 设置导航栏
     private func setupNavigationBar() {
-        
+
         // 自定义导航栏左边的按钮
         let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
         leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-        
+
         // 添加导航条上面的搜索框
         // FIXME: - 导航栏中间的搜索框
-        
-        
+
+
         // 自定义导航栏右边的按钮
         let rightBtn = UIButton(image: "myHistory_30x30_", highlightedImage: "myHistorypress_30x30_")
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)
@@ -151,9 +151,10 @@ extension HomeViewController {
 
 
 // MARK: - UISearchBarDelegate
-extension HomeViewController: UISearchBarDelegate {
-    
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
+//extension HomeViewController: UISearchBarDelegate {
+//
+//    func position(for bar: UIBarPositioning) -> UIBarPosition {
+//        return .topAttached
+//    }
+//}
+

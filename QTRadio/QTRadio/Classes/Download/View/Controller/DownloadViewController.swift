@@ -52,15 +52,15 @@ extension DownloadViewController {
     
     /// 设置导航栏
     private func setupNavigationBar() {
-        
+
         // 自定义导航栏左边的按钮
         let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
         leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-        
+
         // 修改导航栏中间的标题
         navigationItem.titleView = label
-        
+
         // 自定义导航栏右边的按钮
         let rightBtn = UIButton(image: "searchInNavigation_30x30_", highlightedImage: "searchInNavigationpress_30x30_")
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)

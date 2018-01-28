@@ -47,6 +47,8 @@ class RecommendHotWordGridView: UIView {
         collectionView.dataSource = self
         collectionView.register(RecommendHotWordGridCell.self, forCellWithReuseIdentifier: kCellIdentifier)
         
+        collectionView.delegate = self
+        
         return collectionView
     }()
     
@@ -178,6 +180,33 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
         return cell
     }
 }
+
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension RecommendHotWordGridView: UICollectionViewDelegate {
+    
+    // 点击热词，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
+        
+    }
+}
+
 
 /*
  /// 绘制分割线

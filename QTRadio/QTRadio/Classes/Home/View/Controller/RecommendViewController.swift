@@ -85,6 +85,9 @@ class RecommendViewController: UIViewController {
         // 注册header
         collectionView.register(RecommendReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
         
+        // 设置collectionView的代理
+        collectionView.delegate = self
+        
         
         return collectionView
     }()
@@ -204,7 +207,6 @@ extension RecommendViewController: UICollectionViewDataSource {
         
         // 最后设置cell的数据
         cell.cellTitleLabel.text = dataItem.recWords
-//        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
         cell.cellImageView.setImage(dataItem.imgUrl)
         
         cell.playCountLabel.text = dataItem.playCnt
@@ -228,5 +230,21 @@ extension RecommendViewController: UICollectionViewDataSource {
         headerView.titleLabel.text = titleItem.title
         
         return headerView
+    }
+    
+
+}
+
+
+
+// MARK: - UICollectionViewDelegate
+extension RecommendViewController: UICollectionViewDelegate {
+    
+    // 点击cell，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

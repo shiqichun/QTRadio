@@ -46,6 +46,8 @@ class BoutiqueCategoryTitleView: UIView {
         collectionView.dataSource = self
         collectionView.register(BoutiqueCategoryTitleCell.self, forCellWithReuseIdentifier: kCollectionViewCellidentifer)
         
+        collectionView.delegate = self
+        
         return collectionView
     }()
     
@@ -157,5 +159,30 @@ extension BoutiqueCategoryTitleView: UICollectionViewDataSource {
         cell.cellArrow.isHidden = item.isHiddenArrow
         
         return cell
+    }
+}
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension BoutiqueCategoryTitleView: UICollectionViewDelegate {
+    
+    // 点击分类，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
+        
     }
 }

@@ -83,6 +83,8 @@ class LiveDotsView: UIView {
         collectionView.dataSource = self
         collectionView.register(LiveDotsViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
+        collectionView.delegate = self
+        
         return collectionView
     }()
     
@@ -174,10 +176,34 @@ extension LiveDotsView: UICollectionViewDataSource {
         let item = dotsItem.dotsItemsModelArray[indexPath.item]
         
         // 设置cell的数据
-//        cell.cellImageView.kf.setImage(with: URL(string: item.img_url))
         cell.cellImageView.setImage(item.img_url)
         cell.titleLabel.text = item.name
         
         return cell
+    }
+}
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension LiveDotsView: UICollectionViewDelegate {
+    
+    // 点击热门分类，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
+        
     }
 }

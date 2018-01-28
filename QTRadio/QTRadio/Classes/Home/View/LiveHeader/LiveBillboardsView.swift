@@ -76,6 +76,10 @@ class LiveBillboardsView: UIView {
         let view = UIView(frame: CGRect(x: 0, y: kMargin, width: (kScreenWidth - kMargin) * 0.5, height: billboardsViewHeight - 2 * kMargin))
         view.backgroundColor = .white
         
+        // 添加点击手势
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(leftViewClick))
+        view.addGestureRecognizer(tapGesture)
+        
         return view
     }()
     
@@ -92,6 +96,10 @@ class LiveBillboardsView: UIView {
         
         let view = UIView(frame: CGRect(x: (kScreenWidth - kMargin) * 0.5 + kMargin, y: kMargin, width: (kScreenWidth - kMargin) * 0.5, height: billboardsViewHeight - 2 * kMargin))
         view.backgroundColor = .white
+        
+        // 添加点击手势
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(rightViewClick))
+        view.addGestureRecognizer(tapGesture)
         
         return view
     }()
@@ -217,5 +225,42 @@ extension LiveBillboardsView {
             make.top.equalTo(rightView).offset(kMargin)
             make.left.equalTo(gongXianImageView.snp.right).offset(kBillboardMargin)
         }
+    }
+}
+
+
+// MARK: -
+extension LiveBillboardsView {
+    
+    /// 点击大咖榜执行跳转
+    @objc fileprivate func leftViewClick() {
+        
+        // 跳转到对应的控制器
+        pushViewController()
+    }
+    
+    
+    /// 点击贡献榜执行跳转
+    @objc fileprivate func rightViewClick() {
+        
+        // 跳转到对应的控制器
+        pushViewController()
+    }
+    
+    /// 执行push
+    private func pushViewController() {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
     }
 }

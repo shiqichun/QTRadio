@@ -113,7 +113,7 @@ extension PlayButtonView {
         let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
         
         let vc = UIViewController()
-        vc.view.backgroundColor = .yellow
+        vc.view.backgroundColor = UIColor.randomColor()
         
         // push到下一个控制器
         nav.pushViewController(vc, animated: true)

@@ -53,6 +53,8 @@ class RecommentIconGridView: UIView {
         collectionView.dataSource = self
         collectionView.register(RecommendIconGridViewCell.self, forCellWithReuseIdentifier: kCollectionViewCellIdentifier)
         
+        collectionView.delegate = self
+        
         return collectionView
     }()
     
@@ -132,5 +134,30 @@ extension RecommentIconGridView: UICollectionViewDataSource {
         cell.cellImageView.setImage(dataItem.imgUrl)
         
         return cell
+    }
+}
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension RecommentIconGridView: UICollectionViewDelegate {
+    
+    // 点击圆形图片，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 取出tabBarVc
+        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        
+        // 取出当前选中的导航控制器
+        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
+        
+        // 创建控制器
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        
+        // 通过当前选中的导航控制器push到下一个控制器
+        nav.pushViewController(vc, animated: true)
+        
     }
 }

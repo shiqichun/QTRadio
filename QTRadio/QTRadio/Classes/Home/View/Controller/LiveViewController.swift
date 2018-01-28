@@ -89,6 +89,8 @@ class LiveViewController: UIViewController {
 
         // 注册header
         collectionView.register(LiveCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
+        
+        collectionView.delegate = self
 
 
         return collectionView
@@ -192,7 +194,6 @@ extension LiveViewController: UICollectionViewDataSource {
         let hotItem = liveViewModel.hotModelArray[indexPath.row]
         
         // 设置cell的图片
-//        cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
         cell.cellImageView.setImage(hotItem.cover)
         
         
@@ -245,7 +246,6 @@ extension LiveViewController: UICollectionViewDataSource {
             for currentItem in hotItem.currentModelArray {
                 
                 // 设置cell的图片(因为hotItem.cover有时没有值，为了安全起见，设置两次)
-//                cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
                 cell.cellImageView.setImage(currentItem.cover)
                 
                 
@@ -281,7 +281,6 @@ extension LiveViewController: UICollectionViewDataSource {
                 cell.reservationTimeLabel.text = NSDate.dealWith(timeString: forecastItem.scheduled_at)
                 
                 // 设置cell的图片
-//                cell.cellImageView.kf.setImage(with: URL(string: forecastItem.cover))
                 cell.cellImageView.setImage(forecastItem.cover)
                 
                 // 设置cell的title
@@ -317,3 +316,18 @@ extension LiveViewController: UICollectionViewDataSource {
     }
 }
 
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension LiveViewController: UICollectionViewDelegate {
+    
+    // 点击cell，跳转到对应的控制器
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}

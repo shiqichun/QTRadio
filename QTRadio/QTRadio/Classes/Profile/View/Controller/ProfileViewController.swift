@@ -106,12 +106,12 @@ extension ProfileViewController {
     
     /// 设置导航栏
     private func setupNavigationBar() {
-        
+
         // 自定义导航栏左边的按钮
         let leftBtn = UIButton(image: "myMessage_30x30_", highlightedImage: "myMessagepress_30x30_")
         leftBtn.addTarget(self, action: #selector(leftBarButtonItemClick), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-        
+
         // 自定义导航栏右边的按钮
         let rightBtn = UIButton(image: "searchInNavigation_30x30_", highlightedImage: "searchInNavigationpress_30x30_")
         rightBtn.addTarget(self, action: #selector(rightBarButtonItemClick), for: .touchUpInside)
@@ -287,6 +287,9 @@ extension ProfileViewController: UITableViewDataSource {
         // 根据可重用标识符出去cell
         var cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier)
         
+        // 取消cell的选中样式(点击不会变灰)
+        cell?.selectionStyle = .none
+        
         // 如果没有可重用的cell，则创建cell
         if cell == nil {
             
@@ -334,6 +337,17 @@ extension ProfileViewController: UITableViewDelegate {
         
         // 相当于之前的CGFloat.min
         return CGFloat.leastNormalMagnitude
+    }
+    
+    // 点击cell，执行跳转
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 取消高亮显示
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

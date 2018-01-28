@@ -166,6 +166,9 @@ extension BoutiqueViewController: UITableViewDataSource {
         // 根据可重用标识符取出cell
         let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCellIdentifier) as! BoutiqueTableViewCell
         
+        // 取消cell的选中样式(点击不会变灰)
+        cell.selectionStyle = .none
+        
         // 先取出分组模型
         let sectionItem = boutiqueViewModel.tableModelArray[indexPath.section]
         
@@ -349,6 +352,17 @@ extension BoutiqueViewController: UITableViewDelegate {
     // 关闭grouped样式底部默认的空白
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
+    }
+    
+    // 点击cell，跳转到对应的控制器
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 取消高亮显示
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.randomColor()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

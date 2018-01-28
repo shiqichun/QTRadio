@@ -13,6 +13,9 @@ class DownloadViewController: UIViewController {
     
     // MARK: - 懒加载属性
     
+    /// 创建一个数组，用来存放子控制器
+    fileprivate lazy var childVcs = [UIViewController]()
+    
     /// 修改导航栏中间的标题
     fileprivate lazy var label: UILabel = {
         
@@ -65,7 +68,7 @@ extension DownloadViewController {
     }
     
     
-    
+    /// 添加子控制器
     private func setupChildViewControllers() {
         
         // 创建子控制器的标题
@@ -81,9 +84,6 @@ extension DownloadViewController {
         initializeSetting.showsTitleIndicator = true  // 需要滚动指示器
         initializeSetting.needsToScale = false  // 需要对选中标题进行缩放
         initializeSetting.titleFont = UIFont.systemFont(ofSize: 15)  // 设置子控制器标题文字大小
-        
-        // 创建一个数组，用来存放子控制器
-        var childVcs = [UIViewController]()
         
         // 创建子控制器并将其添加到childVcs数组中
         childVcs.append(DownloadedViewController())  // 已下载

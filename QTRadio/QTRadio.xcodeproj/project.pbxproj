@@ -88,6 +88,7 @@
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
 		C5752ED1201DA0F400AF2009 /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5752ED0201DA0F400AF2009 /* UIImageView-Extension.swift */; };
+		C5752ED3201DB18000AF2009 /* RecommendAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5752ED2201DB18000AF2009 /* RecommendAlbumController.swift */; };
 		C57983951FB4983400643B9B /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983941FB4983400643B9B /* CategoryHeaderView.swift */; };
 		C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983961FB49CDB00643B9B /* CategoryBottomView.swift */; };
 		C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579839A1FB4A11D00643B9B /* ItemView.swift */; };
@@ -227,6 +228,7 @@
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
 		C5752ED0201DA0F400AF2009 /* UIImageView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
+		C5752ED2201DB18000AF2009 /* RecommendAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendAlbumController.swift; sourceTree = "<group>"; };
 		C57983941FB4983400643B9B /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		C57983961FB49CDB00643B9B /* CategoryBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBottomView.swift; sourceTree = "<group>"; };
 		C579839A1FB4A11D00643B9B /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -885,6 +887,7 @@
 			children = (
 				C5FB93DB1FAB1F5E006F721C /* FavoriteViewController.swift */,
 				C5B97F281FAEDDAD00F2BB10 /* DailyViewController.swift */,
+				C5752ED2201DB18000AF2009 /* RecommendAlbumController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1136,6 +1139,7 @@
 				C58C394F1FBD79220068A27D /* BoutiqueBannerCell.swift in Sources */,
 				C568096A1FC025B800ED5868 /* RecommendPageControl.swift in Sources */,
 				C588A7CD1FB33D0800FA9A05 /* ProfileGroupModel.swift in Sources */,
+				C5752ED3201DB18000AF2009 /* RecommendAlbumController.swift in Sources */,
 				C536DB271FBAEBD400DC2C02 /* IconGridModel.swift in Sources */,
 				C56809511FBF1FBC00ED5868 /* LiveBillboardsView.swift in Sources */,
 				C536DB291FBAEBD400DC2C02 /* RecommendDataModel.swift in Sources */,

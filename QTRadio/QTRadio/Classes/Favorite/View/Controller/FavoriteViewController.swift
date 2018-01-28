@@ -96,6 +96,9 @@ class FavoriteViewController: UIViewController {
         // 注册header
         collectionView.register(HeaderReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier)
         
+        // 设置collectionView的代理，监听点击
+        collectionView.delegate = self
+        
         
         return collectionView
     }()
@@ -252,5 +255,23 @@ extension FavoriteViewController: UICollectionViewDataSource {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderReferenceIdentifier, for: indexPath) as! HeaderReusableView
         
         return headerView
+    }
+}
+
+
+
+
+
+// MARK: - UICollectionViewDelegate
+extension FavoriteViewController: UICollectionViewDelegate {
+    
+    // 监听某一行cell的点击
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 创建推荐专辑控制器
+        let recommendAlbumVC = RecommendAlbumController()
+        
+        // 跳转到推荐专辑控制器
+        navigationController?.pushViewController(recommendAlbumVC, animated: true)
     }
 }

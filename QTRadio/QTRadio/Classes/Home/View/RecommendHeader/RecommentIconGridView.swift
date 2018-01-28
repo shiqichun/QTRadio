@@ -128,7 +128,8 @@ extension RecommentIconGridView: UICollectionViewDataSource {
         
         // 设置数据
         cell.cellTitleLabel.text = dataItem.title
-        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+//        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+        cell.cellImageView.setImage(dataItem.imgUrl)
         
         return cell
     }

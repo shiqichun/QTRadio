@@ -192,7 +192,8 @@ extension LiveViewController: UICollectionViewDataSource {
         let hotItem = liveViewModel.hotModelArray[indexPath.row]
         
         // 设置cell的图片
-        cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
+//        cell.cellImageView.kf.setImage(with: URL(string: hotItem.cover))
+        cell.cellImageView.setImage(hotItem.cover)
         
         
         
@@ -244,7 +245,8 @@ extension LiveViewController: UICollectionViewDataSource {
             for currentItem in hotItem.currentModelArray {
                 
                 // 设置cell的图片(因为hotItem.cover有时没有值，为了安全起见，设置两次)
-                cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
+//                cell.cellImageView.kf.setImage(with: URL(string: currentItem.cover))
+                cell.cellImageView.setImage(currentItem.cover)
                 
                 
                 // 设置cell的title
@@ -279,7 +281,8 @@ extension LiveViewController: UICollectionViewDataSource {
                 cell.reservationTimeLabel.text = NSDate.dealWith(timeString: forecastItem.scheduled_at)
                 
                 // 设置cell的图片
-                cell.cellImageView.kf.setImage(with: URL(string: forecastItem.cover))
+//                cell.cellImageView.kf.setImage(with: URL(string: forecastItem.cover))
+                cell.cellImageView.setImage(forecastItem.cover)
                 
                 // 设置cell的title
                 cell.titleLabel.text = forecastItem.title

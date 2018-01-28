@@ -87,6 +87,7 @@
 		C56E80F61FAA10750072B79B /* DownloadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F51FAA10750072B79B /* DownloadedViewController.swift */; };
 		C56E80F81FAA10950072B79B /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E80F71FAA10950072B79B /* DownloadingViewController.swift */; };
 		C56E80FB1FAA16870072B79B /* Category.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56E80FA1FAA16870072B79B /* Category.plist */; };
+		C5752ED1201DA0F400AF2009 /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5752ED0201DA0F400AF2009 /* UIImageView-Extension.swift */; };
 		C57983951FB4983400643B9B /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983941FB4983400643B9B /* CategoryHeaderView.swift */; };
 		C57983971FB49CDB00643B9B /* CategoryBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57983961FB49CDB00643B9B /* CategoryBottomView.swift */; };
 		C579839B1FB4A11D00643B9B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579839A1FB4A11D00643B9B /* ItemView.swift */; };
@@ -225,6 +226,7 @@
 		C56E80F51FAA10750072B79B /* DownloadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedViewController.swift; sourceTree = "<group>"; };
 		C56E80F71FAA10950072B79B /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		C56E80FA1FAA16870072B79B /* Category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Category.plist; sourceTree = "<group>"; };
+		C5752ED0201DA0F400AF2009 /* UIImageView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
 		C57983941FB4983400643B9B /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		C57983961FB49CDB00643B9B /* CategoryBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBottomView.swift; sourceTree = "<group>"; };
 		C579839A1FB4A11D00643B9B /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 				C5C0D7B01FA9B8150054DD79 /* UIButton-Extension.swift */,
 				C5FB93E81FAB6D5D006F721C /* UIImage-Extension.swift */,
 				C5B97F261FAEDACC00F2BB10 /* NSDate-Extension.swift */,
+				C5752ED0201DA0F400AF2009 /* UIImageView-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				C5FB93E91FAB6D5D006F721C /* UIImage-Extension.swift in Sources */,
 				C536DB441FBC786E00DC2C02 /* BoutiqueTableParentInfoModel.swift in Sources */,
 				C5FB93F41FAC6200006F721C /* SNSButton.swift in Sources */,
+				C5752ED1201DA0F400AF2009 /* UIImageView-Extension.swift in Sources */,
 				C593A44D1FA9D10A0036CC98 /* BroadcastViewController.swift in Sources */,
 				C536DB261FBAEBD400DC2C02 /* IconGridDataModel.swift in Sources */,
 				C5FB93E71FAB64CE006F721C /* WhiteImage.swift in Sources */,

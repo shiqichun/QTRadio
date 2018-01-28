@@ -8,7 +8,6 @@
 // 点击推荐专辑，或者更多推荐之后跳转的控制器
 
 import UIKit
-import Kingfisher
 
 /// cell可重用标识符
 private let kTableViewCellIdentifier = "tableViewCellIdentifier"
@@ -129,8 +128,9 @@ extension DailyViewController: UITableViewDataSource {
         cell.titleLabel.text = daily.channel_title
         
         // 配图
-        let url = URL(string: daily.img_url)
-        cell.myImageView.kf.setImage(with: url)
+//        let url = URL(string: daily.img_url)
+//        cell.myImageView.kf.setImage(with: url)
+        cell.myImageView.setImage(daily.img_url)
         
         // 分类
         cell.categoryTitle.text = daily.category_name

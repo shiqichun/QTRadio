@@ -174,7 +174,8 @@ extension LiveDotsView: UICollectionViewDataSource {
         let item = dotsItem.dotsItemsModelArray[indexPath.item]
         
         // 设置cell的数据
-        cell.cellImageView.kf.setImage(with: URL(string: item.img_url))
+//        cell.cellImageView.kf.setImage(with: URL(string: item.img_url))
+        cell.cellImageView.setImage(item.img_url)
         cell.titleLabel.text = item.name
         
         return cell

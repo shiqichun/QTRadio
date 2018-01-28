@@ -42,14 +42,14 @@ class LiveBillboardsView: UIView {
                 switch (item.title) {
                 case "大咖榜":
                     // 设置大咖榜头像
-                    leftAvatarView.leftIcon.kf.setImage(with: URL(string: item.userInfoModelArray[0].avatar))
-                    leftAvatarView.centerIcon.kf.setImage(with: URL(string: item.userInfoModelArray[1].avatar))
-                    leftAvatarView.rightIcon.kf.setImage(with: URL(string: item.userInfoModelArray[2].avatar))
+                    leftAvatarView.leftIcon.setImage(item.userInfoModelArray[0].avatar)
+                    leftAvatarView.centerIcon.setImage(item.userInfoModelArray[1].avatar)
+                    leftAvatarView.rightIcon.setImage(item.userInfoModelArray[2].avatar)
                 default:
                     // 设置贡献榜头像
-                    rightAvatarView.leftIcon.kf.setImage(with: URL(string: item.userInfoModelArray[0].avatar))
-                    rightAvatarView.centerIcon.kf.setImage(with: URL(string: item.userInfoModelArray[1].avatar))
-                    rightAvatarView.rightIcon.kf.setImage(with: URL(string: item.userInfoModelArray[2].avatar))
+                    rightAvatarView.leftIcon.setImage(item.userInfoModelArray[0].avatar)
+                    rightAvatarView.centerIcon.setImage(item.userInfoModelArray[1].avatar)
+                    rightAvatarView.rightIcon.setImage(item.userInfoModelArray[2].avatar)
                 }
             }
         }

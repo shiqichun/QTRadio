@@ -95,7 +95,5 @@ extension RecommendContainerView {
         
         // 添加hotWordGridView
         addSubview(hotWordGridView)
-        
-        
     }
 }

@@ -172,7 +172,8 @@ extension RecommendHotWordGridView: UICollectionViewDataSource {
         
         // 设置cell的数据
         cell.cellTitleLabel.text = dataItem.title
-        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+//        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+        cell.cellImageView.setImage(dataItem.imgUrl)
         
         return cell
     }

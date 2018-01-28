@@ -236,10 +236,11 @@ extension FavoriteViewController: UICollectionViewDataSource {
         cell.titleLabel.text = album.rec_words
         
         // 获取图片URL地址的字符串
-        let url = URL(string: album.rec_thumb)
+//        let url = URL(string: album.rec_thumb)
         
         // 设置图片
-        cell.imageView.kf.setImage(with: url)
+//        cell.imageView.kf.setImage(with: url)
+        cell.imageView.setImage(album.rec_thumb)
         
         return cell
     }

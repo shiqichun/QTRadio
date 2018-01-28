@@ -193,7 +193,8 @@ extension LiveBannerView: UICollectionViewDataSource {
         let item = bannerItem.bannerItemsModelArray[indexPath.item % itemCount]
         
         // 设置cell的图片数据
-        cell.cellImageView.kf.setImage(with: URL(string: item.cover))
+//        cell.cellImageView.kf.setImage(with: URL(string: item.cover))
+        cell.cellImageView.setImage(item.cover)
         
         return cell
     }

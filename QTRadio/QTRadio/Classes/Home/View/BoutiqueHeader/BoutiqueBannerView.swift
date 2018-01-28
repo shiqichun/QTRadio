@@ -192,7 +192,8 @@ extension BoutiqueBannerView: UICollectionViewDataSource {
         let item = sectionItem.bannerRecommendsModelArray[indexPath.row % itemCount]
         
         // 设置cell的数据
-        cell.cellImageView.kf.setImage(with: URL(string: item.thumb))
+//        cell.cellImageView.kf.setImage(with: URL(string: item.thumb))
+        cell.cellImageView.setImage(item.thumb)
         
         return cell
     }

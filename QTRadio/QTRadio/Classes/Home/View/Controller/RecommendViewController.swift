@@ -204,7 +204,9 @@ extension RecommendViewController: UICollectionViewDataSource {
         
         // 最后设置cell的数据
         cell.cellTitleLabel.text = dataItem.recWords
-        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+//        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+        cell.cellImageView.setImage(dataItem.imgUrl)
+        
         cell.playCountLabel.text = dataItem.playCnt
         
         return cell

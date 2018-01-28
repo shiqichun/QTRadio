@@ -217,7 +217,8 @@ extension RecommendBannerView: UICollectionViewDataSource {
         let dataItem = titleItem.bannerDataDataModelArray[indexPath.item % titleItem.data!.count]
         
         // 设置数据
-        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+//        cell.cellImageView.kf.setImage(with: URL(string: dataItem.imgUrl))
+        cell.cellImageView.setImage(dataItem.imgUrl)
         
         return cell
     }

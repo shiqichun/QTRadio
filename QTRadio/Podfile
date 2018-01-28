@@ -8,5 +8,6 @@ target 'QTRadio' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
 end

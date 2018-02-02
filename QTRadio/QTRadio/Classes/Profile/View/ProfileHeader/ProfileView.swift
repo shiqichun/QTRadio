@@ -163,35 +163,19 @@ extension ProfileView {
     /// push我的收藏控制器
     @objc fileprivate func collectTap(_ gesture: UITapGestureRecognizer) {
         
-        // 取出tabBarVc
-        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        let vc = UIViewController()
         
-        // 取出当前选中的导航控制器
-        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
-        
-        // 创建我的收藏控制器，这里需要拦截导航控制器
-        let vc = UIViewController() //FavoriteViewController()
-        vc.view.backgroundColor = UIColor.randomColor()
-        
-        // 通过当前选中的导航控制器push到下一个控制器
-        nav.pushViewController(vc, animated: true)
+        // push到指定的控制器
+        pushTo(viewController: vc)
     }
     
     /// push我的下载控制器
     @objc fileprivate func downloadTap(_ gesture: UITapGestureRecognizer) {
         
-        // 取出tabBarVc
-        guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        let vc = UIViewController()
         
-        // 取出当前选中的导航控制器
-        let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
-        
-        // 创建控制器
-        let vc = UIViewController()  // DownloadingViewController
-        vc.view.backgroundColor = UIColor.randomColor()
-        
-        // 通过当前选中的导航控制器push到下一个控制器
-        nav.pushViewController(vc, animated: true)
+        // push到指定的控制器
+        pushTo(viewController: vc)
     }
     
     /// present登录控制器
@@ -213,17 +197,26 @@ extension ProfileView {
     /// push最近收听控制器
     @objc fileprivate func historyTap(_ gesture: UITapGestureRecognizer) {
         
+        let vc = UIViewController()
+        
+        // push到指定的控制器
+        pushTo(viewController: vc)
+    }
+    
+    /// push到指定的控制器
+    /// -参数viewController：需要push到的控制器
+    private func pushTo(viewController: UIViewController) {
+        
         // 取出tabBarVc
         guard let tabBarVc: UITabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
         
         // 取出当前选中的导航控制器
         let nav: UINavigationController = (tabBarVc.selectedViewController as? UINavigationController)!
         
-        // 创建控制器
-        let vc = UIViewController()
-        vc.view.backgroundColor = UIColor.randomColor()
+        // 设置控制器的颜色(方便测试)
+        viewController.view.backgroundColor = UIColor.randomColor()
         
         // 通过当前选中的导航控制器push到下一个控制器
-        nav.pushViewController(vc, animated: true)
+        nav.pushViewController(viewController, animated: true)
     }
 }

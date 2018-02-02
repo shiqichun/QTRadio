@@ -20,9 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置tabBar子控制器标题的颜色
         UITabBar.appearance().tintColor = UIColor(r: 252, g: 93, b: 96)
         
-        // 设置导航栏的背景图片
-//        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithStretchalbe("tabbar_bg"), for: .default)
-
+        // 去掉导航栏底部的分割线
+        UINavigationBar.appearance().shadowImage = UIImage()
         
         //设置navigationBar的背景颜色
         UINavigationBar.appearance().barTintColor = UIColor(r: 246, g: 246, b: 246)
